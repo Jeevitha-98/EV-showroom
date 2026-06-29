@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilot Registration // Stackly</title>
+    <!-- Separate Signup Specific Style Sheet Link -->
+    <link rel="stylesheet" href="signup-style.css">
+</head>
+<body class="auth-viewport-lock">
+
+    <!-- Cinematic Background Image Viewport Box Area -->
+    <div class="portal-image-viewport">
+        <div class="portal-fog-overlay"></div>
+        <img src="./Assests/bike.webp" 
+             alt="VoltEdge Security Grid Background Layout" 
+             class="portal-scenery-image">
+    </div>
+
+    <!-- Main Card Structure Core Wrapper -->
+    <div class="portal-layout-wrapper">
+        <div class="auth-console-box">
+            
+            <!-- Top Routing Shortcut Navigation Link Anchor -->
+            <div class="top-router-row">
+                <a href="login.html" class="portal-return-base">BACK TO LOGIN &rsaquo;</a>
+            </div>
+
+            <header class="portal-header-row">
+                <span class="cyber-accent-tag">CREATE AN ACCOUNT</span>
+                <h1 class="portal-main-title">Join The <span class="neon-glow-text">Inner Circle</span></h1>
+                <div class="header-laser-separator"></div>
+            </header>
+
+            <!-- Interactive Signup Form Hub Matrix -->
+            <form id="cyberSignupConsole" class="cyber-portal-form" novalidate>
+                
+                <!-- Input 1: Full Name -->
+                <div class="console-input-group">
+                    <label for="pilotName">Full Name</label>
+                    <input type="text" id="pilotName" placeholder="Enter your name..." required>
+                </div>
+
+                <!-- Input 2: Phone Number -->
+                <div class="console-input-group">
+                    <label for="pilotPhone">Phone Number</label>
+                    <input type="tel" id="pilotPhone" placeholder="e.g. +91 9876543210" required>
+                </div>
+
+                <!-- Input 3: Email Coordinate -->
+                <div class="console-input-group">
+                    <label for="accessId">Email Address</label>
+                    <input type="email" id="accessId" placeholder="your@email.com" required>
+                </div>
+
+                <!-- Input 4: Password Key -->
+                <div class="console-input-group field-with-icon">
+                    <label for="encryptionKey">Password</label>
+                    <input type="password" id="encryptionKey" placeholder="••••••••" required>
+                    <button type="button" class="password-toggle-eye" data-target="encryptionKey" aria-label="Toggle visibility">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                </div>
+
+                <!-- Input 5: Confirm Password Key -->
+                <div class="console-input-group field-with-icon">
+                    <label for="confirmKey">Confirm Password</label>
+                    <input type="password" id="confirmKey" placeholder="••••••••" required>
+                    <button type="button" class="password-toggle-eye" data-target="confirmKey" aria-label="Toggle visibility">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                </div>
+
+                <!-- Launch Submit Action Node Button -->
+                <button type="submit" class="console-submit-btn">
+                    SIGN UP & INITIALIZE ACCOUNT
+                </button>
+
+                <!-- Hidden Terminal Status Feedback Log Panel -->
+                <div class="portal-terminal-feedback" id="portalFeedback"></div>
+            </form>
+
+            <!-- Lower Navigation Alternative Switch Path Footer -->
+            <footer class="portal-switch-footer">
+                <span>Already registered?</span>
+                <a href="login.html" class="portal-switch-anchor">Sign In to Vault</a>
+            </footer>
+
+        </div>
+    </div>
+
+  <style>
+    /* =========================================================================
+   CINEMATIC SIGNUP PORTAL COMPONENT STYLE DECK
+   ========================================================================= */
+:root {
+    --portal-void: #05060f;
+    --preloader-neon: #39ff14;
+    --matte-glass-panel: rgba(11, 12, 16, 0.85);
+    --card-dark-bg: #0b0c10;
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body.auth-viewport-lock {
+    background-color: var(--portal-void);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+    padding: 2rem 1rem;
+}
+
+/* Master Backdrop Canvas Configuration Viewport Box */
+.portal-image-viewport {
+    position: absolute;
+    inset: 0; width: 100%; height: 100%; z-index: -2;
+    overflow: hidden;
+}
+
+.portal-fog-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(11, 12, 16, 0.6) 0%, #05060f 100%);
+    z-index: -1;
+}
+
+.portal-scenery-image {
+    width: 100%; height: 100%; object-fit: cover; opacity: 0.25;
+}
+
+/* Central Translucent Glass Card Chassis Box Container */
+.portal-layout-wrapper {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 520px; /* Locks compact width matching screenshot screenshot visual grid */
+}
+
+.auth-console-box {
+    background: var(--matte-glass-panel);
+    border: 1px solid rgba(57, 255, 20, 0.15); /* Domain themed neon green outline */
+    border-radius: 12px;
+    padding: 3rem 2.8rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Top Router Link Alignment Row */
+.top-router-row {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: -0.5rem;
+}
+
+.portal-return-base {
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #64748b;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease;
+}
+
+.portal-return-base:hover {
+    color: var(--preloader-neon);
+}
+
+/* Typography Header Deck Area */
+.portal-header-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.cyber-accent-tag {
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 2px;
+    margin-bottom: 0.6rem;
+}
+
+.portal-main-title {
+    font-family: 'Georgia', serif; /* Serif styling matching image screenshot sample */
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: #ffffff;
+    font-style: italic;
+}
+
+.neon-glow-text {
+    color: #ffffff;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.header-laser-separator {
+    width: 40px;
+    height: 2px;
+    background: #39ff14;
+    box-shadow: 0 0 8px #39ff14;
+    margin-top: 1rem;
+}
+
+/* Form inputs vertical boxes array layouts */
+.cyber-portal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+}
+
+.console-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.console-input-group label {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #94a3b8; /* Faint gray legible label links text */
+    text-align: left;
+}
+
+.console-input-group input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: var(--card-dark-bg); /* Dark container fill matching sample inputs profile */
+    border: 1.5px solid rgba(255, 255, 255, 0.05);
+    color: #ffffff !important; /* FORCED HIGH INTERSITY ACCURATE TYPOGRAPHY CONTRAST */
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.console-input-group input:focus {
+    border-color: var(--preloader-neon);
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.1);
+}
+
+/* Eye visibility icon position locks */
+.field-with-icon input {
+    padding-right: 2.8rem;
+}
+
+.password-toggle-eye {
+    position: absolute;
+    right: 1rem;
+    bottom: 0.85rem;
+    background: transparent;
+    border: none;
+    color: #475569;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.password-toggle-eye:hover, .password-toggle-eye.eye-active {
+    color: var(--preloader-neon);
+}
+
+/* Domain themed High-Contrast Solid Action Button */
+.console-submit-btn {
+    width: 100%;
+    background: var(--preloader-neon); /* Solid theme color matches target brand specifications */
+    color: var(--portal-void);
+    border: none;
+    padding: 1rem;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 15px rgba(57, 255, 20, 0.25);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.console-submit-btn:hover {
+    background: #ffffff;
+    color: var(--portal-void);
+    box-shadow: 0 0 25px #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Switch alternative footer text anchors contrast recovery */
+.portal-switch-footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+}
+
+.portal-switch-anchor {
+    color: var(--preloader-neon); /* Bright glowing visible reference link text options */
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 3px;
+    transition: text-shadow 0.3s ease;
+}
+
+.portal-switch-anchor:hover {
+    text-shadow: 0 0 8px var(--preloader-neon);
+}
+
+/* Status Notifications Terminal Log Feedback Screen panel box */
+.portal-terminal-feedback {
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-align: center;
+    display: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.portal-terminal-feedback.success-state {
+    display: block;
+    color: var(--preloader-neon);
+    background: rgba(57, 255, 20, 0.04);
+    border: 1px solid rgba(57, 255, 20, 0.15);
+}
+
+/* Responsive constraints over micro viewport sizes */
+@media (max-width: 576px) {
+    .auth-console-box { padding: 2rem 1.25rem; gap: 1.2rem; }
+    .portal-main-title { font-size: 1.8rem; }
+}
+
+  </style>
+
+  <script>
+    // =========================================================================
+// RUN TIME SIGNUP EYE CONTROLLER CONTROLLER MATRIX
+// =========================================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    const signupForm = document.getElementById("cyberSignupConsole");
+    const feedbackTerminal = document.getElementById("portalFeedback");
+    const eyeButtons = document.querySelectorAll(".password-toggle-eye");
+
+    // 1. Password Vector Eye Visibility Toggle Controller Loop
+    eyeButtons.forEach(button => {
+        button.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetInputId = button.getAttribute("data-target");
+            const targetInput = document.getElementById(targetInputId);
+
+            if (targetInput) {
+                if (targetInput.type === "password") {
+                    targetInput.type = "text";
+                    button.classList.add("eye-active");
+                } else {
+                    targetInput.type = "password";
+                    button.classList.remove("eye-active");
+                }
+            }
+        });
+    });
+
+    // 2. Client-Side Mock Evaluation Success Pass Pipeline
+    if (signupForm && feedbackTerminal) {
+        signupForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            const nameValue = document.getElementById("pilotName").value.trim();
+
+            feedbackTerminal.className = "portal-terminal-feedback success-state";
+            feedbackTerminal.innerHTML = `[SUCCESS]: OPERATOR_PROVISIONED // Welcome, ${nameValue.toUpperCase()}. Initialization complete. Redirecting to showroom...`;
+            
+            signupForm.reset();
+            
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 2400);
+        });
+    }
+});
+
+  </script>
+</body>
+</html>

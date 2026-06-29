@@ -1,0 +1,571 @@
+/* Core Framework Design Variables */
+:root {
+    --cyber-black: #050508;
+    --neon-green: #39ff14;
+    --neon-glow: rgba(57, 255, 20, 0.4);
+    --muted-teal: #1f2833;
+    --text-white: #ffffff;
+}
+
+/* Master Preloader Fullscreen Display Structure */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle at center, #0e1117 0%, var(--cyber-black) 100%);
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Base Body Locking Mechanism */
+body.loading-active {
+    overflow: hidden !important;
+}
+
+/* Animated Cyber Grid Vector Overlay Layer */
+.cyber-grid {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background-image: 
+        linear-gradient(rgba(57, 255, 20, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57, 255, 20, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    transform: perspective(500px) rotateX(60deg);
+    top: -50%;
+    animation: gridScroll 20s linear infinite;
+    z-index: 1;
+}
+
+@keyframes gridScroll {
+    0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+    100% { transform: perspective(500px) rotateX(60deg) translateY(40px); }
+}
+
+/* Content Container Card UI alignment */
+.preloader-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 450px;
+    padding: 2.5rem;
+    background: rgba(11, 12, 16, 0.6);
+    border-radius: 16px;
+    border: 1px solid rgba(57, 255, 20, 0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Interactive Hover Transformation Effects */
+.preloader-content:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: var(--neon-green);
+    box-shadow: 0 30px 60px rgba(57, 255, 20, 0.1);
+}
+
+/* Central Glowing Power Ring Core */
+.logo-energy-ring {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px dashed rgba(57, 255, 20, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    animation: spinRing 8s linear infinite;
+}
+
+.central-bolt {
+    font-size: 2.5rem;
+    color: var(--neon-green);
+    filter: drop-shadow(0 0 12px var(--neon-green));
+    animation: boltPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes spinRing {
+    100% { transform: rotate(360deg); }
+}
+@keyframes boltPulse {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px var(--neon-green)); }
+    50% { transform: scale(1.15); filter: drop-shadow(0 0 22px var(--neon-green)); }
+}
+
+/* Neon Digital Text Styling */
+.glitch-title {
+    font-size: 2.6rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: var(--text-white);
+    text-shadow: 0 0 10px var(--neon-glow);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+/* Telemetry Status Monitor Components */
+.status-panel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    background: rgba(0,0,0,0.4);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--muted-teal);
+}
+
+.pulse-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--neon-green);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--neon-green);
+    animation: blinker 1s infinite steps(2);
+}
+
+@keyframes blinker { 50% { opacity: 0; } }
+
+.preload-status {
+    font-family: monospace;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #8f94a0;
+}
+
+/* Premium Liquid Neon Track Bar Meter */
+.meter-wrapper {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.progress-bar-glow {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #136a10, var(--neon-green));
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--neon-green), 0 0 35px var(--neon-green);
+    transition: width 0.08s linear;
+}
+
+/* Live Digital Matrix Counter */
+.counter-display {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.static-label {
+    color: #4f535c;
+    margin-right: 5px;
+}
+
+.preload-counter {
+    color: var(--neon-green);
+    text-shadow: 0 0 8px var(--neon-glow);
+}
+
+/* Screen Dismissal CSS Hook Triggered by JavaScript */
+#preloader.loaded-complete {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.08);
+}
+
+/* Fluid Responsive Breakpoints Layout Scaling */
+@media (max-width: 480px) {
+    .preloader-content { padding: 1.5rem; width: 95%; }
+    .glitch-title { font-size: 2rem; letter-spacing: 4px; }
+    .logo-energy-ring { width: 75px; height: 75px; }
+    .central-bolt { font-size: 2rem; }
+}
+
+
+
+/* =========================================================================
+   SYNCHRONIZED TRANSPARENT FLOATING NEON GREEN HEADER COMPONENT
+   ========================================================================= */
+
+/* Exact Variable Linkage with the Preloader Dashboard Theme */
+:root {
+    --preloader-dark: #0b0c10;
+    --preloader-neon: #39ff14;
+    --preloader-glow: 0 0 15px rgba(57, 255, 20, 0.4), 0 0 30px rgba(57, 255, 20, 0.15);
+    --matte-glass: rgba(11, 12, 16, 0.7);
+    --text-slate-light: #f1f5f9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--preloader-dark);
+}
+
+/* Master Floating Capsule Layout Framework */
+.synchronized-header {
+    position: fixed;
+    top: 24px;
+    left: 0;
+    width: 100%;
+    padding: 0 6%;
+    z-index: 99999;
+    pointer-events: none; /* Prevents outer margins from clipping window tracking events */
+}
+
+.header-capsule-container {
+    max-width: 1350px;
+    margin: 0 auto;
+    background: var(--matte-glass);
+    border: 1px solid rgba(57, 255, 20, 0.15);
+    border-radius: 100px; /* Capsule layout design */
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    pointer-events: auto; /* Re-enables button triggers inside capsule boundaries */
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+/* Scroll Morphing Transition Mode */
+.synchronized-header.scrolled-mode .header-capsule-container {
+    padding: 0.5rem 1.6rem;
+    border-color: rgba(57, 255, 20, 0.3);
+    background: rgba(11, 12, 16, 0.94);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), var(--preloader-glow);
+}
+
+/* Brand Logo Image Wrapper Configuration */
+/* =========================================================================
+   FIX: REMOVED COMPACT NEON CIRCLE ENCLOSURE AROUND BRAND LOGO
+   ========================================================================= */
+
+/* Completely stripped out the border ring and glowing vector elements */
+.logo-glow-wrapper {
+    display: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    animation: none !important;
+}
+
+/* Allow the brand image anchor frame to scale dynamically without round clipping */
+.brand-logo-anchor {
+    position: relative;
+    width: auto; /* Changed from fixed 44px box constraints to accommodate logo widths */
+    height: 44px;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-decoration: none;
+}
+
+/* Updated logo image properties to display your transparent brand asset natively */
+.company-brand-img {
+    height: 38px; /* Balanced perfectly to prevent container row collision */
+    width: auto; /* Mainatins natural logo aspect ratios beautifully */
+    object-fit: contain !important; /* Prevents stretching or accidental compression */
+    border-radius: 0 !important; /* Stripped out the circle radius shape */
+    border: none !important; /* Stripped away border outlines */
+    background: transparent !important;
+    filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.3)); /* Applies a subtle, broad logo glow trail */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* Keeps an interactive energetic zoom response when user hovers over your brand logo asset */
+.brand-logo-anchor:hover .company-brand-img {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 15px rgba(57, 255, 20, 0.6));
+}
+
+
+/* 5-Link Navigation Track Architecture */
+.navigation-link-matrix {
+    display: flex;
+    align-items: center;
+    gap: 2.8rem;
+}
+
+.synchronized-nav-route {
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative;
+    padding: 0.4rem 0;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.synchronized-nav-route:hover, .synchronized-nav-route.active-route {
+    color: var(--preloader-neon);
+    text-shadow: 0 0 10px var(--preloader-neon);
+}
+
+/* Neon Sliding Underline Tracker Underlay */
+.synchronized-nav-route::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--preloader-neon);
+    box-shadow: var(--preloader-glow);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: translateX(-50%);
+}
+
+.synchronized-nav-route:hover::after, .synchronized-nav-route.active-route::after {
+    width: 100%;
+}
+
+/* Desktop Anchor Tracking Stations Layouts */
+.desktop-auth-station {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.synchronized-auth-anchor {
+    text-decoration: none !important;
+    display: inline-block !important;
+    padding: 0.65rem 1.6rem !important;
+    border-radius: 50px !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* Outlined Translucent Login Anchor Settings */
+.login-action-link {
+    color: var(--preloader-neon) !important;
+    background: rgba(57, 255, 20, 0.04) !important;
+    border: 2px solid var(--preloader-neon) !important;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.1) !important;
+}
+
+.login-action-link:hover {
+    background: var(--preloader-neon) !important;
+    color: var(--preloader-dark) !important;
+    box-shadow: var(--preloader-glow) !important;
+    transform: translateY(-2px);
+}
+
+/* High-Contrast Neon-Green Solid Sign Up Anchor Settings */
+.signup-action-link {
+    color: #0b0c10 !important;
+    background: var(--preloader-neon) !important;
+    border: 2px solid var(--preloader-neon) !important;
+    box-shadow: var(--preloader-glow) !important;
+}
+
+.signup-action-link:hover {
+    background: rgba(11, 12, 16, 0.4) !important;
+    color: var(--preloader-neon) !important;
+    box-shadow: 0 0 25px var(--preloader-neon) !important, inset 0 0 10px var(--preloader-neon) !important;
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Responsive Hamburger Toggle Wire Vector Controls */
+.mobile-wire-trigger-node {
+    display: none;
+    background: transparent;
+    border: none;
+    width: 30px;
+    height: 22px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1000001;
+}
+
+.wire-vector {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-slate-light);
+    left: 0;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.top-vector { top: 1px; }
+.middle-vector { top: 10px; }
+.bottom-vector { bottom: 1px; }
+
+/* Morphing hamburger lines into a close cross node inside menu view */
+.mobile-wire-trigger-node.wire-activated .top-vector {
+    transform: rotate(45deg);
+    top: 10px;
+    background-color: var(--preloader-neon);
+}
+.mobile-wire-trigger-node.wire-activated .middle-vector {
+    opacity: 0;
+    transform: translateX(-15px);
+}
+.mobile-wire-trigger-node.wire-activated .bottom-vector {
+    transform: rotate(-45deg);
+    bottom: 10px;
+    background-color: var(--preloader-neon);
+}
+
+.mobile-drawer-auth-stack {
+    display: none; /* Internal container framework hidden under desktop displays */
+}
+
+/* =========================================================================
+   MUST RESPONSIVE COMPONENT LAYOUT MEDIA BREAKPOINTS
+   ========================================================================= */
+
+@media (max-width: 1024px) {
+    .navigation-link-matrix { gap: 1.8rem; }
+}
+
+@media (max-width: 868px) {
+    .desktop-auth-station { display: none !important; }
+    .mobile-wire-trigger-node { display: block !important; }
+    
+    /* Transforms link track into a sliding mobile drawer sheet overlay */
+    .navigation-link-matrix {
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 80% !important;
+        max-width: 320px !important;
+        height: 100vh !important;
+        background: rgba(11, 12, 16, 0.98) !important;
+        backdrop-filter: blur(25px) !important;
+        -webkit-backdrop-filter: blur(25px) !important;
+        border-left: 2px solid rgba(57, 255, 20, 0.2) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 2.2rem !important;
+        padding: 2rem !important;
+        z-index: 1000000 !important;
+        transition: right 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    
+    .navigation-link-matrix.drawer-deployed {
+        right: 0 !important;
+        box-shadow: -20px 0 60px rgba(0, 0, 0, 0.9) !important;
+    }
+    
+    .synchronized-nav-route {
+        font-size: 1.15rem !important;
+        letter-spacing: 2px !important;
+    }
+
+    /* Arranges buttons vertically inside the active mobile drawer menu */
+    .mobile-drawer-auth-stack {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.2rem !important;
+        width: 85% !important;
+        margin-top: 2rem !important;
+    }
+    
+    .mobile-drawer-auth-stack .synchronized-auth-anchor {
+        width: 100% !important;
+    }
+}
+
+/* =========================================================================
+   CINEMATIC BACKGROUND IMAGE AND HARDWARE ACCELERATED ANIMATIONS
+   ========================================================================= */
+
+/* The viewport frame acting as a perfect bounding box box layout container */
+.hero-image-viewport {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden; /* Clips outer scaling paths so screen margins don't break scroll layout */
+}
+
+/* Linear Gradient Overlap (Protects link, text, and telemetry readout visibility) */
+.hero-fog-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(11, 12, 16, 0.98) 25%, rgba(11, 12, 16, 0.4) 65%, rgba(11, 12, 16, 0.1) 100%);
+    z-index: 2; /* Sits over the image asset but remains beneath foreground content */
+    pointer-events: none;
+}
+
+/* Base properties for the graphic image tag configuration */
+.hero-scenery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Forces file dimensions to blanket canvas space smoothly */
+    object-position: center;
+    transform: scale(1.1); /* Pre-scale prevents raw frame borders from appearing during transit */
+}
+
+/* Hardware-Accelerated Cinematic Zooming and Panning Matrix Animation Loop */
+.animate-cinematic-pan {
+    will-change: transform; /* Signals GPU framework ahead of time for high frame rate performance */
+    transform-origin: left center;
+    animation: luxuryCinematicMove 24s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate;
+}
+
+@keyframes luxuryCinematicMove {
+    0% {
+        transform: scale(1.1) translate(0, 0) rotate(0deg);
+        filter: saturate(1.1) brightness(0.9);
+    }
+    50% {
+        transform: scale(1.18) translate(-15px, -8px) rotate(0.5deg);
+        filter: saturate(1.2) brightness(1.05); /* Dynamic illumination shifting */
+    }
+    100% {
+        transform: scale(1.12) translate(-30px, 0px) rotate(-0.5deg);
+        filter: saturate(1.1) brightness(0.9);
+    }
+}
+
+/* Handle fluid mobile layout adjustments seamlessly */
+@media (max-width: 768px) {
+    .animate-cinematic-pan {
+        transform-origin: center center;
+        animation: luxuryMobileMove 20s ease-in-out infinite alternate;
+    }
+    
+    @keyframes luxuryMobileMove {
+        0% { transform: scale(1.2) translate(0, 0); }
+        100% { transform: scale(1.35) translate(-10px, -5px); }
+    }
+    
+    /* Stronger shadow layering over mobile to ensure clear text visibility over changing backdrop assets */
+    .hero-fog-overlay {
+        background: linear-gradient(to bottom, rgba(11, 12, 16, 0.95) 0%, rgba(11, 12, 16, 0.75) 100%);
+    }
+}
