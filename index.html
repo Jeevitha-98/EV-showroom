@@ -11,46 +11,48 @@
 </head>
 <body class="loading-active">
 
-    <!-- Cinematic Sci-Fi Preloader Section -->
-    <div id="preloader">
-        <!-- Floating background background grid matrix -->
-        <div class="cyber-grid"></div>
+  
+<!-- Cinematic Sci-Fi Preloader Section -->
+<div id="preloader">
+    <!-- Floating background grid matrix -->
+    <div class="cyber-grid"></div>
+    
+    <div class="preloader-content">
+        <!-- Glowing Interactive Logo Ring (Centered Chassis) -->
+        <div class="logo-energy-ring">
+            <!-- FIXED: Secure native icon call structure -->
+            <i class="fa-solid fa-bolt central-bolt"></i>
+        </div>
         
-        <div class="preloader-content">
-            <!-- Glowing Interactive Logo Ring -->
-            <div class="logo-energy-ring">
-                <i class="fa-solid fa-bolt central-bolt"></i>
-            </div>
-            
-            <!-- Neon Glitch Title Text -->
-            <h1 class="glitch-title" data-text="VOLTEDGE">STACKLY</h1>
-            
-            <!-- Dynamic Telemetry Messaging Grid -->
-            <div class="status-panel">
-                <span class="pulse-dot"></span>
-                <p id="preload-status" class="preload-status">BOOT_SEQUENCE_INITIALIZED</p>
-            </div>
-            
-            <!-- Advanced Neon Energy Meter -->
-            <div class="meter-wrapper">
-                <div class="progress-bar-glow" id="progress-bar"></div>
-            </div>
-            
-            <!-- Matrix Digital Output Data Counter -->
-            <div class="counter-display">
-                <span class="static-label">SYS_READY:</span>
-                <span class="preload-counter" id="preload-counter">00%</span>
-            </div>
+        <!-- Neon Glitch Title Text -->
+        <h1 class="glitch-title" data-text="VOLTEDGE">STACKLY</h1>
+        
+        <!-- Dynamic Telemetry Messaging Grid -->
+        <div class="status-panel">
+            <span class="pulse-dot"></span>
+            <p id="preload-status" class="preload-status">BOOT_SEQUENCE_INITIALIZED</p>
+        </div>
+        
+        <!-- Advanced Neon Energy Meter -->
+        <div class="meter-wrapper">
+            <div class="progress-bar-glow" id="progress-bar"></div>
+        </div>
+        
+        <!-- Matrix Digital Output Data Counter -->
+        <div class="counter-display">
+            <span class="static-label">SYS_READY:</span>
+            <span class="preload-counter" id="preload-counter">00%</span>
         </div>
     </div>
+</div>
+
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const preloader = document.getElementById('preloader');
     const progressBar = document.getElementById('progress-bar');
     const preloadCounter = document.getElementById('preload-counter');
     const statusText = document.getElementById('preload-status');
 
-    // Diagnostic string arrays for contextual telemetry updates
     const logStages = [
         { limit: 25, text: "CONNECTING_TO_CORE_BATTERY..." },
         { limit: 55, text: "CALIBRATING_ELECTRIC_MOTORS..." },
@@ -59,8 +61,8 @@
     ];
 
     let count = 0;
-    const duration = 3200; // Target execution timeline: 3.2 seconds total
-    const frequency = 30; // Clock step updates interval
+    const duration = 3200; 
+    const frequency = 30; 
     const incrementalStep = 100 / (duration / frequency);
 
     const activeTimer = setInterval(() => {
@@ -70,23 +72,18 @@
             count = 100;
             clearInterval(activeTimer);
             
-            // Render terminal state updates
             progressBar.style.width = "100%";
             preloadCounter.innerText = "100%";
             statusText.innerText = logStages[3].text;
 
-            // Trigger sleek structural layout screen clearance hooks
             setTimeout(() => {
                 preloader.classList.add('loaded-complete');
-                document.body.classList.remove('loading-active');
             }, 350);
         } else {
             const displayPercentage = Math.floor(count);
             progressBar.style.width = `${displayPercentage}%`;
-            // Pad out digits with zeroes for clean UI display symmetry
             preloadCounter.innerText = `${displayPercentage.toString().padStart(2, '0')}%`;
 
-            // Dynamically evaluate text updates based on progress limits
             const currentStage = logStages.find(stage => displayPercentage <= stage.limit);
             if (currentStage) {
                 statusText.innerText = currentStage.text;
@@ -94,6 +91,7 @@
         }
     }, frequency);
 });
+
 
 </script>
     <!-- Rest of your showroom page elements continue here... -->
@@ -113,22 +111,22 @@
 
         <!-- 5-Channel Navigation Interface Matrix Links -->
         <nav class="navigation-link-matrix">
-            <a href="#home" class="synchronized-nav-route active-route">Home</a>
-            <a href="#specs" class="synchronized-nav-route">Specs</a>
-            <a href="#showroom" class="synchronized-nav-route">Showroom</a>
-            <a href="#blog" class="synchronized-nav-route">Blog</a>
-            <a href="#contact" class="synchronized-nav-route">Contact</a>
+            <a href="index.html" class="synchronized-nav-route active-route">Home</a>
+            <a href="specs.html" class="synchronized-nav-route ">Specs</a>
+            <a href="showroom.html" class="synchronized-nav-route">Showroom</a>
+            <a href="blogs.html" class="synchronized-nav-route">Blog</a>
+            <a href="contactus.html" class="synchronized-nav-route">Contact</a>
             
             <!-- Mobile Drawer Contextual Anchor Action Paths -->
             <div class="mobile-drawer-auth-stack">
-                <a href="#login-portal" class="synchronized-auth-anchor login-action-link">Login</a>
+                <a href="login.html" class="synchronized-auth-anchor login-action-link">Login</a>
                 <a href="signup.html" class="synchronized-auth-anchor signup-action-link">Sign Up</a>
             </div>
         </nav>
 
         <!-- Desktop Anchor Authentication Controls Station -->
         <div class="desktop-auth-station">
-            <a href="#login-portal" class="synchronized-auth-anchor login-action-link">Login</a>
+            <a href="login.html" class="synchronized-auth-anchor login-action-link">Login</a>
             <a href="signup.html" class="synchronized-auth-anchor signup-action-link">Sign Up</a>
         </div>
 
@@ -211,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         <!-- SEO Friendly Native Background Image Tag with Hardware-Accelerated Animation Class -->
         <!-- REPLACE 'your-hero-bg.jpg' with your actual background image file path -->
-        <img src="./Assests/hero-back.webp" 
+        <img src="./Assests/bike.webp" 
              alt="VoltEdge Next Generation High Performance Electric Bike Showroom Concept" 
              class="hero-scenery-image animate-cinematic-pan" 
              loading="eager" 
@@ -727,7 +725,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="specs-image-viewport">
         <div class="specs-fog-overlay"></div>
         <!-- Replace 'your-specs-bg.jpg' with your actual background image file path -->
-        <img src="./Assests/Home - 2nd section bg.webp" 
+        <img src="./Assests/EV bike.webp" 
              alt="VoltEdge Electric Superbike Internal Engineering and Battery Configuration Background" 
              class="specs-scenery-image animate-pan-cinematic" 
              loading="lazy" 
@@ -1186,7 +1184,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="showroom-image-viewport">
         <div class="showroom-fog-overlay"></div>
         <!-- REPLACE 'your-showroom-bg.jpg' with your actual background image file path -->
-        <img src="./Assests/Home - 2nd section bg.webp" 
+        <img src="./Assests/EV 2.webp" 
              alt="VoltEdge Production Line and Electric Bike Design Matrix Background" 
              class="showroom-scenery-image animate-pan-cinematic" 
              loading="lazy" 
@@ -1221,7 +1219,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="product-media-vault">
             <!-- Fixed Layout Wrapper prevents unaligned layout heights -->
             <div class="bike-frame-limiter">
-                <img src="./Assests/Bicycle.webp" alt="VoltEdge CyberCycle X-1 Sport Electric Superbike" class="product-showcase-asset">
+                <img src="./Assests/EV bike.webp" alt="VoltEdge CyberCycle X-1 Sport Electric Superbike" class="product-showcase-asset">
             </div>
         </div>
         
@@ -1755,7 +1753,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- Panoramic Backdrop Viewport Matrix -->
     <div class="hub-image-viewport">
         <div class="hub-fog-overlay"></div>
-        <img src="./Assests/Bicycle.webp" 
+        <img src="./Assests/EV 3.webp" 
              alt="VoltEdge Digital Circuit Grid Blueprint Interface Background" 
              class="hub-scenery-image animate-oblique-drift" 
              loading="lazy" 

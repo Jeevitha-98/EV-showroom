@@ -7,169 +7,149 @@
     --text-white: #ffffff;
 }
 
-/* Master Preloader Fullscreen Display Structure */
+/* =========================================================================
+   FIXED: PRELOADER LOGO INITIALIZATION & ABSOLUTE CENTERING 
+   ========================================================================= */
+
+/* The outer dashboard card box wrapper initialization setup */
 #preloader {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100vh;
-    background: radial-gradient(circle at center, #0e1117 0%, var(--cyber-black) 100%);
-    z-index: 999999;
+    background-color: #0b0c10;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 999999;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-/* Base Body Locking Mechanism */
-body.loading-active {
-    overflow: hidden !important;
+#preloader.loaded-complete {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
-/* Animated Cyber Grid Vector Overlay Layer */
-.cyber-grid {
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background-image: 
-        linear-gradient(rgba(57, 255, 20, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(57, 255, 20, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-    transform: perspective(500px) rotateX(60deg);
-    top: -50%;
-    animation: gridScroll 20s linear infinite;
-    z-index: 1;
-}
-
-@keyframes gridScroll {
-    0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
-    100% { transform: perspective(500px) rotateX(60deg) translateY(40px); }
-}
-
-/* Content Container Card UI alignment */
 .preloader-content {
-    position: relative;
-    z-index: 10;
+    background: #0f111a;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 3.5rem 3rem;
+    width: 90%;
+    max-width: 440px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90%;
-    max-width: 450px;
-    padding: 2.5rem;
-    background: rgba(11, 12, 16, 0.6);
-    border-radius: 16px;
-    border: 1px solid rgba(57, 255, 20, 0.15);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    gap: 1.5rem;
 }
 
-/* Interactive Hover Transformation Effects */
-.preloader-content:hover {
-    transform: translateY(-5px) scale(1.02);
-    border-color: var(--neon-green);
-    box-shadow: 0 30px 60px rgba(57, 255, 20, 0.1);
-}
-
-/* Central Glowing Power Ring Core */
+/* FIXED: Configured parent ring into a perfect flex center anchor */
 .logo-energy-ring {
-    position: relative;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    border: 2px dashed rgba(57, 255, 20, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    animation: spinRing 8s linear infinite;
+    width: 20px !important;
+    height: 20px !important;
+    border: 2px dashed #39ff14 !important; /* Matches green screenshot perimeters */
+    border-radius: 50% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.1);
+    animation: rotateDashedRing 20s linear infinite; /* Subtle continuous ambient spin */
 }
 
-.central-bolt {
-    font-size: 2.5rem;
-    color: var(--neon-green);
-    filter: drop-shadow(0 0 12px var(--neon-green));
-    animation: boltPulse 1.5s infinite ease-in-out;
-}
-
-@keyframes spinRing {
+@keyframes rotateDashedRing {
     100% { transform: rotate(360deg); }
 }
-@keyframes boltPulse {
-    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px var(--neon-green)); }
-    50% { transform: scale(1.15); filter: drop-shadow(0 0 22px var(--neon-green)); }
+
+/* FIXED: Overrode default text families to force Font Awesome bolt geometry */
+.logo-energy-ring .central-bolt {
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+    font-style: normal !important;
+    display: inline-block !important;
+    text-decoration: inherit !important;
+    
+    /* Central Alignment parameters bypass rotational spin distortion */
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    animation: counterRotateIcon 20s linear infinite; /* Keeps icon right-side up during ring spin */
+
+    color: #39ff14 !important; /* Bright high-intensity theme color visibility */
+    font-size: 2.2rem !important;
+    filter: drop-shadow(0 0 10px rgba(57, 255, 20, 0.6)) !important;
 }
 
-/* Neon Digital Text Styling */
+@keyframes counterRotateIcon {
+    100% { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+/* Structural alignments for progress text variables */
 .glitch-title {
-    font-size: 2.6rem;
+    font-size: 2.5rem;
     font-weight: 900;
-    letter-spacing: 6px;
-    color: var(--text-white);
-    text-shadow: 0 0 10px var(--neon-glow);
-    margin-bottom: 1rem;
-    position: relative;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-shadow: 0 0 12px rgba(57, 255, 20, 0.15);
 }
 
-/* Telemetry Status Monitor Components */
 .status-panel {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-    background: rgba(0,0,0,0.4);
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    border: 1px solid var(--muted-teal);
+    gap: 0.6rem;
 }
 
 .pulse-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--neon-green);
+    width: 6px; height: 6px;
+    background-color: #39ff14;
     border-radius: 50%;
-    box-shadow: 0 0 8px var(--neon-green);
-    animation: blinker 1s infinite steps(2);
+    box-shadow: 0 0 8px #39ff14;
 }
-
-@keyframes blinker { 50% { opacity: 0; } }
 
 .preload-status {
     font-family: monospace;
     font-size: 0.75rem;
-    letter-spacing: 2px;
-    color: #8f94a0;
+    font-weight: bold;
+    color: #cbd5e1;
+    letter-spacing: 1px;
 }
 
-/* Premium Liquid Neon Track Bar Meter */
 .meter-wrapper {
     width: 100%;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.03);
+    height: 4px;
+    background: #1e293b;
     border-radius: 10px;
-    position: relative;
     overflow: hidden;
-    margin-bottom: 1.5rem;
-    border: 1px solid rgba(255,255,255,0.05);
+    position: relative;
 }
 
 .progress-bar-glow {
-    width: 0%;
     height: 100%;
-    background: linear-gradient(90deg, #136a10, var(--neon-green));
-    border-radius: 10px;
-    box-shadow: 0 0 20px var(--neon-green), 0 0 35px var(--neon-green);
-    transition: width 0.08s linear;
+    width: 0%;
+    background: #39ff14;
+    box-shadow: 0 0 10px #39ff14;
+    transition: width 0.05s linear;
 }
 
-/* Live Digital Matrix Counter */
 .counter-display {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.1rem;
+    display: flex;
+    gap: 0.4rem;
+    font-family: monospace;
+    font-size: 0.9rem;
     font-weight: bold;
 }
+
+.static-label { color: #64748b; }
+.preload-counter { color: #39ff14; }
 
 .static-label {
     color: #4f535c;
@@ -195,6 +175,7 @@ body.loading-active {
     .logo-energy-ring { width: 75px; height: 75px; }
     .central-bolt { font-size: 2rem; }
 }
+
 
 
 
@@ -498,74 +479,3 @@ body {
     }
 }
 
-/* =========================================================================
-   CINEMATIC BACKGROUND IMAGE AND HARDWARE ACCELERATED ANIMATIONS
-   ========================================================================= */
-
-/* The viewport frame acting as a perfect bounding box box layout container */
-.hero-image-viewport {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    overflow: hidden; /* Clips outer scaling paths so screen margins don't break scroll layout */
-}
-
-/* Linear Gradient Overlap (Protects link, text, and telemetry readout visibility) */
-.hero-fog-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, rgba(11, 12, 16, 0.98) 25%, rgba(11, 12, 16, 0.4) 65%, rgba(11, 12, 16, 0.1) 100%);
-    z-index: 2; /* Sits over the image asset but remains beneath foreground content */
-    pointer-events: none;
-}
-
-/* Base properties for the graphic image tag configuration */
-.hero-scenery-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Forces file dimensions to blanket canvas space smoothly */
-    object-position: center;
-    transform: scale(1.1); /* Pre-scale prevents raw frame borders from appearing during transit */
-}
-
-/* Hardware-Accelerated Cinematic Zooming and Panning Matrix Animation Loop */
-.animate-cinematic-pan {
-    will-change: transform; /* Signals GPU framework ahead of time for high frame rate performance */
-    transform-origin: left center;
-    animation: luxuryCinematicMove 24s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate;
-}
-
-@keyframes luxuryCinematicMove {
-    0% {
-        transform: scale(1.1) translate(0, 0) rotate(0deg);
-        filter: saturate(1.1) brightness(0.9);
-    }
-    50% {
-        transform: scale(1.18) translate(-15px, -8px) rotate(0.5deg);
-        filter: saturate(1.2) brightness(1.05); /* Dynamic illumination shifting */
-    }
-    100% {
-        transform: scale(1.12) translate(-30px, 0px) rotate(-0.5deg);
-        filter: saturate(1.1) brightness(0.9);
-    }
-}
-
-/* Handle fluid mobile layout adjustments seamlessly */
-@media (max-width: 768px) {
-    .animate-cinematic-pan {
-        transform-origin: center center;
-        animation: luxuryMobileMove 20s ease-in-out infinite alternate;
-    }
-    
-    @keyframes luxuryMobileMove {
-        0% { transform: scale(1.2) translate(0, 0); }
-        100% { transform: scale(1.35) translate(-10px, -5px); }
-    }
-    
-    /* Stronger shadow layering over mobile to ensure clear text visibility over changing backdrop assets */
-    .hero-fog-overlay {
-        background: linear-gradient(to bottom, rgba(11, 12, 16, 0.95) 0%, rgba(11, 12, 16, 0.75) 100%);
-    }
-}
