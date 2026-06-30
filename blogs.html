@@ -1,0 +1,2991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltEdge EV Showroom</title>
+    <!-- Font Awesome for the glowing icons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <!-- Your main style sheet link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="loading-active">
+
+    <!-- Cinematic Sci-Fi Preloader Section -->
+    <div id="preloader">
+        <!-- Floating background background grid matrix -->
+        <div class="cyber-grid"></div>
+        
+        <div class="preloader-content">
+            <!-- Glowing Interactive Logo Ring -->
+            <div class="logo-energy-ring">
+                <i class="fa-solid fa-bolt central-bolt"></i>
+            </div>
+            
+            <!-- Neon Glitch Title Text -->
+            <h1 class="glitch-title" data-text="VOLTEDGE">STACKLY</h1>
+            
+            <!-- Dynamic Telemetry Messaging Grid -->
+            <div class="status-panel">
+                <span class="pulse-dot"></span>
+                <p id="preload-status" class="preload-status">BOOT_SEQUENCE_INITIALIZED</p>
+            </div>
+            
+            <!-- Advanced Neon Energy Meter -->
+            <div class="meter-wrapper">
+                <div class="progress-bar-glow" id="progress-bar"></div>
+            </div>
+            
+            <!-- Matrix Digital Output Data Counter -->
+            <div class="counter-display">
+                <span class="static-label">SYS_READY:</span>
+                <span class="preload-counter" id="preload-counter">00%</span>
+            </div>
+        </div>
+    </div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const preloader = document.getElementById('preloader');
+    const progressBar = document.getElementById('progress-bar');
+    const preloadCounter = document.getElementById('preload-counter');
+    const statusText = document.getElementById('preload-status');
+
+    // Diagnostic string arrays for contextual telemetry updates
+    const logStages = [
+        { limit: 25, text: "CONNECTING_TO_CORE_BATTERY..." },
+        { limit: 55, text: "CALIBRATING_ELECTRIC_MOTORS..." },
+        { limit: 80, text: "OPTIMIZING_CYBER_TELEMETRY..." },
+        { limit: 100, text: "SYSTEMS_NOMINAL_ENERGIZING!" }
+    ];
+
+    let count = 0;
+    const duration = 3200; // Target execution timeline: 3.2 seconds total
+    const frequency = 30; // Clock step updates interval
+    const incrementalStep = 100 / (duration / frequency);
+
+    const activeTimer = setInterval(() => {
+        count += incrementalStep;
+
+        if (count >= 100) {
+            count = 100;
+            clearInterval(activeTimer);
+            
+            // Render terminal state updates
+            progressBar.style.width = "100%";
+            preloadCounter.innerText = "100%";
+            statusText.innerText = logStages[3].text;
+
+            // Trigger sleek structural layout screen clearance hooks
+            setTimeout(() => {
+                preloader.classList.add('loaded-complete');
+                document.body.classList.remove('loading-active');
+            }, 350);
+        } else {
+            const displayPercentage = Math.floor(count);
+            progressBar.style.width = `${displayPercentage}%`;
+            // Pad out digits with zeroes for clean UI display symmetry
+            preloadCounter.innerText = `${displayPercentage.toString().padStart(2, '0')}%`;
+
+            // Dynamically evaluate text updates based on progress limits
+            const currentStage = logStages.find(stage => displayPercentage <= stage.limit);
+            if (currentStage) {
+                statusText.innerText = currentStage.text;
+            }
+        }
+    }, frequency);
+});
+
+</script>
+    <!-- Rest of your showroom page elements continue here... -->
+
+    <!-- Fully Synchronized Transparent Floating Header Interface -->
+<header class="synchronized-header">
+    <div class="header-capsule-container">
+        
+        <!-- Company Brand Logo Station (Wordmark Text Removed) -->
+        
+<a href="javascript:void(0);" class="brand-logo-anchor" id="headerLogoRefreshBtn" aria-label="Stackly Home Reset">
+    <div class="logo-glow-wrapper"></div>
+    <!-- Pointed securely to your physical e-bike directory asset file path -->
+    <img src="./Assests/brand logo.webp" alt="Stackly Official Logo" class="company-brand-img">
+</a>
+
+
+        <!-- 5-Channel Navigation Interface Matrix Links -->
+        <nav class="navigation-link-matrix">
+            <a href="index.html" class="synchronized-nav-route ">Home</a>
+            <a href="specs.html" class="synchronized-nav-route ">Specs</a>
+            <a href="showroom.html" class="synchronized-nav-route">Showroom</a>
+            <a href="blogs.html" class="synchronized-nav-route active-route ">Blog</a>
+            <a href="contactus.html" class="synchronized-nav-route">Contact</a>
+            
+            <!-- Mobile Drawer Contextual Anchor Action Paths -->
+            <div class="mobile-drawer-auth-stack">
+                <a href="login.html" class="synchronized-auth-anchor login-action-link">Login</a>
+                <a href="signup.html" class="synchronized-auth-anchor signup-action-link">Sign Up</a>
+            </div>
+        </nav>
+
+        <!-- Desktop Anchor Authentication Controls Station -->
+        <div class="desktop-auth-station">
+            <a href="login.html" class="synchronized-auth-anchor login-action-link">Login</a>
+            <a href="signup.html" class="synchronized-auth-anchor signup-action-link">Sign Up</a>
+        </div>
+
+        <!-- Adaptive Mobile Interface Hamburg Vector Trigger Node -->
+        <button class="mobile-wire-trigger-node" id="mobileWireTrigger" aria-label="Toggle Menu Matrix">
+            <span class="wire-vector top-vector"></span>
+            <span class="wire-vector middle-vector"></span>
+            <span class="wire-vector bottom-vector"></span>
+        </button>
+        
+    </div>
+</header>
+
+<script>
+    // Synchronized Real-Time Header Navigation Controllers
+document.addEventListener("DOMContentLoaded", () => {
+    const synchronizedHeader = document.querySelector('.synchronized-header');
+    const mobileWireTrigger = document.getElementById('mobileWireTrigger');
+    const navigationLinkMatrix = document.querySelector('.navigation-link-matrix');
+    const systemRouteAnchors = document.querySelectorAll('.synchronized-nav-route, .synchronized-auth-anchor');
+
+    // 1. Monitor Wheel Vector Scrolling positions to trigger capsule sizing updates
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+            synchronizedHeader.classList.add('scrolled-mode');
+        } else {
+            synchronizedHeader.classList.remove('scrolled-mode');
+        }
+    });
+
+    // 2. Click events to deploy and secure responsive menu drawer overlays
+    mobileWireTrigger.addEventListener('click', () => {
+        mobileWireTrigger.classList.toggle('wire-activated');
+        navigationLinkMatrix.classList.toggle('drawer-deployed');
+    });
+
+    // 3. Close pipeline to retract drawer immediately when clicking target route paths
+    systemRouteAnchors.forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            // Highlighting active route navigation paths safely
+            if (e.target.classList.contains('synchronized-nav-route')) {
+                document.querySelector('.synchronized-nav-route.active-route')?.classList.remove('active-route');
+                e.target.classList.add('active-route');
+            }
+
+            // Collapse active drawer menu frameworks back to hiding limits
+            mobileWireTrigger.classList.remove('wire-activated');
+            navigationLinkMatrix.classList.remove('drawer-deployed');
+        });
+    });
+});
+// =========================================================================
+// HEADER BRAND IDENTITY ACTIVE RUN-TIME PAGE REFRESH ENGINE
+// =========================================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    const headerLogoRefreshBtn = document.getElementById("headerLogoRefreshBtn");
+
+    if (headerLogoRefreshBtn) {
+        headerLogoRefreshBtn.addEventListener("click", () => {
+            // Forces a clean window location reload tracking loop from base index records
+            window.location.reload();
+        });
+    }
+});
+
+</script>
+
+<section class="blog-hero-viewport" id="blog-home">
+        
+        <!-- SEO Semantic Priority Heading (Hidden from user view, used strictly for search crawlers) -->
+        <h1 class="seo-hidden-heading">VoltEdge Telemetry Blog - Electric Bike Technical Updates, Performance Testing Logs, and EV Eco-Mobility Articles</h1>
+
+        <!-- Background Panoramic Viewport Matrix Layer -->
+        <div class="blog-hero-backdrop-vault">
+            <div class="blog-hero-mask"></div>
+            <!-- Native background image tag running an oblique panning zoom loop -->
+            <img src="./Assests/blogs - bg.webp" 
+                 alt="VoltEdge Digital Tech Laboratory Information Grid Interface Background" 
+                 class="blog-hero-image animate-cinematic-pan" 
+                 loading="eager" 
+                 decoding="async">
+        </div>
+
+        <!-- Foreground Interface Structure Grid Wrapper -->
+        <div class="blog-hero-layout-wrapper">
+            <div class="blog-hero-split-chassis">
+                
+                <!-- LEFT COLUMN: Clean Copywriting Pitch & Search Hub -->
+                <article class="blog-copy-wing">
+                    
+                    <div class="cyber-radar-badge animate-clip-reveal">
+                        <span class="radar-dot"></span>
+                        <p class="badge-text">TELEMETRY_FEED // ACTIVE</p>
+                    </div>
+
+                    <h2 class="blog-hero-title animate-slide-up-fade">
+                        The Kinetic <br>
+                        <span class="serif-accent-text">Telemetry Logs.</span>
+                    </h2>
+
+                    <p class="blog-hero-summary animate-slide-up-fade" style="animation-delay: 0.2s;">
+                        Decrypt real-time engineering breakthroughs, track thermal profiling parameters, and explore step-by-step guides straight from the VoltEdge factory floor labs.
+                    </p>
+
+                    <!-- User-Friendly Interactive Search Bar Terminal Console Input -->
+                    <div class="blog-search-terminal animate-slide-up-fade" style="animation-delay: 0.3s;">
+                        <form id="cyberSearchForm" class="search-form-chassis" novalidate>
+                            <div class="search-input-wrapper">
+                                <i class="fa-solid fa-terminal search-icon"></i>
+                                <input type="text" id="systemQueryInput" placeholder="QUERY_SYSTEM_LOGS..." aria-label="Search telemetry logs" autocomplete="off">
+                                <span class="input-glow-border"></span>
+                            </div>
+                            <button type="submit" class="search-submit-btn" aria-label="Execute Query">SEARCH</button>
+                        </form>
+                    </div>
+
+                </article>
+
+                <!-- RIGHT COLUMN: Featured Article Hot Highlight Terminal Panel -->
+                <div class="blog-terminal-wing animate-slide-up-fade" style="animation-delay: 0.4s;">
+                    <div class="terminal-matrix-box">
+                        <div class="terminal-header-bar">
+                            <span class="terminal-pulse-dot"></span>
+                            <p class="terminal-serial">HOT_FEATURED_LOG // ACC_094</p>
+                        </div>
+                        
+                        <div class="terminal-stream-screen">
+                            <a href="404.html" class="featured-pane-link-wrapper">
+                                <div class="telemetry-stream-pane">
+                                    <span class="article-meta-tag">PROPULSION ENGINEERING</span>
+                                    <h3 class="featured-article-headline">Overclocking the Axial Flux Motor: Liquid Cooling Matrices Evaluated</h3>
+                                    <p class="pane-description">
+                                        An analytical deep dive into the thermal coefficient threshold variables during sustained high-torque runs on closed performance circuits.
+                                    </p>
+                                    <div class="featured-pane-footer">
+                                        <span>BY PILOT_REDACTED</span>
+                                        <span class="read-link">READ LOG &rarr;</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+   
+    <style>
+        /* =========================================================================
+   HIGH-CONTRAST NEON GREEN BLOG HERO LAYOUT ENGINE
+   ========================================================================= */
+
+.seo-hidden-heading {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+body.blog-viewport-lock {
+    background-color: #0b0c10 !important;
+    overflow-x: hidden !important;
+    margin: 0; padding: 0;
+}
+
+.blog-hero-viewport {
+    position: relative !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 7px 7% 20px 7% !important; /* Spacing isolates space from floating navigation bar layers */
+    background-color: #0b0c10 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Backdrop layers matching dark theme parameters */
+.blog-hero-backdrop-vault {
+    position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; z-index: 0 !important;
+    overflow: hidden !important;
+}
+
+.blog-hero-mask {
+    position: absolute !important; inset: 0 !important;
+    background: radial-gradient(circle at center, rgba(11, 12, 16, 0.84) 0%, #0b0c10 100%) !important;
+    z-index: -1 !important; pointer-events: none !important;
+}
+
+.blog-hero-image {
+    width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center !important;
+    transform: scale(1.1) !important; opacity: 0.18 !important; /* Fixed background texture transparency settings */
+}
+
+/* Hardware-Accelerated Cinematic Panning & Zoom Loop Matrix Animation */
+.blog-hero-backdrop-vault .animate-cinematic-pan {
+    will-change: transform;
+    animation: blogHeroCinematicMove 24s ease-in-out infinite alternate !important;
+}
+@keyframes blogHeroCinematicMove { 0% { transform: scale(1.1) translate(0, 0); } 100% { transform: scale(1.16) translate(-20px, -10px); } }
+
+.blog-hero-layout-wrapper {
+    position: relative !important; max-width: 1350px !important; margin: 0 auto !important; width: 100% !important; z-index: 5 !important;
+}
+
+.blog-hero-split-chassis {
+    display: grid !important; grid-template-columns: 1.1fr 0.9fr !important; gap: 4.5rem !important; align-items: center !important; width: 100% !important;
+}
+
+/* Left Content Area Layout */
+.blog-copy-wing { display: flex !important; flex-direction: column !important; gap: 1.8rem !important; }
+
+/* Radar Badge Indicator Components */
+.cyber-radar-badge {
+    background: rgba(57, 255, 20, 0.03) !important; border: 1px solid rgba(57, 255, 20, 0.2) !important;
+    padding: 0.5rem 1.2rem !important; border-radius: 4px !important; width: fit-content !important;
+    display: flex !important; align-items: center !important; gap: 0.6rem !important;
+}
+
+.radar-dot {
+    width: 7px !important; height: 7px !important; background-color: #39ff14 !important; border-radius: 50% !important;
+    box-shadow: 0 0 10px #39ff14 !important; animation: blogRadarPulse 1.2s steps(2) infinite !important;
+}
+@keyframes blogRadarPulse { 50% { opacity: 0.2; } }
+
+.badge-text { font-family: monospace !important; font-size: 0.72rem !important; color: #39ff14 !important; letter-spacing: 2px !important; font-weight: 700 !important; }
+
+/* High-Contrast Bold Headings */
+.blog-hero-title { font-size: 4rem !important; font-weight: 900 !important; line-height: 1.1 !important; letter-spacing: -0.5px !important; color: #ffffff !important; }
+
+.serif-accent-text {
+    font-family: 'Georgia', serif !important; font-weight: 500 !important; font-style: italic !important; color: #ffffff !important;
+}
+
+/* FORCED HIGH INTENSITY CONTRAST READABILITY VALUE: Pure white paragraphs summary text copy */
+.blog-hero-summary {
+    font-size: 1.05rem !important; line-height: 1.7 !important; color: #ffffff !important; opacity: 0.9 !important; text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
+}
+
+/* =========================================================================
+   USER-FRIENDLY HIGH-TECH SEARCH TERMINAL CONSOLE
+   ========================================================================= */
+
+.blog-search-terminal { width: 100% !important; max-width: 580px !important; }
+
+.search-form-chassis { display: flex !important; gap: 1rem !important; width: 100% !important; }
+
+.search-input-wrapper { position: relative !important; flex-grow: 1 !important; }
+
+.search-icon {
+    position: absolute !important; left: 1.2rem !important; top: 50% !important; transform: translateY(-50%) !important;
+    color: white !important; font-size: 0.9rem !important; transition: color 0.3s ease !important; z-index: 10;
+}
+
+.search-input-wrapper input {
+    width: 100% !important; padding: 1.1rem 1.2rem 1.1rem 2.8rem !important; background: #0f111a !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important; color: #ffffff !important; border-radius: 4px !important;
+    outline: none !important; font-family: monospace !important; font-size: 0.9rem !important; box-sizing: border-box !important;
+    transition: all 0.3s ease !important;
+}
+
+.search-input-wrapper input:focus { border-color: rgba(57, 255, 20, 0.4) !important; box-shadow: 0 0 15px rgba(57, 255, 20, 0.08) !important; }
+
+.search-input-wrapper input:focus ~ .search-icon {
+    color: #39ff14 !important; filter: drop-shadow(0 0 4px #39ff14) !important;
+}
+
+.search-submit-btn {
+    background: #39ff14 !important; color: #0b0c10 !important; border: 1px solid #39ff14 !important; padding: 0 2rem !important;
+    border-radius: 4px !important; font-family: monospace !important; font-size: 0.9rem !important; font-weight: 800 !important;
+    cursor: pointer !important; letter-spacing: 1px !important; box-shadow: 0 4px 15px rgba(57, 255, 20, 0.25) !important;
+    transition: all 0.35s ease !important;
+}
+
+.search-submit-btn:hover { background: transparent !important; color: #39ff14 !important; box-shadow: 0 0 22px #39ff14 !important; }
+
+/* =========================================================================
+   RIGHT PANEL: GLASSMORPHIC INTERACTIVE FEATURED CARD
+   ========================================================================= */
+
+.featured-pane-link-wrapper { text-decoration: none !important; color: inherit !important; display: block !important; }
+
+.terminal-matrix-box {
+    background: rgba(15, 17, 26, 0.6) !important; border: 1px solid rgba(57, 255, 20, 0.15) !important; border-radius: 12px !important;
+    overflow: hidden !important; backdrop-filter: blur(20px) !important; -webkit-backdrop-filter: blur(20px) !important;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6) !important; transition: border-color 0.4s ease, box-shadow 0.4s ease !important;
+}
+
+.terminal-matrix-box:hover { border-color: #39ff14 !important; box-shadow: 0 0 25px rgba(57, 255, 20, 0.15) !important; }
+
+.terminal-header-bar {
+    background: rgba(57, 255, 20, 0.04) !important; border-bottom: 1px solid rgba(57, 255, 20, 0.15) !important;
+    padding: 0.8rem 1.5rem !important; display: flex !important; align-items: center !important; gap: 0.75rem !important;
+}
+
+.terminal-pulse-dot {
+    width: 6px !important; height: 6px !important; background-color: #39ff14 !important; border-radius: 50% !important;
+    box-shadow: 0 0 8px #39ff14 !important; animation: terminalPulse 1.2s infinite steps(2) !important;
+}
+@keyframes terminalPulse { 50% { opacity: 0.2; } }
+
+.terminal-serial { font-family: monospace !important; font-size: 0.7rem !important; font-weight: 700 !important; color: #39ff14 !important; letter-spacing: 1.5px !important; }
+
+.terminal-stream-screen { padding: 2.5rem 2rem !important; }
+
+.telemetry-stream-pane { display: flex !important; flex-direction: column !important; gap: 1.2rem !important; width: 100% !important; }
+
+.article-meta-tag { font-family: monospace !important; font-size: 0.7rem !important; font-weight: 800 !important; color: #39ff14 !important; letter-spacing: 1.5px !important; }
+
+.featured-article-headline { font-size: 1.5rem !important; font-weight: 800 !important; color: #ffffff !important; line-height: 1.3 !important; transition: color 0.3s ease !important; }
+
+.terminal-matrix-box:hover .featured-article-headline { color: #39ff14 !important; text-shadow: 0 0 10px rgba(57, 255, 20, 0.2) !important; }
+
+.pane-description { font-size: 0.95rem !important; line-height: 1.65 !important; color: #ffffff !important; opacity: 0.8 !important; }
+
+.featured-pane-footer {
+    display: flex !important; justify-content: space-between !important; align-items: center !important; margin-top: 0.5rem !important;
+    padding-top: 1rem !important; border-top: 1px solid rgba(255, 255, 255, 0.05) !important; font-family: monospace !important;
+    font-size: 0.72rem !important; font-weight: 700 !important; color: white !important;
+}
+
+.featured-pane-footer .read-link { color: #39ff14 !important; letter-spacing: 0.5px !important; transition: text-shadow 0.3s ease !important; }
+
+.terminal-matrix-box:hover .read-link { text-shadow: 0 0 8px #39ff14 !important; }
+
+/* =========================================================================
+   HARDWARE ACCELERATED LOADING ANTIMATIONS TIMELINES
+   ========================================================================= */
+
+.animate-clip-reveal {
+    opacity: 0; clip-path: inset(0 100% 0 0); animation: blogClipReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+@keyframes blogClipReveal { 100% { opacity: 1; clip-path: inset(0 0 0 0); } }
+
+.animate-slide-up-fade {
+    opacity: 0; transform: translateY(30px); animation: blogSlideUpFade 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+@keyframes blogSlideUpFade { 100% { opacity: 1; transform: translateY(0); } }
+
+/* =========================================================================
+   FLUID RESPONSIVE HARDWARE SCREEN LAYER BREAKPOINTS
+   ========================================================================= */
+
+@media (max-width: 1024px) {.blog-hero-viewport { padding: 130px 5% 60px 5% !important; }.blog-hero-split-chassis { grid-template-columns: 1fr !important; gap: 3.5rem !important; }.blog-copy-wing { text-align: center !important; align-items: center !important; }.blog-hero-title { font-size: 3.2rem !important; }.blog-search-terminal { max-width: 100% !important; }}@media (max-width: 576px) {.blog-hero-title { font-size: 2.3rem !important; line-height: 1.2 !important; }.blog-hero-summary { font-size: 0.95rem !important; line-height: 1.6 !important; }.search-form-chassis { flex-direction: column !important; gap: 0.8rem !important; }.search-submit-btn { padding: 1.1rem !important; text-align: center !important; width: 100% !important; }.terminal-stream-screen { padding: 1.8rem 1.2rem !important; }.featured-article-headline { font-size: 1.25rem !important; }}
+
+/* =========================================================================
+   BUG FIX: ELIMINATE VERTICAL GAP BENEATH BLOG HERO SECTION
+   ========================================================================= */
+
+/* 1. FIXED: Adjusted height rules and padding to pull the layout together tightly */
+.blog-hero-viewport {
+    position: relative !important;
+    min-height: auto !important; /* Stripped away the loose full-screen 100vh rule bug */
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 140px 7% 40px 7% !important; /* Drastically cut bottom padding from 80px down to 40px */
+    background-color: #0b0c10 !important;
+    box-sizing: border-box !important;
+}
+
+/* 2. Tighten the interior chassis container weights */
+.blog-hero-split-chassis {
+    display: grid !important;
+    grid-template-columns: 1.1fr 0.9fr !important;
+    gap: 3.5rem !important; /* Balanced gap spacing */
+    align-items: flex-start !important; /* Anchors content to the top instead of stretching it downwards */
+    width: 100% !important;
+}
+
+/* 3. Pull the search console up closely beneath your summary paragraph text */
+.blog-copy-wing {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.2rem !important; /* Reduced row element spacing gap */
+}
+
+/* 4. Minimize top spacing on the article grid section directly underneath */
+.quantum-blog-grid {
+    position: relative !important;
+    width: 100% !important;
+    padding: 10px 7% 60px 7% !important; /* Minimized top padding from 20px to 10px pulls content right up */
+    background-color: #0b0c10 !important;
+}
+
+/* Maintain proper full-column vertical stacking balance on mobile phone sizes */
+@media (max-width: 1024px) {
+    .blog-hero-viewport {
+        padding: 120px 5% 30px 5% !important;
+    }
+    .blog-hero-split-chassis {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+}
+
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const searchForm = document.getElementById("cyberSearchForm");
+    const queryInput = document.getElementById("systemQueryInput");
+
+    if (searchForm && queryInput) {
+        searchForm.addEventListener("submit", (event) => {
+            event.preventDefault(); // Intercept HTML5 query redirect snap paths
+            
+            const rawSearchQuery = queryInput.value.trim();
+
+            if (!rawSearchQuery) {
+                // If query is empty, run a quick glow shake alert on the input box
+                queryInput.style.borderColor = "#ff0055";
+                setTimeout(() => queryInput.style.borderColor = "", 1500);
+                return;
+            }
+
+            // Simulate database indexing response log
+            console.log(`[QUERY_SENT]: Executing telemetry fetch loop for string: "${rawSearchQuery.toUpperCase()}"`);
+            
+            // Re-route clean placeholder text tags
+            queryInput.value = `[SEARCH_COMPILING]: ${rawSearchQuery.toUpperCase()}`;
+            queryInput.disabled = true;
+
+            setTimeout(() => {
+                queryInput.value = "";
+                queryInput.disabled = false;
+                // Add your real window relocation data routes here when ready to deploy backend links
+                alert(`Search Query Captured: "${rawSearchQuery}"\nBackend telemetry pipeline indexing loop simulated.`);
+            }, 1200);
+        });
+    }
+});
+    </script>
+
+    <!-- Standalone Interactive Landmark Blog Directory Grid Section with optimized padding for SEO indexing -->
+<section class="quantum-blog-grid" id="blog-grid">
+    
+    <!-- SEO Technical Layer Metadata Heading -->
+    <h2 class="seo-hidden-heading">VoltEdge Electric Bike Telemetry Article Directory, Battery System Guides, and EV Commuter Performance Logs</h2>
+
+    <!-- Dynamic Continuous Panning Background Asset Vault Layer -->
+    <div class="grid-image-viewport">
+        <div class="grid-fog-overlay"></div>
+        <!-- Point the src path directly to your official grid ledger or digital blueprint background image asset file -->
+        <img src="./Assests/Bicycle.webp" 
+             alt="VoltEdge Digital Cryptographic Tech Ledger and Financial Grid Interface Background" 
+             class="grid-scenery-image animate-oblique-drift" 
+             loading="lazy" 
+             decoding="async">
+    </div>
+
+    <div class="grid-layout-wrapper">
+        
+        <!-- Section Navigation Sub-Header (With tightly minimized spacing constraints) -->
+        <header class="grid-section-header">
+            <span class="cyber-accent-tag">TELEMETRY_DIRECTORY</span>
+            <h3 class="grid-main-title">DECRYPTED_LOG <span class="neon-glow-text">FEEDS</span></h3>
+            <div class="header-laser-separator"></div>
+        </header>
+
+        <!-- Fluid Micro-Interaction Article Cards Deck Matrix Grid -->
+        <div class="blog-composition-grid">
+            
+            <!-- ARTICLE CARD 01: Battery Metrics -->
+            <article class="blog-intel-card animate-scroll-view">
+                <div class="card-laser-fringe"></div>
+                
+                <div class="blog-media-vault">
+                    <div class="blog-frame-limiter">
+                        <img src="./Assests/EV 2.webp" 
+                             alt="VoltEdge Smart Battery Thermal Coefficient Testing Session" 
+                             class="blog-showcase-asset">
+                    </div>
+                    <span class="blog-timestamp-badge">THERMAL_LOG // 01</span>
+                </div>
+                
+                <div class="blog-telemetry-body">
+                    <span class="article-meta-tag">ENERGY_STORAGE</span>
+                    <h4 class="blog-article-title">Solid-State Calibration Loops: Thermal Limits Tested</h4>
+                    <p class="blog-summary-text">An analytical assessment mapping structural substrate temperature behavior across automated rapid-charging grids.</p>
+                    
+                    <div class="blog-footer-node">
+                        <span class="read-time-telemetry">READ_TIME // 04 MIN</span>
+                        <a href="404.html" class="blog-action-anchor" aria-label="Read full solid-state calibration loop article">
+                            <span>OPEN LOG</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARTICLE CARD 02: Carbon Chassis Structural Integrity -->
+            <article class="blog-intel-card animate-scroll-view" style="animation-delay: 0.15s;">
+                <div class="card-laser-fringe"></div>
+                
+                <div class="blog-media-vault">
+                    <div class="blog-frame-limiter">
+                        <img src="./Assests/EV 4.webp" 
+                             alt="VoltEdge Carbon Monocoque Frame Stress Test Simulation" 
+                             class="blog-showcase-asset">
+                    </div>
+                    <span class="blog-timestamp-badge">FRAME_LOG // 02</span>
+                </div>
+                
+                <div class="blog-telemetry-body">
+                    <span class="article-meta-tag">CHASSIS_ENGINEERING</span>
+                    <h4 class="blog-article-title">Milled Carbon Frameworks: Torsional Stiffness Variables</h4>
+                    <p class="blog-summary-text">How our aerospace-grade carbon weave layers guide directional flex loads to guarantee high speed track stability curves.</p>
+                    
+                    <div class="blog-footer-node">
+                        <span class="read-time-telemetry">READ_TIME // 06 MIN</span>
+                        <a href="404.html" class="blog-action-anchor" aria-label="Read full milled carbon framework stiffness article">
+                            <span>OPEN LOG</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARTICLE CARD 03: Smart Diagnostics -->
+            <article class="blog-intel-card animate-scroll-view" style="animation-delay: 0.3s;">
+                <div class="card-laser-fringe"></div>
+                
+                <div class="blog-media-vault">
+                    <div class="blog-frame-limiter">
+                        <img src="./Assests/EV bike.webp" 
+                             alt="VoltEdge Integrated Cockpit UI Screen Diagnostics Feed" 
+                             class="blog-showcase-asset">
+                    </div>
+                    <span class="blog-timestamp-badge">CYBER_LOG // 03</span>
+                </div>
+                
+                <div class="blog-telemetry-body">
+                    <span class="article-meta-tag">COCKPIT_SOFTWARE</span>
+                    <h4 class="blog-article-title">Predictive Maintenance Algorithms: Real-Time Radar Tracking</h4>
+                    <p class="blog-summary-text">Decrypting the code logic loops backing our millimeter-wave radar obstacle detection and automatic safety triggers.</p>
+                    
+                    <div class="blog-footer-node">
+                        <span class="read-time-telemetry">READ_TIME // 05 MIN</span>
+                        <a href="404.html" class="blog-action-anchor" aria-label="Read full predictive maintenance algorithm article">
+                            <span>OPEN LOG</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    /* =========================================================================
+   INTERACTIVE ARTICLE GRID FEED MATRIX GRAPHIC ENGINE STYLES
+   ========================================================================= */
+
+.quantum-blog-grid {
+    position: relative !important;
+    width: 100% !important;
+    padding: 40px 7% 80px 7% !important; /* Tight top padding bridges close to hero section above */
+    background-color: #0b0c10 !important;
+    overflow: hidden !important;
+    z-index: 1 !important;
+}
+
+/* Master Space Viewport Background Frame Container */
+.grid-image-viewport {
+    position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; z-index: -2 !important; overflow: hidden !important;
+}
+
+/* Dark gradient mask isolates light pollution under text panels */
+.grid-fog-overlay {
+    position: absolute !important; inset: 0 !important;
+    background: radial-gradient(circle at center, rgba(11, 12, 16, 0.85) 0%, #0b0c10 100%) !important;
+    z-index: -1 !important; pointer-events: none !important;
+}
+
+/* FIXED: Formatted the asset tag to stretch width-wise to delete black columns completely */
+.grid-scenery-image {
+    width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center !important;
+    transform: scale(1.1) !important; opacity: 0.15 !important; /* Subtle wireframe background texture settings */
+}
+
+/* Continuous Oblique Background Drift Movement Animation Loop */
+.grid-image-viewport .animate-oblique-drift {
+    will-change: transform;
+    animation: gridBackParallax 24s ease-in-out infinite alternate !important;
+}
+@keyframes gridBackParallax { 0% { transform: scale(1.1) translate(0, 0); } 100% { transform: scale(1.16) translate(-15px, 8px); } }
+
+.grid-layout-wrapper {
+    position: relative !important; max-width: 1350px !important; margin: 0 auto !important; width: 100% !important; z-index: 5 !important;
+}
+
+/* Centered Header Formatting Tree */
+.grid-section-header {
+    display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 0.5rem !important; margin-bottom: 3.5rem !important;
+}
+
+.grid-main-title {
+    font-size: 2.5rem !important; font-weight: 900 !important; letter-spacing: 2px !important; color: #ffffff !important;
+}
+
+.neon-glow-text { color: #39ff14 !important; text-shadow: 0 0 10px rgba(57, 255, 20, 0.4) !important; }
+
+.header-laser-separator {
+    width: 60px; height: 3px; background: #39ff14; box-shadow: 0 0 10px #39ff14; border-radius: 20px; margin-top: 0.5rem;
+}
+
+.cyber-accent-tag {
+    font-family: monospace; font-size: 0.8rem; font-weight: 700; color: #39ff14; letter-spacing: 3px;
+    background: rgba(57, 255, 20, 0.04); padding: 0.4rem 1rem; border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 4px;
+}
+
+/* Symmetrical Article Grid Layout Deck Grid Configuration */
+.blog-composition-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    gap: 2.5rem !important;
+    width: 100% !important;
+}
+
+/* =========================================================================
+   3D MULTI-ROW PRODUCT SHOWCASE DECK CARDS INTERACTIVE NEON HOVERS
+   ========================================================================= */
+
+.blog-intel-card {
+    background: rgba(17, 20, 30, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.04) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Top accent running laser green line track underlay */
+.card-laser-fringe {
+    position: absolute !important; top: 0; left: 0; width: 100%; height: 3px;
+    background: linear-gradient(90deg, transparent, #39ff14, transparent) !important;
+    opacity: 0; transform: scaleX(0.2) !important; transition: all 0.45s ease !important; z-index: 10 !important;
+}
+
+.blog-media-vault { width: 100% !important; padding: 1.25rem 1.25rem 0 1.25rem !important; position: relative !important; }
+
+/* Full Bleed Image Frame Limits */
+.blog-frame-limiter {
+    width: 100% !important; height: 200px !important; /* Locks balanced landscape layout profile proportions */
+    border-radius: 8px !important; overflow: hidden !important;
+    background: #070912 !important; border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.blog-showcase-asset {
+    width: 100% !important; height: 100% !important;
+    object-fit: cover !important; /* Bypasses any squishing or compression distortions natively */
+    object-position: center !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.blog-timestamp-badge {
+    position: absolute !important; top: 2rem !important; left: 2rem !important;
+    background: #0b0c10 !important; color: #39ff14 !important;
+    border: 1px solid rgba(57, 255, 20, 0.3) !important; font-family: monospace !important;
+    font-size: 0.65rem !important; font-weight: 700 !important; padding: 0.3rem 0.8rem !important;
+    border-radius: 4px !important; letter-spacing: 1px !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4) !important; z-index: 5 !important;
+}
+
+/* Telemetry Information Typography Grid */
+.blog-telemetry-body {
+    padding: 1.8rem !important; display: flex !important; flex-direction: column !important; gap: 0.8rem !important; flex-grow: 1 !important;
+}
+
+.article-meta-tag {
+    font-family: monospace !important; font-size: 0.72rem !important; font-weight: 800 !important;
+    color: #39ff14 !important; letter-spacing: 1px !important;
+}
+
+.blog-article-title {
+    font-size: 1.25rem !important; font-weight: 800 !important; color: #ffffff !important;
+    line-height: 1.4 !important; letter-spacing: 0.3px !important;
+    transition: color 0.3s ease !important;
+}
+
+/* FORCED CONTRAST ACCURACY: Legible crisp white description parameters */
+.blog-summary-text {
+    font-size: 0.95rem !important; line-height: 1.6 !important; color: #ffffff !important; opacity: 0.75 !important;
+}
+
+/* Footer Control nodes */
+.blog-footer-node {
+    display: flex !important; justify-content: space-between !important; align-items: center !important;
+    margin-top: auto !important; padding-top: 1rem !important; border-top: 1px solid rgba(255, 255, 255, 0.04) !important;
+}
+
+.read-time-telemetry {
+    font-family: monospace !important; font-size: 0.7rem !important; color: white !important;
+    font-weight: 700 !important; letter-spacing: 1px !important;
+}
+
+/* High-contrast functional redirection link tags */
+.blog-action-anchor {
+    display: flex !important; align-items: center !important; gap: 0.4rem !important; text-decoration: none !important;
+    color: #39ff14 !important; font-family: monospace !important; font-size: 0.8rem !important; font-weight: 800 !important;
+    letter-spacing: 0.5px !important; transition: all 0.3s ease !important;
+}
+
+.blog-action-anchor svg { transition: transform 0.3s ease !important; }
+
+/* HIGH VOLTAGE HOVER STATE GRAPHICS EXPANSION DRIVES */
+.blog-intel-card:hover {
+    transform: translateY(-5px) !important; border-color: rgba(57, 255, 20, 0.25) !important;
+    background: rgba(17, 20, 30, 0.8) !important;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.6), 0 0 20px rgba(57, 255, 20, 0.05) !important;
+}
+
+.blog-intel-card:hover .card-laser-fringe { opacity: 1 !important; transform: scaleX(1) !important; }
+.blog-intel-card:hover .blog-showcase-asset { transform: scale(1.06) !important; }
+.blog-intel-card:hover .blog-article-title { color: #39ff14 !important; text-shadow: 0 0 8px rgba(57, 255, 20, 0.3) !important; }
+.blog-intel-card:hover .blog-action-anchor { text-shadow: 0 0 10px #39ff14 !important; }
+.blog-intel-card:hover .blog-action-anchor svg { transform: translateX(3px) !important; }
+
+/* =========================================================================
+   NATIVE HIGH-PERFORMANCE SCROLL VIEW ENTRANCE EFFECTS (CSS ONLY)
+   ========================================================================= */
+
+.quantum-blog-grid .animate-scroll-view {
+    opacity: 0;
+    will-change: transform, opacity;
+    animation: blogGridRevealIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+    animation-timeline: view();
+    animation-range: entry 10% cover 35%;
+    animation-fill-mode: both;
+}
+
+@keyframes blogGridRevealIn {
+    0% { opacity: 0; transform: perspective(1000px) rotateX(4deg) translateY(40px) scale(0.96); filter: blur(3px); }
+    100% { opacity: 1; transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1); filter: blur(0); }
+}
+
+/* =========================================================================
+   FLUID RESPONSIVE COMPONENT LAYER BREAKPOINTS
+   ========================================================================= */
+
+@media (max-width: 768px) {
+    .quantum-blog-grid { padding: 40px 5% 60px 5% !important; }
+    .grid-main-title { font-size: 2rem !important; }
+    .blog-composition-grid { grid-template-columns: 1fr !important; gap: 2.2rem !important; } /* Hard vertical stack single column rules */
+    .blog-frame-limiter { height: 180px !important; }
+    .blog-telemetry-body { padding: 1.25rem !important; gap: 0.6rem !important; }
+    
+    .quantum-blog-grid .animate-scroll-view { animation-range: entry 5% cover 25%; }
+    @keyframes blogGridRevealIn { 0% { opacity: 0; transform: translateY(25px); } 100% { opacity: 1; transform: translateY(0); } }
+    .blog-intel-card:hover { transform: translateY(-3px) !important; } /* Soften displacement values over phone touches */
+}
+
+</style>
+
+<!-- Standalone Landmark Creative Marketing Hub Section for SEO Indexing -->
+<section class="quantum-radar-carousel" id="blog-radar">
+    
+    <!-- SEO Optimization Meta Layer -->
+    <h2 class="seo-hidden-heading">VoltEdge Custom Fleet Engineering Innovations, Aero-Dynamic Velocity Testing, and Solid-State Energy Log Hubs</h2>
+
+    <!-- Backdrop Panoramic Matrix Viewport Layer -->
+    <div class="radar-image-viewport">
+        <div class="radar-fog-overlay"></div>
+        <!-- Point the src path directly to your official grid network or digital interface background image asset file -->
+        <img src="./Assests/EV 7.webp" 
+             alt="VoltEdge Computational Fluid Dynamics Grid Interface Background" 
+             class="radar-scenery-image animate-oblique-drift">
+    </div>
+
+    <div class="radar-layout-wrapper">
+        <div class="radar-split-chassis">
+            
+            <!-- LEFT COLUMN: Rotatable Interactive Holographic Radar Core -->
+            <!-- LEFT COLUMN: Rotatable Interactive Holographic Radar Core -->
+<div class="radar-deck-wing">
+    <div class="radar-chassis-glow"></div>
+    <div class="holographic-radar-ring" id="radarRingChassis">
+        
+        <!-- FIXED CENTRAL ANCHOR: Highly visible vehicle/core vector image tag -->
+        <div class="radar-center-core-vault">
+            <!-- Points directly to your local webp brand graphic asset file path -->
+            <img src="./Assests/brand logo.webp" 
+                 alt="VoltEdge Core Propulsion Centerpiece Logo" 
+                 class="radar-center-vector-img">
+        </div>
+        
+        <!-- Asymmetrical Node Anchors distributed precisely across circular coordinates -->
+        <div class="radar-node-anchor active-node" data-slide="propulsion" style="top: 10%; left: 50%; transform: translate(-50%, -50%);">
+            <div class="node-indicator-dot"></div>
+            <span class="node-label-tag">PROPULSION</span>
+        </div>
+
+        <div class="radar-node-anchor" data-slide="energy" style="top: 50%; right: 10%; transform: translate(50%, -50%);">
+            <div class="node-indicator-dot"></div>
+            <span class="node-label-tag">ENERGY</span>
+        </div>
+
+        <div class="radar-node-anchor" data-slide="aerodynamics" style="bottom: 10%; left: 50%; transform: translate(-50%, 50%);">
+            <div class="node-indicator-dot"></div>
+            <span class="node-label-tag">AERO_FLOW</span>
+        </div>
+
+    </div>
+</div>
+
+
+            <!-- RIGHT COLUMN: High-Visibility Copywriting Text Card Module -->
+            <article class="radar-content-wing animate-view-trigger">
+                <div class="content-matrix-card">
+                    <span class="cyber-accent-tag" id="radarHubBadge">LAB_STAGE // ACTIVE</span>
+                    
+                    <!-- Content panes swapped fluidly via the controller script -->
+                    <div class="radar-text-stream-viewport" id="radarTextStream">
+                        
+                        <!-- Slide 1: Propulsion -->
+                        <div class="radar-text-pane active-pane" id="slide-propulsion">
+                            <h3 class="radar-primary-title">Rethinking The <br><span class="neon-glow-text">Axial Flux Motor</span></h3>
+                            <p class="radar-body-summary">
+                                Step inside our production lab loops to view how dual-phase magnetic setups maintain continuous torque vector tracking across track circuit runs without electrical degradation.
+                            </p>
+                        </div>
+
+                        <!-- Slide 2: Energy Pack -->
+                        <div class="radar-text-pane" id="slide-energy">
+                            <h3 class="radar-primary-title">Solid-State <br><span class="neon-glow-text">Cell Protection</span></h3>
+                            <p class="radar-body-summary">
+                                Exploring the thermodynamic protection grids backing our structured lithium-carbohydrate matrices, delivering safe rapid-charging metrics under heavy load variances.
+                            </p>
+                        </div>
+
+                        <!-- Slide 3: Aerodynamics -->
+                        <div class="radar-text-pane" id="slide-aerodynamics">
+                            <h3 class="radar-primary-title">Slicing Wakes Via <br><span class="neon-glow-text">Carbon Shells</span></h3>
+                            <p class="radar-body-summary">
+                                Computational fluid dynamics analysis displays how low-profile fairing cuts successfully extract high-pressure air structures away from the rider cockpit area.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <a href="404.html" class="radar-cta-anchor solid-flux-glow">
+                        <span>DECRYPT FULL ARTICLE</span>
+                        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<style>
+
+    /* =========================================================================
+   FIXED: RADAR CENTRAL VECTOR INITIALIZATION & ABSOLUTE DEAD-CENTER LOCK
+   ========================================================================= */
+
+/* FIXED: Configured a dedicated central core container that ignores the ring's rotation tracks */
+.radar-center-core-vault {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important; /* Absolute dead center lock layout */
+    width: 90px !important; /* Balanced size prevents clipping your dashed tracker ring */
+    height: 90px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 2 !important;
+    pointer-events: none !important; /* Bypasses mouse interaction blocking loops */
+}
+
+/* FIXED: Formatted the internal image tag to fit cleanly and maintain aspect symmetry */
+.radar-center-vector-img {
+    width: 85px !important; /* Fits perfectly and prominently inside the dashboard circle */
+    height: auto !important;
+    object-fit: contain !important; /* Prevents raw image stretching or compression distortions */
+    background: transparent !important;
+    border-radius: 0 !important; /* Clears oval radius clipping errors */
+    
+    /* Neon green drop-shadow Projects a crisp ambient aura layer for supreme dark contrast */
+    filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.5)) !important;
+    opacity: 0.95 !important;
+    transition: transform 0.4s ease, opacity 0.4s ease !important;
+}
+
+/* Amplify image visibility parameters whenever a user hovers over the radar chassis */
+.holographic-radar-ring:hover .radar-center-vector-img {
+    transform: scale(1.04) !important;
+    opacity: 1 !important;
+    filter: drop-shadow(0 0 15px #39ff14) !important; /* Burst effect intensifies green lighting beams */
+}
+
+    /* =========================================================================
+   CINEMATIC KINETIC RADAR CAROUSEL INTERFACE MODULE STYLE ENGINE
+   ========================================================================= */
+
+.quantum-radar-carousel {
+    position: relative !important;
+    width: 100% !important;
+    padding: 70px 7% !important;
+    background-color: #05060f !important; /* Pitch black canvas void background */
+    overflow: hidden !important;
+    z-index: 15 !important;
+}
+
+/* Panoramic Canvas Backdrop Layers Matrix */
+.radar-image-viewport {
+    position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; z-index: -2 !important; overflow: hidden !important;
+}
+
+.radar-fog-overlay {
+    position: absolute !important; inset: 0 !important;
+    background: radial-gradient(circle at center, rgba(11, 12, 16, 0.75) 0%, #05060f 100%) !important;
+    z-index: -1 !important; pointer-events: none !important;
+}
+
+/* FIXED: Formatted the asset to stretch out fully width-wise across the screen */
+.radar-scenery-image {
+    width: 100% !important; /* Spans cleanly edge-to-edge horizontally to erase black side columns */
+    height: 100% !important;
+    object-fit: cover !important; /* Crops image edges automatically to protect aspect proportions */
+    object-position: center !important;
+    transform: scale(1.1) !important;
+    opacity: 0.06 !important; /* Subtle background pattern transparency settings */
+}
+
+/* Parallax zoom pan looping kinetics animation */
+.radar-image-viewport .animate-oblique-drift {
+    will-change: transform;
+    animation: radarSceneryDrift 24s ease-in-out infinite alternate !important;
+}
+@keyframes radarSceneryDrift { 0% { transform: scale(1.1) translate(0,0); } 100% { transform: scale(1.15) translate(-15px, -8px); } }
+
+.radar-layout-wrapper {
+    position: relative !important; max-width: 1350px !important; margin: 0 auto !important; width: 100% !important; z-index: 5 !important;
+}
+
+.radar-split-chassis {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; /* Balanced row space distribution weights */
+    gap: 4.5rem !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+/* =========================================================================
+   LEFT PANEL: ROTATABLE INTERACTIVE HOLOGRAPHIC RADAR DATA WHEEL
+   ========================================================================= */
+
+.radar-deck-wing {
+    position: relative !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: 400px !important;
+}
+
+.radar-chassis-glow {
+    position: absolute !important; width: 260px; height: 250px;
+    background: radial-gradient(circle, rgba(57, 255, 20, 0.05) 0%, transparent 70%) !important;
+    filter: blur(40px) !important; pointer-events: none !important;
+}
+
+/* The primary interactive rotatable circular structure */
+.holographic-radar-ring {
+    width: 280px !important; height: 280px !important;
+    border: 1px dashed rgba(57, 255, 20, 0.25) !important; /* Green dashed theme radar circle tracking path */
+    border-radius: 50% !important;
+    position: relative !important;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important; /* Hardware accelerated smooth wheel rotation */
+    will-change: transform;
+}
+
+.radar-node-anchor {
+    position: absolute !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    cursor: pointer !important;
+    z-index: 10 !important;
+}
+
+.node-indicator-dot {
+    width: 12px !important; height: 12px !important;
+    background: #05060f !important;
+    border: 2px solid white!important;
+    border-radius: 50% !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.node-label-tag {
+    font-family: monospace !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    color: #64748b !important; /* Silver baseline state headers text strings */
+    letter-spacing: 1px !important;
+    background: #05060f !important;
+    padding: 0.2rem 0.5rem !important;
+    border-radius: 4px !important;
+    border: 1px solid rgba(255, 255, 255, 0.03) !important;
+    transition: all 0.3s ease !important;
+    white-space: nowrap !important;
+}
+
+/* Active illuminated node status override configurations */
+.radar-node-anchor:hover .node-indicator-dot { border-color: #39ff14 !important; }
+
+.radar-node-anchor.active-node .node-indicator-dot {
+    border-color: #39ff14 !important;
+    background-color: #39ff14 !important;
+    box-shadow: 0 0 10px #39ff14 !important;
+}
+
+.radar-node-anchor.active-node .node-label-tag {
+    color: #39ff14 !important;
+    border-color: rgba(57, 255, 20, 0.3) !important;
+    text-shadow: 0 0 6px rgba(57, 255, 20, 0.3) !important;
+}
+
+/* =========================================================================
+   RIGHT PANEL: CLEAN PITCH COPYWRITING CARD CONSOLE
+   ========================================================================= */
+
+.content-matrix-card {
+    background: rgba(15, 17, 26, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.04) !important;
+    border-radius: 12px !important;
+    padding: 3rem !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    text-align: left !important;
+}
+
+.cyber-accent-tag {
+    font-family: monospace; font-size: 0.75rem; font-weight: 700; color: #39ff14; letter-spacing: 3px;
+    background: rgba(57, 255, 20, 0.04); padding: 0.4rem 1rem; border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 4px; width: fit-content;
+}
+
+.radar-text-stream-viewport { width: 100% !important; min-height: 160px !important; position: relative !important; }
+
+.radar-text-pane {
+    display: none !important; /* Multi-pane description texts collapsed by default */
+    flex-direction: column !important;
+    gap: 1.2rem !important;
+    width: 100% !important;
+}
+
+.radar-text-pane.active-pane {
+    display: flex !important;
+    animation: textStreamFadeFlash 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+@keyframes textStreamFadeFlash {
+    0% { opacity: 0; transform: translateY(10px); filter: blur(2px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.radar-primary-title {
+    font-size: 2.5rem !important;
+    font-weight: 900 !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.5px !important;
+    color: #ffffff !important;
+}
+
+.neon-glow-text {
+    color: #39ff14 !important;
+    text-shadow: 0 0 15px rgba(57, 255, 20, 0.4) !important;
+}
+
+/* FORCED HIGH INTENSITY CONTRAST READABILITY VALUE: Pure white paragraphs summaries text copy */
+.radar-body-summary {
+    font-size: 1.05rem !important;
+    line-height: 1.65 !important;
+    color: #ffffff !important;
+    opacity: 0.85 !important;
+}
+
+.radar-cta-anchor {
+    text-decoration: none !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 0.6rem !important;
+    padding: 1.1rem 2.4rem !important; border-radius: 4px !important; font-size: 0.85rem !important; font-weight: 800 !important; letter-spacing: 1px !important; text-transform: uppercase !important; box-sizing: border-box !important; transition: all 0.4s ease !important; width: fit-content !important;
+}
+
+.solid-flux-glow { background-color: #39ff14 !important; color: #0b0c10 !important; border: 2px solid #39ff14 !important; box-shadow: 0 4px 15px rgba(57, 255, 20, 0.25) !important; }
+.solid-flux-glow:hover { background-color: transparent !important; color: #39ff14 !important; box-shadow: 0 0 25px #39ff14 !important; transform: translateY(-2px) !important; }
+
+.btn-arrow { transition: transform 0.3s ease !important; }
+.solid-flux-glow:hover .btn-arrow { transform: translateX(5px) !important; }
+
+/* Modern entry fade animations tied natively to viewport scroll tracking view timelines */
+.quantum-radar-carousel .animate-view-trigger {
+    opacity: 0;
+    will-change: transform, opacity;
+    animation: radarCardScrollReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+    animation-timeline: view();
+    animation-range: entry 10% cover 35%;
+    animation-fill-mode: both;
+}
+@keyframes radarCardScrollReveal { 0% { opacity: 0; transform: translateY(30px) scale(0.98); filter: blur(3px); } 100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
+
+/* =========================================================================
+   FLUID RESPONSIVE HARDWARE SCREEN LAYER BREAKPOINTS
+   ========================================================================= */
+
+@media (max-width: 992px) {
+    .radar-split-chassis {
+        grid-template-columns: 1fr !important; /* Stack columns vertically on short viewport display blocks */
+        gap: 2.5rem !important;
+        text-align: center !important;
+    }
+    .content-matrix-card { align-items: center !important; text-align: center !important; padding: 2rem 1.5rem !important; }
+    .radar-cta-anchor { width: 100% !important; }
+    
+    @keyframes radarCardScrollReveal { 0% { opacity: 0; transform: translateY(25px); } 100% { opacity: 1; transform: translateY(0); } }
+}
+
+@media (max-width: 576px) {
+    .quantum-radar-carousel { padding: 40px 5% !important; }
+    .radar-primary-title { font-size: 2rem !important; line-height: 1.2 !important; }
+    .radar-body-summary { font-size: 0.95rem !important; line-height: 1.6 !important; }
+    .radar-deck-wing { height: 320px !important; }
+    .holographic-radar-ring { width: 220px !important; height: 220px !important; }
+}
+
+</style>
+
+<script>
+   // =========================================================================
+// RUN TIME HOLOGRAPHIC RADAR WHEEL CONTROLLER WITH STABILIZED CORE
+// =========================================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    const radarRingChassis = document.getElementById("radarRingChassis");
+    const radarNodes = document.querySelectorAll(".radar-node-anchor");
+    const radarHubBadge = document.getElementById("radarHubBadge");
+    
+    // Target the newly added center vault container
+    const centerCoreVault = document.querySelector(".radar-center-core-vault");
+
+    if (!radarRingChassis || radarNodes.length === 0) return;
+
+    const angularMapping = {
+        propulsion: 0,
+        energy: -90,
+        aerodynamics: -180
+    };
+
+    radarNodes.forEach(node => {
+        node.addEventListener("click", () => {
+            document.querySelector(".radar-node-anchor.active-node")?.classList.remove("active-node");
+            node.classList.add("active-node");
+
+            const currentSlideKey = node.getAttribute("data-slide");
+            const targetedRotationDegrees = angularMapping[currentSlideKey];
+
+            // 1. Rotate the master dashboard circle frame clockwise
+            radarRingChassis.style.transform = `rotate(${targetedRotationDegrees}deg)`;
+
+            // 2. FIXED: Counter-rotate the center core counter-clockwise so your logo stays perfectly right-side up
+            if (centerCoreVault) {
+                centerCoreVault.style.transform = `translate(-50%, -50%) rotate(${-targetedRotationDegrees}deg)`;
+                centerCoreVault.style.transition = "transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)";
+            }
+
+            // Counter-rotate peripheral outer labels text strings safely
+            radarNodes.forEach(innerNode => {
+                if (innerNode.getAttribute("data-slide") === "propulsion") innerNode.style.transform = `translate(-50%, -50%) rotate(${-targetedRotationDegrees}deg)`;
+                if (innerNode.getAttribute("data-slide") === "aerodynamics") innerNode.style.transform = `translate(-50%, 50%) rotate(${-targetedRotationDegrees}deg)`;
+                if (innerNode.getAttribute("data-slide") === "energy") innerNode.style.transform = `translate(50%, -50%) rotate(${-targetedRotationDegrees}deg)`;
+            });
+
+            // 3. Swap descriptions text panes fluidly inside the conversion card wrapper
+            document.querySelector(".radar-text-pane.active-pane")?.classList.remove("active-pane");
+            const matchingPane = document.getElementById(`slide-${currentSlideKey}`);
+            if (matchingPane) matchingPane.classList.add("active-pane");
+
+            if (radarHubBadge) radarHubBadge.innerText = `LOG_CHANNEL // ${currentSlideKey.toUpperCase()}_INDEX`;
+        });
+    });
+});
+
+</script>
+
+<!-- Standalone Landmark Creative Discovery Grid Section for SEO Indexing -->
+<section class="quantum-discovery-grid" id="blog-grid-hub">
+    
+    <!-- SEO Technical Layer Metadata Heading -->
+    <h2 class="seo-hidden-heading">VoltEdge Electric Bike Technical Article Archives, Performance Lab Guides, and EV Mechanics Logs</h2>
+
+    <!-- Backdrop Panoramic Matrix Viewport Layer -->
+    <div class="grid-hub-image-viewport">
+        <div class="grid-hub-fog-overlay"></div>
+        <!-- Point the src path directly to your official grid ledger or digital blueprint background image asset file -->
+        <img src="./Assests/cyber cycle.webp" 
+             alt="VoltEdge Digital Cryptographic Tech Ledger and Financial Grid Interface Background" 
+             class="grid-hub-scenery-image animate-oblique-drift"
+             loading="lazy">
+    </div>
+
+    <div class="grid-hub-layout-wrapper">
+        
+        <!-- Section Navigation Sub-Header -->
+        <header class="grid-hub-header">
+            <span class="cyber-accent-tag">ARCHIVE TERMINAL</span>
+            <h3 class="grid-hub-main-title">EXPLORE THE <span class="neon-glow-text">VAULT</span></h3>
+            <div class="header-laser-separator"></div>
+        </header>
+
+        <!-- Asymmetric Creative Grid Matrix Layout Deck -->
+        <div class="mosaic-chassis-matrix animate-view-trigger">
+            
+            <!-- Grid Card 01: Wide Highlight Card -->
+            <article class="mosaic-block block-wide">
+                <div class="block-laser-fringe"></div>
+                <span class="block-serial-tag">LOG_01 // COCKPIT</span>
+                <div class="block-content-stack">
+                    <h4 class="block-primary-title">Predictive Radar Safety Mappings</h4>
+                    <p class="block-summary-text">Decrypting the code logic loops backing our millimeter-wave obstacle detection and automated traction override safety systems.</p>
+                    <a href="404.html" class="block-action-link">DECRYPT FULL FILE &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Grid Card 02: Tall Standard Card -->
+            <article class="mosaic-block block-tall">
+                <div class="block-laser-fringe"></div>
+                <span class="block-serial-tag">LOG_02 // THERMALS</span>
+                <div class="block-content-stack">
+                    <h4 class="block-primary-title">Substrate Cooling Networks</h4>
+                    <p class="block-summary-text">How our dynamic nitrogen fluid-cooling lanes extract extreme thermal gradients cleanly away from performance battery cells during rapid charge cycles.</p>
+                    <a href="404.html" class="block-action-link">OPEN LOG &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Grid Card 03: Square Standard Card -->
+            <article class="mosaic-block block-square">
+                <div class="block-laser-fringe"></div>
+                <span class="block-serial-tag">LOG_03 // TORQUE</span>
+                <div class="block-content-stack">
+                    <h4 class="block-primary-title">Flux Vector Tuning</h4>
+                    <p class="block-summary-text">Optimizing electric motor outputs for peak track acceleration metrics with zero degradation thresholds.</p>
+                    <a href="404.html" class="block-action-link">OPEN LOG &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Grid Card 04: Square Standard Card -->
+            <article class="mosaic-block block-square">
+                <div class="block-laser-fringe"></div>
+                <span class="block-serial-tag">LOG_04 // CHASSIS</span>
+                <div class="block-content-stack">
+                    <h4 class="block-primary-title">Monocoque Stress Analysis</h4>
+                    <p class="block-summary-text">Mapping directional weight deflection variables across aerospace carbon fiber weave configurations.</p>
+                    <a href="404.html" class="block-action-link">OPEN LOG &rarr;</a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    /* =========================================================================
+   CINEMATIC ASYMMETRIC Discovery GRID HUB GRAPHIC ENGINE STYLES
+   ========================================================================= */
+
+.quantum-discovery-grid {
+    position: relative !important;
+    width: 100% !important;
+    padding: 20px 7% 80px 7% !important; /* Low vertical padding hooks tightly right below your radar wheel */
+    background-color: #0b0c10 !important;
+    overflow: hidden !important;
+    z-index: 10 !important;
+}
+
+/* Master Space Viewport Box acting as background image frame container */
+.grid-hub-image-viewport {
+    position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; z-index: -2 !important; overflow: hidden !important;
+}
+
+/* Dark contrast gradient overlay mask ensures background graphics don't wash out text panels */
+.grid-hub-fog-overlay {
+    position: absolute !important; inset: 0 !important;
+    background: radial-gradient(circle at center, rgba(11, 12, 16, 0.86) 0%, #0b0c10 100%) !important;
+    z-index: -1 !important; pointer-events: none !important;
+}
+
+/* FIXED: Formatted the asset tag to stretch width-wise to delete black columns completely */
+.grid-hub-scenery-image {
+    width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center !important;
+    transform: scale(1.1) !important; opacity: 0.08 !important; /* Subtle wireframe background texture settings */
+}
+
+/* Continuous Oblique Background Drift Movement Animation Loop */
+.grid-hub-image-viewport .animate-oblique-drift {
+    will-change: transform;
+    animation: gridHubParallax 24s ease-in-out infinite alternate !important;
+}
+@keyframes gridHubParallax { 0% { transform: scale(1.1) translate(0, 0); } 100% { transform: scale(1.16) translate(-15px, 8px); } }
+
+.grid-hub-layout-wrapper {
+    position: relative !important; max-width: 1350px !important; margin: 0 auto !important; width: 100% !important; z-index: 5 !important;
+}
+
+/* Centered Header Row formatting */
+.grid-hub-header {
+    display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 0.5rem !important; margin-bottom: 3.5rem !important;
+}
+
+.grid-hub-main-title {
+    font-size: 2.5rem !important; font-weight: 900 !important; letter-spacing: 2px !important; color: #ffffff !important;
+}
+
+/* =========================================================================
+   THE INTERACTIVE MOSAIC DECK: ASYMMETRICAL COLUMN WEIGHTS GRID
+   ========================================================================= */
+
+.mosaic-chassis-matrix {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* Creates a balanced 3-column architectural base layout */
+    grid-auto-rows: 240px !important; /* Sets symmetrical vertical cell blocks row dimensions */
+    gap: 2rem !important;
+    width: 100% !important;
+}
+
+.mosaic-block {
+    background: rgba(17, 20, 30, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.04) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-radius: 12px !important;
+    padding: 2.2rem 2rem !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important; /* Locks marketing text paths flush along the bottom profile */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5) !important;
+    transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Dynamic grid-row spanning parameters configuration */
+.block-wide {
+    grid-column: span 2 !important; /* Card lengths cover 2 base columns across horizontal rows */
+}
+
+.block-tall {
+    grid-row: span 2 !important; /* Card dimensions drop 2 layers down vertical columns */
+    justify-content: center !important; /* Re-centers content tracking on high cards */
+}
+
+/* Top accent running laser green line track underlay */
+.block-laser-fringe {
+    position: absolute !important; top: 0; left: 0; width: 100%; height: 3px;
+    background: linear-gradient(90deg, transparent, #39ff14, transparent) !important;
+    opacity: 0; transform: scaleX(0.2) !important; transition: all 0.45s ease !important; z-index: 10 !important;
+}
+
+.block-serial-tag {
+    position: absolute !important; top: 2rem !important; left: 2rem !important;
+    font-family: monospace !important; font-size: 0.72rem !important; font-weight: 700 !important;
+    color: white!important; letter-spacing: 1.5px !important; transition: color 0.3s ease !important;
+}
+
+.block-content-stack { display: flex !important; flex-direction: column !important; gap: 0.6rem !important; text-align: left !important; }
+
+.block-primary-title {
+    font-size: 1.4rem !important; font-weight: 800 !important; color: #ffffff !important; line-height: 1.25 !important;
+    transition: color 0.3s ease !important;
+}
+
+/* FORCED HIGH INTENSITY READ CONTRAST: Pure crisp white block paragraphs text copy */
+.block-summary-text {
+    font-size: 0.95rem !important; line-height: 1.55 !important; color: #ffffff !important; opacity: 0.75 !important;
+}
+
+.block-action-link {
+    font-family: monospace !important; font-size: 0.78rem !important; font-weight: 800 !important;
+    color: #39ff14 !important; text-decoration: none !important; letter-spacing: 0.5px !important;
+    transition: text-shadow 0.3s ease !important; width: fit-content !important; margin-top: 0.2rem !important;
+}
+
+/* HIGH INTENSITY NEON GLOW ACTIVE HOVER STATES OVERRIDES */
+.mosaic-block:hover {
+    transform: translateY(-5px) !important;
+    border-color: rgba(57, 255, 20, 0.25) !important;
+    background: rgba(17, 20, 30, 0.8) !important;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.6), 0 0 20px rgba(57, 255, 20, 0.05) !important;
+}
+
+.mosaic-block:hover .block-laser-fringe { opacity: 1 !important; transform: scaleX(1) !important; }
+.mosaic-block:hover .block-serial-tag { color: #39ff14 !important; }
+.mosaic-block:hover .block-primary-title { color: #39ff14 !important; text-shadow: 0 0 8px rgba(57, 255, 20, 0.3) !important; }
+.mosaic-block:hover .block-action-link { text-shadow: 0 0 10px #39ff14 !important; }
+
+/* Modern entry fade animations tied natively to viewport scroll tracking view timelines */
+.quantum-discovery-grid .animate-view-trigger {
+    opacity: 0;
+    will-change: transform, opacity;
+    animation: mosaicScrollReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+    animation-timeline: view();
+    animation-range: entry 10% cover 35%;
+    animation-fill-mode: both;
+}
+@keyframes mosaicScrollReveal { 0% { opacity: 0; transform: translateY(30px) scale(0.98); filter: blur(3px); } 100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
+
+/* =========================================================================
+   FLUID RESPONSIVE COMPONENT LAYER HARDWARE BREAKPOINTS
+   ========================================================================= */
+
+@media (max-width: 992px) {
+    /* Collapse the mosaic tracking lines down to a safe single column flow over mobile sizes to prevent clipping overlaps */
+    .mosaic-chassis-matrix {
+        grid-template-columns: 1fr !important;
+        grid-auto-rows: auto !important; /* Changes static depth cells to variable auto wrapping fields */
+        gap: 1.5rem !important;
+    }
+    .mosaic-block { grid-column: span 1 !important; grid-row: span 1 !important; padding: 2.2rem 1.5rem 1.8rem 1.5rem !important; height: auto !important; }
+    .block-serial-tag { position: relative !important; top: auto !important; left: auto !important; margin-bottom: 0.8rem !important; display: block !important; }
+    .block-action-link { width: 100% !important; text-align: right !important; margin-top: 0.5rem !important; }
+    .block-primary-title { font-size: 1.25rem !important; }
+    
+    @keyframes mosaicScrollReveal { 0% { opacity: 0; transform: translateY(25px); } 100% { opacity: 1; transform: translateY(0); } }
+    .mosaic-block:hover { transform: translateY(-3px) !important; } /* Soften translation bounds for touch safety */
+}
+
+</style>
+<!-- Standalone Cinematic Landmark Marketing Slider Section for SEO Indexing -->
+<section class="quantum-cosmic-slider" id="blog-cosmic-slider">
+    
+    <!-- SEO Technical Layer Metadata Heading -->
+    <h2 class="seo-hidden-heading">VoltEdge Advanced Electric Bike Engineering Logs, Custom Model Testing Articles, and EV Innovation Stories</h2>
+
+    <!-- Backdrop Panoramic Matrix Viewport Layer -->
+    <div class="slider-image-viewport">
+        <div class="slider-fog-overlay"></div>
+        <!-- Point the src path directly to your official grid network or digital circuit background image asset file -->
+        <img src="./Assests/EV 3.webp" 
+             alt="VoltEdge Digital Tech Laboratory Information Grid Interface Blueprint Background" 
+             class="slider-scenery-image animate-oblique-drift"
+             id="cosmicSliderBackImg">
+    </div>
+
+    <div class="slider-layout-wrapper">
+        <div class="slider-split-chassis">
+            
+            <!-- LEFT COLUMN: Large High-Fidelity Multi-Media Showcase Panel -->
+            <div class="slider-visualizer-wing animate-view-left">
+                <!-- Running laser scanner line grid underlay -->
+                <div class="slider-radar-beam"></div>
+                
+                <!-- Full-Bleed Picture Frame Vault -->
+                <div class="slider-panoramic-vault">
+                    <!-- This primary background element updates dynamically width-wise via the script framework -->
+                    <img src="./Assests/EV 2.webp" 
+                         alt="VoltEdge High Performance Vehicle Open Track Testing Session" 
+                         class="slider-core-product-img" id="cosmicShowcaseImg">
+                </div>
+
+                <!-- Floating Corner HUD Brackets Shape Overlays -->
+                <div class="slider-hud-brackets">
+                    <span class="hud-bracket bracket-tl"></span><span class="hud-bracket bracket-tr"></span>
+                    <span class="hud-bracket bracket-bl"></span><span class="hud-bracket bracket-br"></span>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: User-Friendly Interactive Article Description Content Card -->
+            <article class="slider-content-wing animate-view-right">
+                <div class="content-matrix-box">
+                    <span class="cyber-accent-tag" id="cosmicHubBadge">STREAM_LOG // FLUX_01</span>
+                    
+                    <!-- Content screens swapped fluidly via the controller script -->
+                    <div class="slider-text-stream-viewport" id="cosmicTextStream">
+                        
+                        <!-- Slide 01: Propulsion -->
+                        <div class="cosmic-text-pane active-pane" id="pane-flux-01">
+                            <h3 class="slider-primary-title">The Evolution Of <br><span class="neon-glow-text">Kinetic Torque.</span></h3>
+                            <p class="slider-body-summary">
+                                Re-engineering torque distribution parameters natively. Our advanced axial flux powertrain matrices actively monitor asphalt coefficient slips to deliver safe acceleration curves.
+                            </p>
+                        </div>
+
+                        <!-- Slide 02: Energy -->
+                        <div class="cosmic-text-pane" id="pane-flux-02">
+                            <h3 class="slider-primary-title">Solid Substrate <br><span class="neon-glow-text">Cell Longevity.</span></h3>
+                            <p class="slider-body-summary">
+                                Mapping structural heat dissipation profiles. Smart nitrogen fluid-cooling lanes effectively isolate individual solid-state cells from overheating backlogs.
+                            </p>
+                        </div>
+
+                        <!-- Slide 03: Aerodynamics -->
+                        <div class="cosmic-text-pane" id="pane-flux-03">
+                            <h3 class="slider-primary-title">Aerodynamic <br><span class="neon-glow-text">Fluid Wake Logs.</span></h3>
+                            <p class="slider-body-summary">
+                                Computational fluid dynamics testing displays how raw carbon fairing cuts guide boundary pressure current paths completely away from the pilot cockpit hull.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Interactive Slider Indicators Controls Deck Row -->
+                    <div class="slider-controls-row">
+                        <button class="slider-dot-btn active-dot" data-slide="flux-01" data-bg="./Assests/EV 4.webp" aria-label="Load Slide 1"></button>
+                        <button class="slider-dot-btn" data-slide="flux-02" data-bg="./Assests/EV 6.webp" aria-label="Load Slide 2"></button>
+                        <button class="slider-dot-btn" data-slide="flux-03" data-bg="./Assests/EV 8.webp" aria-label="Load Slide 3"></button>
+                    </div>
+
+                    <!-- Direct Conversion Navigation Link Button Anchor -->
+                    <a href="404.html" class="slider-cta-anchor solid-flux-glow">
+                        <span>READ FULL REPORT</span>
+                        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    /* =========================================================================
+   CINEMATIC KINETIC COSMIC SLIDER WITH FULL HORIZONTAL WIDTH-WISE COVER
+   ========================================================================= */
+
+.quantum-cosmic-slider {
+    position: relative !important;
+    width: 100% !important;
+    padding: 40px 7% 80px 7% !important; /* Low padding hooks section tightly close underneath previous blocks */
+    background-color: #0b0c10 !important;
+    overflow: hidden !important;
+    z-index: 15 !important;
+}
+
+/* Master Backdrop Canvas Configuration Viewport Box */
+.slider-image-viewport {
+    position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; z-index: -2 !important; overflow: hidden !important;
+}
+
+/* Dark contrast gradient overlay mask layer protects text legibility from light washing */
+.slider-fog-overlay {
+    position: absolute !important; inset: 0 !important;
+    background: radial-gradient(circle at center, rgba(11, 12, 16, 0.85) 0%, #0b0c10 100%) !important;
+    z-index: -1 !important; pointer-events: none !important;
+}
+
+/* FIXED: Formatted the asset tag to stretch width-wise to delete black columns completely */
+.slider-scenery-image {
+    width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center !important;
+    transform: scale(1.1) !important; opacity: 0.15 !important; /* Subtle background texture transparency settings */
+}
+
+/* Continuous Oblique Background Drift Movement Animation Loop */
+.slider-image-viewport .animate-oblique-drift {
+    will-change: transform;
+    animation: cosmicSliderParallax 24s ease-in-out infinite alternate !important;
+}
+@keyframes cosmicSliderParallax { 0% { transform: scale(1.1) translate(0, 0); } 100% { transform: scale(1.16) translate(-15px, -8px); } }
+
+.slider-layout-wrapper {
+    position: relative !important; max-width: 1350px !important; margin: 0 auto !important; width: 100% !important; z-index: 5 !important;
+}
+
+/* FIXED: Reconfigured split weights to distribute optimal room width-wise for the showcase panel */
+.slider-split-chassis {
+    display: grid !important; grid-template-columns: 1.2fr 0.8fr !important; /* Widescreen focus priority maps on the graphic visualizer */
+    gap: 4rem !important; align-items: center !important; width: 100% !important;
+}
+
+/* =========================================================================
+   LEFT PANEL: SCREEN FULL-BLEED SCHEMATIC VIEWPORT CONFIGURATIONS
+   ========================================================================= */
+
+.slider-visualizer-wing {
+    position: relative !important;
+    background: #070912 !important; /* Dark cockpit terminal box area base */
+    border: 1px solid rgba(57, 255, 20, 0.15) !important; /* Domain themed green perimeter line */
+    border-radius: 12px !important;
+    height: 440px !important; /* Height ceiling limits allow full scale image expansion */
+    padding: 0 !important; /* FIXED: Stripped away padding completely to maximize image stretch width-wise */
+    overflow: hidden !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+}
+
+/* FIXED: Full Bleed Vault Forces perfect horizontal coverage */
+.slider-panoramic-vault {
+    position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; z-index: 1 !important;
+}
+
+.slider-core-product-img {
+    width: 100% !important; /* Stretches 100% width-wise to completely delete black columns */
+    height: 100% !important;
+    object-fit: cover !important; /* Slices layout text edges to maintain symmetry without squishing */
+    object-position: center !important;
+    opacity: 0.7 !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease !important;
+}
+
+.slider-visualizer-wing:hover .slider-core-product-img {
+    transform: scale(1.04) rotate(0.5deg) !important; /* Macro lens camera check on hover */
+    opacity: 0.9 !important;
+}
+
+/* Continuous running radar scanning beam animation */
+.slider-radar-beam {
+    position: absolute !important; top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.04) 60%, rgba(57, 255, 20, 0.25) 100%) !important;
+    border-right: 2px solid #39ff14 !important; box-shadow: 4px 0 15px rgba(57, 255, 20, 0.3) !important;
+    z-index: 4 !important; pointer-events: none !important; will-change: left;
+    animation: cosmicSliderRadarSweep 4.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite !important;
+}
+@keyframes cosmicSliderRadarSweep { 0% { left: -50%; } 100% { left: 150%; } }
+
+/* Tech Hud Corner Brackets Shapes Overlays */
+.slider-hud-brackets { position: absolute !important; inset: 0 !important; z-index: 5 !important; pointer-events: none !important; }
+.hud-bracket { position: absolute !important; width: 12px; height: 12px; border: 2px solid rgba(57, 255, 20, 0.3); transition: border-color 0.3s ease !important; }
+.bracket-tl { top: 20px; left: 20px; border-right: none; border-bottom: none; }
+.bracket-tr { top: 20px; right: 20px; border-left: none; border-bottom: none; }
+.bracket-bl { bottom: 20px; left: 20px; border-right: none; border-top: none; }
+.bracket-br { bottom: 20px; right: 20px; border-left: none; border-top: none; }
+
+.slider-visualizer-wing:hover .hud-bracket { border-color: #39ff14 !important; filter: drop-shadow(0 0 4px #39ff14); }
+
+/* =========================================================================
+   RIGHT PANEL: USER-FRIENDLY INTERACTIVE DESCRIPTION CARD CONSOLE
+   ========================================================================= */
+
+.content-matrix-box {
+    background: rgba(15, 17, 26, 0.6) !important; border: 1px solid rgba(255, 255, 255, 0.04) !important; border-radius: 12px !important;
+    padding: 3rem !important; backdrop-filter: blur(24px) !important; -webkit-backdrop-filter: blur(24px) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important; display: flex !important; flex-direction: column !important; gap: 1.5rem !important;
+}
+
+.cyber-accent-tag {
+    font-family: monospace; font-size: 0.75rem; font-weight: 700; color: #39ff14; letter-spacing: 3px;
+    background: rgba(57, 255, 20, 0.04); padding: 0.4rem 1rem; border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 4px; width: fit-content;
+}
+
+.slider-text-stream-viewport { width: 100% !important; min-height: 150px !important; position: relative !important; }
+
+.cosmic-text-pane {
+    display: none !important; /* Multi-pane description texts collapsed by default */
+    flex-direction: column !important; gap: 1.2rem !important; width: 100% !important;
+}
+
+.cosmic-text-pane.active-pane {
+    display: flex !important; animation: cosmicTextPaneFlash 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+@keyframes cosmicTextPaneFlash { 0% { opacity: 0; transform: translateX(15px); filter: blur(3px); } 100% { opacity: 1; transform: translateX(0); filter: blur(0); } }
+
+.slider-primary-title { font-size: 2.5rem !important; font-weight: 900 !important; line-height: 1.15 !important; letter-spacing: -0.5px !important; color: #ffffff !important; }
+
+/* FORCED HIGH INTENSITY CONTRAST READABILITY VALUE: Pure white legibility description summary body copy */
+.slider-body-summary { font-size: 1.05rem !important; line-height: 1.65 !important; color: #ffffff !important; opacity: 0.85 !important; }
+
+/* Dashboard Interactive Control Dots Row */
+.slider-controls-row { display: flex !important; gap: 0.8rem !important; margin: 0.2rem 0 !important; }
+
+.slider-dot-btn {
+    width: 10px !important; height: 10px !important; background: #1e293b !important; border: none !important; border-radius: 50% !important; cursor: pointer !important; transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.slider-dot-btn:hover, .slider-dot-btn.active-dot {
+    background: #39ff14 !important; box-shadow: 0 0 10px #39ff14 !important; transform: scale(1.2) !important;
+}
+
+/* High Voltage Core Conversion Link Button Anchor */
+.slider-cta-anchor {
+    text-decoration: none !important; display: flex !important; align-items: center !important; justify-content: center !important; gap: 0.6rem !important;
+    padding: 1.1rem 2.4rem !important; border-radius: 4px !important; font-size: 0.85rem !important; font-weight: 800 !important; letter-spacing: 1px !important; text-transform: uppercase !important; box-sizing: border-box !important; transition: all 0.4s ease !important; width: fit-content !important;
+}
+
+.solid-flux-glow { background-color: #39ff14 !important; color: #0b0c10 !important; border: 2px solid #39ff14 !important; box-shadow: 0 4px 15px rgba(57, 255, 20, 0.25) !important; }
+.solid-flux-glow:hover { background-color: transparent !important; color: #39ff14 !important; box-shadow: 0 0 25px #39ff14 !important; transform: translateY(-2px) !important; }
+
+.btn-arrow { transition: transform 0.3s ease !important; }
+.solid-flux-glow:hover .btn-arrow { transform: translateX(5px) !important; }
+
+/* Modern entry scroll view animation timelines (CSS only) */
+.quantum-cosmic-slider .animate-view-left {
+    opacity: 0; will-change: transform, opacity; animation: cosmicRevealLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+    animation-timeline: view(); animation-range: entry 10% cover 35%; animation-fill-mode: both;
+}
+.quantum-cosmic-slider .animate-view-right {
+    opacity: 0; will-change: transform, opacity; animation: cosmicRevealRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+    animation-timeline: view(); animation-range: entry 10% cover 35%; animation-fill-mode: both;
+}
+
+@keyframes cosmicRevealLeft { 0% { opacity: 0; transform: translateX(-40px) scale(0.97); } 100% { opacity: 1; transform: translateX(0) scale(1); } }
+@keyframes cosmicRevealRight { 0% { opacity: 0; transform: translateX(40px) scale(0.97); } 100% { opacity: 1; transform: translateX(0) scale(1); } }
+
+@media (max-width: 1024px) {.slider-split-chassis { grid-template-columns: 1fr !important; gap: 3rem !important; } /* Collapses split grid channels vertically columns stack over tablets */.slider-visualizer-wing { height: 320px !important; }.content-matrix-card { align-items: center !important; text-align: center !important; padding: 2rem 1.5rem !important; }.slider-cta-anchor { width: 100% !important; }@keyframes cosmicRevealLeft { 0% { opacity: 0; transform: translateY(25px); } 100% { opacity: 1; transform: translateY(0); } }@keyframes cosmicRevealRight { 0% { opacity: 0; transform: translateY(25px); } 100% { opacity: 1; transform: translateY(0); } }}@media (max-width: 576px) {.quantum-cosmic-slider { padding: 40px 5% 60px 5% !important; }.slider-primary-title { font-size: 2rem !important; line-height: 1.2 !important; }.slider-body-summary { font-size: 0.95rem !important; line-height: 1.6 !important; }.content-matrix-box { padding: 2rem 1.25rem !important; gap: 1.2rem !important; }}
+
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const sliderDots = document.querySelectorAll(".slider-dot-btn");
+    
+    const showcaseImg = document.getElementById("cosmicShowcaseImg");
+    const cosmicHubBadge = document.getElementById("cosmicHubBadge");
+
+    if (sliderDots.length === 0 || !showcaseImg) return;
+
+    sliderDots.forEach(dot => {
+        dot.addEventListener("click", () => {
+            // Drop old indicator active flags smoothly
+            document.querySelector(".slider-dot-btn.active-dot")?.classList.remove("active-dot");
+            dot.classList.add("active-dot");
+
+            const targetedPaneId = dot.getAttribute("data-slide");
+            const newImageSrc = dot.getAttribute("data-bg");
+
+            // Trigger a quick flash animation transition on the active layout frame
+            showcaseImg.style.opacity = "0.1";
+            showcaseImg.style.transform = "scale(0.97)";
+
+            setTimeout(() => {
+                // Swap image paths and update the floating data text pane views
+                showcaseImg.src = newImageSrc;
+                
+                document.querySelector(".cosmic-text-pane.active-pane")?.classList.remove("active-pane");
+                const targetedPane = document.getElementById(`pane-${targetedPaneId}`);
+                if (targetedPane) {
+                    targetedPane.classList.add("active-pane");
+                }
+
+                // Update system header tracking indicator badge tag loops
+                if (cosmicHubBadge) {
+                    cosmicHubBadge.innerText = `STREAM_LOG // ${targetedPaneId.toUpperCase().replace('-', '_')}`;
+                }
+                
+                // Return image back to steady visibility metrics
+                showcaseImg.style.opacity = "0.7";
+                showcaseImg.style.transform = "scale(1)";
+            }, 200);
+        });
+    });
+});
+</script>
+
+
+<section class="quantum-testimonials-carousel" id="testimonials">
+    
+    <!-- FIXED: Dynamic Continuous Panning Background Asset Viewport Matrix Layer -->
+    <div class="testimonials-image-viewport">
+        <div class="testimonials-fog-overlay"></div>
+        <!-- Point the src path directly to your official grid ledger or digital blueprint background image asset file -->
+        <img src="./Assests/EV 4.webp" 
+             alt="VoltEdge Digital Cryptographic Tech Ledger and Financial Grid Interface Background" 
+             class="testimonials-scenery-image animate-oblique-drift" 
+             loading="lazy" 
+             decoding="async">
+    </div>
+
+    <div class="testimonials-layout-wrapper">
+        
+        <!-- Centered Header Track Matching Your Screenshot -->
+        <header class="testimonials-section-header">
+            <span class="cyber-accent-tag">OPERATOR REVIEWS</span>
+            <h3 class="testimonials-main-title">Pilot <span class="neon-glow-text">Testimonials</span></h3>
+            <div class="header-laser-separator"></div>
+        </header>
+
+        <!-- Main Slider Bounding Window -->
+        <div class="carousel-slider-viewport">
+            <div class="ultra-fleet-review-chassis" id="carouselTrack">
+                
+                <!-- Card 01: Rohan M. -->
+                <article class="ultra-review-node">
+                    <div class="card-laser-fringe"></div>
+                    
+                    <!-- Centered Rating Stars Matrix -->
+                    <div class="rating-vector-row">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#39ff14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#39ff14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#39ff14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#39ff14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#39ff14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+
+                    <p class="review-quote-text">
+                        "Meticulous, flawless craftsmanship. We requested a powertrain modification for an alpha track bike, and the multi-generational team produced a perfect, shimmering green machine loop. Stunned by the final piece."
+                    </p>
+
+                    <!-- Profile Row Matrix -->
+                    <div class="operator-profile-wrapper">
+                        <img src="./Assests/test 2.webp" alt="VoltEdge Pilot Rohan M." class="operator-avatar-img">
+                        <div class="operator-metadata">
+                            <h4>Rohan Malva</h4>
+                            <p class="operator-serial">Track Pilot // Mumbai, IN</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 02: Priya S. -->
+                <article class="ultra-review-node">
+                    <div class="card-laser-fringe"></div>
+                    
+                    <div class="rating-vector-row">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#39ff14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#39ff14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#39ff14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#39ff14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#39ff14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+
+                    <p class="review-quote-text">
+                        "Flexible loan setups and transparent digital calculations made securing my cruiser stress-free. Navigating rush-hour traffic nodes has transformed entirely into an active, automated flight simulation."
+                    </p>
+
+                    <div class="operator-profile-wrapper">
+                        <img src="./Assests/test 3.webp" alt="VoltEdge Pilot Priya S." class="operator-avatar-img">
+                        <div class="operator-metadata">
+                            <h4>Priya Sharma</h4>
+                            <p class="operator-serial">Urban Operator // Delhi, IN</p>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+        <!-- Navigation Dots (Centered beneath cards matching screenshot) -->
+        <div class="carousel-dots-indicator" id="carouselDots"></div>
+
+    </div>
+</section>
+
+<style>
+    /* =========================================================================
+   FIXED: TESTIMONIALS BACKGROUND IMAGE INTEGRATION WITH CONTRAST LOCK
+   ========================================================================= */
+
+/* Main layout component box section configuration */
+.quantum-testimonials-carousel {
+    position: relative !important;
+    width: 100% !important;
+    padding: 60px 7% !important;
+    background-color: #0b0c10 !important;
+    overflow: hidden !important;
+}
+
+/* Master Space Viewport Box acting as independent background image frame container */
+.testimonials-image-viewport {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 0 !important; /* Pushes the background canvas behind your text cards */
+    overflow: hidden !important;
+}
+
+/* Dark gradient overlay mask isolates light bleed from washing out typography text values */
+.testimonials-fog-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    /* Adjusted overlay black concentration to 0.85 for extreme dark theme readability values */
+    background: radial-gradient(circle at center, rgba(11, 12, 16, 0.85) 0%, #0b0c10 100%) !important;
+    z-index: 1 !important; /* Sits directly on top of the image tag, but under foreground cards */
+    pointer-events: none !important;
+}
+
+/* FIXED: Formatted the asset tag to stretch out fully width-wise across the screen canvas limits */
+.testimonials-scenery-image {
+    width: 100% !important; /* Forces horizontal width stretch expansion to clear black borders */
+    height: 100% !important;
+    object-fit: cover !important; /* Cuts image edges automatically to maintain symmetry without squishing */
+    object-position: center !important;
+    transform: scale(1.1) !important;
+    /* FIXED: Set to a subtle 0.18 transparency so it remains deep in the background layer */
+    opacity: 0.38 !important; 
+    transition: opacity 0.3s ease !important;
+}
+
+/* Hardware-Accelerated Oblique Background Translation Loop Animation */
+.testimonials-image-viewport .animate-oblique-drift {
+    will-change: transform;
+    animation: testimonialsBackgroundParallax 24s ease-in-out infinite alternate !important;
+}
+
+@keyframes testimonialsBackgroundParallax {
+    0% { transform: scale(1.1) translate(0, 0); }
+    100% { transform: scale(1.16) translate(-15px, -8px); }
+}
+
+/* Ensure the layout wrapper positions reliably over the background layer bounds */
+.testimonials-layout-wrapper {
+    position: relative !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    z-index: 5 !important;
+}
+
+
+    /* =========================================================================
+   PREMIUM CENTERED TESTIMONIAL CAROUSEL DECK
+   ========================================================================= */
+
+.quantum-testimonials-carousel {
+    position: relative !important;
+    width: 100% !important;
+    padding: 20px 7% !important;
+    background-color: #0b0c10 !important;
+    overflow: hidden !important;
+}
+
+.testimonials-layout-wrapper {
+    max-width: 900px !important; /* Locks width to match the clean focus layout in the image */
+    margin: 0 auto !important;
+    width: 100% !important;
+}
+
+/* Centered Header Formatting Tree */
+.testimonials-section-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin-bottom: 2.5rem !important;
+}
+
+.cyber-accent-tag {
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #a3a8b4; /* Muted subtitle matching sample style */
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.testimonials-main-title {
+    font-size: 3rem !important;
+    font-weight: 500 !important;
+    font-family: 'Georgia', serif !important; /* Serif accent font matching the picture */
+    font-style: italic !important;
+    color: #ffffff !important;
+}
+
+.neon-glow-text {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+.header-laser-separator {
+    width: 40px;
+    height: 2px;
+    background: #39ff14; /* Accent divider line */
+    box-shadow: 0 0 8px #39ff14;
+    margin-top: 1.2rem;
+}
+
+/* Outer Window Frame */
+.carousel-slider-viewport {
+    width: 100% !important;
+    overflow: hidden !important;
+}
+
+/* Horizontal sliding conveyor chassis track */
+.ultra-fleet-review-chassis {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    will-change: transform;
+}
+
+/* Centered Glassmorphic Content Card Component Box */
+.ultra-review-node {
+    min-width: 100% !important; /* Focuses exactly 1 signature review per layout frame */
+    background: rgba(17, 20, 30, 0.3) !important;
+    border: 1px solid rgba(57, 255, 20, 0.15) !important; /* Domain themed green frame border */
+    border-radius: 12px !important;
+    padding: 3.5rem 3rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Centers contents symmetrically */
+    text-align: center !important;
+    gap: 1.8rem !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+
+.ultra-review-node:hover {
+    border-color: #39ff14;
+}
+
+/* Star Matrix row centering */
+.rating-vector-row {
+    display: flex !important;
+    gap: 0.3rem !important;
+    justify-content: center !important;
+}
+
+.rating-vector-row svg {
+    filter: drop-shadow(0 0 4px rgba(57, 255, 20, 0.4));
+}
+
+/* Serif high-visibility readable white quote strings */
+.review-quote-text {
+    font-family: 'Georgia', serif !important;
+    font-size: 1.15rem !important;
+    line-height: 1.8 !important;
+    color: #e2e8f0 !important; 
+    opacity: 0.9;
+    font-style: italic !important;
+    max-width: 720px;
+}
+
+/* Profile Row Centered Formatting Block */
+.operator-profile-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    justify-content: center !important;
+    margin-top: 0.5rem;
+}
+
+.operator-avatar-img {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 1.5px solid #39ff14 !important;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
+}
+
+.operator-metadata {
+    text-align: left !important;
+}
+
+.operator-metadata h4 {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    letter-spacing: 0.5px;
+}
+
+.operator-serial {
+    font-family: monospace !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    color: #64748b !important;
+    margin-top: 0.1rem;
+}
+
+/* Navigation dot containers */
+.carousel-dots-indicator {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
+    margin-top: 2rem !important;
+}
+
+.dot-node {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: #1e293b !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.dot-node.active-dot {
+    background: #39ff14 !important; /* Theme neon green dot selector highlight */
+    box-shadow: 0 0 10px #39ff14 !important;
+    transform: scale(1.25) !important;
+}
+
+/* Responsive Scaling Breaks */
+@media (max-width: 768px) {
+    .quantum-testimonials-carousel { padding: 40px 5% !important; }
+    .testimonials-main-title { font-size: 2.2rem !important; }
+    .ultra-review-node { padding: 2.2rem 1.5rem !important; gap: 1.2rem !important; }
+    .review-quote-text { font-size: 1rem !important; line-height: 1.6 !important; }
+}
+
+</style>
+
+<script>
+    // =========================================================================
+// AUTOMATIC TESTIMONIALS SLIDER WITH ACTIVE DOT SELECTORS
+// =========================================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    const trackChassis = document.getElementById("carouselTrack");
+    const dotsWrapper = document.getElementById("carouselDots");
+    const slideCards = document.querySelectorAll(".ultra-review-node");
+
+    if (!trackChassis || !dotsWrapper || slideCards.length === 0) return;
+
+    let operationalIndex = 0;
+    let rotationTimer = null;
+
+    // 1. Generate dot navigation nodes dynamically matching card array length
+    const constructDotIndicators = () => {
+        dotsWrapper.innerHTML = "";
+        slideCards.forEach((_, index) => {
+            const dot = document.createElement("div");
+            dot.className = index === operationalIndex ? "dot-node active-dot" : "dot-node";
+            dot.setAttribute("data-target-index", index);
+            
+            dot.addEventListener("click", (e) => {
+                operationalIndex = parseInt(e.target.getAttribute("data-target-index"));
+                updateSliderView();
+            });
+            dotsWrapper.appendChild(dot);
+        });
+    };
+
+    // 2. Shift track position and update dot highlights
+    const updateSliderView = () => {
+        // Shift track coordinates horizontally
+        trackChassis.style.transform = `translateX(-${operationalIndex * 100}%)`;
+
+        // Synchronize dots active classes
+        document.querySelector(".dot-node.active-dot")?.classList.remove("active-dot");
+        dotsWrapper.children[operationalIndex]?.classList.add("active-dot");
+    };
+
+    // 3. Carousel automatic rotation function loop
+    const runAutoCycle = () => {
+        rotationTimer = setInterval(() => {
+            operationalIndex = (operationalIndex >= slideCards.length - 1) ? 0 : operationalIndex + 1;
+            updateSliderView();
+        }, 3500); // Cycles review slides every 3.5 seconds
+    };
+
+    // Pause looping when user hovers mouse over cards
+    trackChassis.addEventListener("mouseenter", () => clearInterval(rotationTimer));
+    trackChassis.addEventListener("mouseleave", runAutoCycle);
+
+    // Initialize systems
+    constructDotIndicators();
+    runAutoCycle();
+});
+
+</script>
+
+<!-- Standalone Horizontal Widescreen CTA Linear Banner -->
+<section class="quantum-cta-banner-linear" id="cta-banner">
+    <h2 class="seo-hidden-heading">Join the VoltEdge Electric Bike Revolution</h2>
+    
+    <!-- Panoramic Backdrop Area -->
+    <div class="linear-banner-viewport">
+        <div class="linear-banner-fog"></div>
+        <img src="./Assests/cyber cycle.webp" 
+             alt="VoltEdge Track Background" 
+             class="linear-banner-image">
+    </div>
+
+    <!-- Single-Line Content Stream Container -->
+    <div class="linear-banner-layout-wrapper animate-view-trigger">
+        
+        <!-- Left Zone: Core Headline Message Stack -->
+        <div class="linear-headline-block">
+            <h3 class="linear-cta-title">READY_TO_COMMAND THE <span class="neon-glow-text">STREETS?</span></h3>
+            <p class="linear-cta-subtext">Step into the cockpit of the most intelligent high-density torque platform.</p>
+        </div>
+
+        <!-- Right Zone: High-Voltage Linear Action Deck -->
+        <div class="linear-action-deck">
+            <a href="404.html" class="linear-anchor solid-flux-glow">
+                <span>BOOK TEST RIDE</span>
+                <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="404.html" class="linear-anchor translucent-flux-outline">
+                FIND SHOWROOM
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* =========================================================================
+   FIXED: SINGLE LINE HORIZONTAL WIDESCREEN CTA BANNER
+   ========================================================================= */
+
+.quantum-cta-banner-linear {
+    position: relative !important;
+    width: 100% !important;
+    padding: 3.5rem 7% !important; /* Low height margins provide a clean, narrow strip shape */
+    background-color: #0b0c10 !important;
+    border-top: 1px solid rgba(57, 255, 20, 0.1) !important;
+    border-bottom: 1px solid rgba(57, 255, 20, 0.1) !important;
+    overflow: hidden !important;
+    z-index: 1 !important;
+}
+
+/* Backdrop layers matching dark theme parameters */
+.linear-banner-viewport {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: -2 !important;
+}
+
+.linear-banner-fog {
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(90deg, rgba(11, 12, 16, 0.96) 20%, rgba(11, 12, 16, 0.75) 100%) !important;
+    z-index: -1 !important;
+}
+
+.linear-banner-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    opacity: 0.25 !important;
+}
+
+/* FIXED: Arranges headline text and buttons side-by-side on a single horizontal row */
+.linear-banner-layout-wrapper {
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important; /* Forces horizontal alignment */
+    justify-content: space-between !important; /* Pushes text to left, buttons to right */
+    align-items: center !important;
+    gap: 3rem !important;
+}
+
+/* Left Content Block Layout */
+.linear-headline-block {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.4rem !important;
+    text-align: left !important;
+}
+
+.linear-cta-title {
+    font-size: 1.8rem !important; /* Balanced font size to prevent overlapping cutoff lines */
+    font-weight: 900 !important;
+    letter-spacing: 0.5px !important;
+    color: #ffffff !important;
+    line-height: 1.1 !important;
+}
+
+.linear-cta-title .neon-glow-text {
+    color: #39ff14 !important;
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.4) !important;
+}
+
+.linear-cta-subtext {
+    font-size: 0.95rem !important;
+    color: #cbd5e1 !important; /* Crisp white readable subtext */
+    opacity: 0.8 !important;
+}
+
+/* Right Action Deck Layout */
+.linear-action-deck {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 1.2rem !important;
+    min-width: max-content !important; /* Prevents buttons from squishing or wrapping awkwardly */
+}
+
+.linear-anchor {
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    padding: 0.75rem 1.8rem !important; /* Compact button padding profiles */
+    border-radius: 50px !important;
+    font-size: 0.8rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* Glowing Neon Button States */
+.quantum-cta-banner-linear .solid-flux-glow {
+    background-color: #39ff14 !important;
+    color: #0b0c10 !important;
+    border: 1.5px solid #39ff14 !important;
+    box-shadow: 0 0 12px rgba(57, 255, 20, 0.2) !important;
+}
+
+.quantum-cta-banner-linear .solid-flux-glow:hover {
+    background-color: transparent !important;
+    color: #39ff14 !important;
+    box-shadow: 0 0 20px #39ff14 !important;
+    transform: translateY(-2px) !important;
+}
+
+.btn-arrow { transition: transform 0.25s ease !important; }
+.solid-flux-glow:hover .btn-arrow { transform: translateX(4px) !important; }
+
+.quantum-cta-banner-linear .translucent-flux-outline {
+    background-color: transparent !important;
+    color: #39ff14 !important;
+    border: 1.5px solid rgba(57, 255, 20, 0.3) !important;
+}
+
+.quantum-cta-banner-linear .translucent-flux-outline:hover {
+    background-color: #39ff14 !important;
+    color: #0b0c10 !important;
+    border-color: #39ff14 !important;
+    box-shadow: 0 0 20px #39ff14 !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Modern entry fade animations tied to scroll position view timeline tracking */
+.quantum-cta-banner-linear .animate-view-trigger {
+    opacity: 0;
+    will-change: transform, opacity;
+    animation-name: linearCtaLayoutReveal;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
+    animation-fill-mode: both;
+}
+
+@keyframes linearCtaLayoutReveal {
+    0% { opacity: 0; transform: scale(0.98) translateY(20px); filter: blur(2px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+}
+
+/* =========================================================================
+   FLUID RESPONSIVE COMPONENT LAYER HARDWARE BREAKPOINTS
+   ========================================================================= */
+
+@media (max-width: 868px) {
+    /* Gracefully switch back to centered vertical stack list columns on narrow screens */
+    .linear-banner-layout-wrapper {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 1.5rem !important;
+    }
+    .linear-headline-block { text-align: center !important; }
+    .linear-cta-title { font-size: 1.5rem !important; }
+    .linear-cta-subtext { font-size: 0.85rem !important; }
+    .linear-action-deck { width: 100% !important; justify-content: center !important; }
+}
+
+@media (max-width: 480px) {
+    .linear-action-deck { flex-direction: column !important; width: 100% !important; gap: 0.8rem !important; }
+    .linear-anchor { width: 100% !important; text-align: center !important; }
+}
+
+</style>
+
+<!-- Standalone Architectural Footer Platform with Integrated Native Vectors -->
+<footer class="cyber-master-footer">
+    <div class="footer-layout-wrapper">
+        
+        <!-- Grid Multi-Column Chassis Splitting (4 Columns Layout) -->
+        <div class="footer-columns-matrix">
+            
+            <!-- Column 1: Brand Node Description & Social Channels -->
+            <div class="footer-column brand-summary-node">
+    
+    <!-- FIXED: Pointed href back to the #home section ID to lock your smooth scroll view resets -->
+    <a href="#home" class="footer-brand-logo" id="footerLogoBtn" aria-label="VoltEdge Home Reset">
+        <!-- FIXED: Integrated native img tag pointing to your exact physical directory asset file path -->
+        <img src="./Assests/brand logo.webp" 
+             alt="VoltEdge Official Luxury Emblem" 
+             class="footer-logo-img-asset">
+    </a>
+    
+    <p class="brand-pitch-text">
+        Engineered for high-density kinetic torque tracking, intelligent stability mapping, and 100% zero-emission mechanics. Command the streets with premium electric power.
+    </p>
+
+
+                
+                <!-- Native SVG Social Media Icon Links -->
+                <div class="footer-social-deck">
+                    <!-- Twitter / X Icon Link -->
+                    <a href="404.html" class="social-flux-link" aria-label="X Channel">
+                        <svg class="social-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>
+                    </a>
+                    <!-- Facebook Icon Link -->
+                    <a href="404.html" class="social-flux-link" aria-label="Facebook Link">
+                        <svg class="social-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <!-- Instagram Icon Link -->
+                    <a href="404.html" class="social-flux-link" aria-label="Instagram Link">
+                        <svg class="social-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 2: Active Quick Links Navigation Menu Menu Tree -->
+            <div class="footer-column links-directory-node">
+                <h4 class="column-heading">THE FLEET SQUAD</h4>
+                <ul class="directory-list-tree">
+                    <li><a href="#home" class="directory-item-link">Home Portal Base</a></li>
+                    <li><a href="#specs" class="directory-item-link">System Specifications</a></li>
+                    <li><a href="#showroom" class="directory-item-link">E-Bike Model Fleet</a></li>
+                    <li><a href="#blog" class="directory-item-link">Kinetic Telemetry Logs</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Active Dashboard Navigation Menu Menu Tree -->
+            <div class="footer-column links-directory-node">
+                <h4 class="column-heading">CORE COCKPIT</h4>
+                <ul class="directory-list-tree">
+                    <li><a href="#contact" class="directory-item-link">Secure Test Ride Flight</a></li>
+                    <li><a href="#calculator" class="directory-item-link">Flexible Finance Engine</a></li>
+                    <li><a href="404.html" class="directory-item-link">Secure Vault Support</a></li>
+                    <li><a href="404.html" class="directory-item-link">Ownership Terminal</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: High-Contrast Newsletter Input Console -->
+            <div class="footer-column newsletter-console-node">
+                <h4 class="column-heading">TELEMETRY NEWSLETTER</h4>
+                <p class="newsletter-pitch-text">Get priority notifications on custom product drops, track calibration updates, and weekly eco-mobility logs.</p>
+                
+                <form id="footerNewsletterForm" class="footer-newsletter-form" novalidate>
+                    <div class="newsletter-input-box">
+                        <input type="email" id="newsletterEmail" placeholder="your@email.com" required autocomplete="off">
+                        <span class="box-glow-border"></span>
+                    </div>
+                    <button type="submit" class="newsletter-submit-btn">Subscribe</button>
+                </form>
+                <div id="newsletterFeedback" class="newsletter-feedback-line"></div>
+            </div>
+
+        </div>
+
+        <!-- Lower Baseline Row Zone Matrix links -->
+        <div class="footer-baseline-bar">
+            <div class="copyright-block">
+                <p>&copy; 2026 Stackly Electric Mobility Platforms. Systems Nominal. All Rights Reserved.</p>
+            </div>
+            
+            <div class="legal-sub-menus">
+                <a href="404.html" class="legal-link">Privacy Policy</a>
+                <a href="404.html" class="legal-link">Terms of Service</a>
+                <a href="404.html" class="legal-link">Cookie Policy</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Floating Back to Top Anchor Action Trigger Button Node -->
+    <button class="floating-scroll-top-trigger" id="scrollTopBtn" aria-label="Scroll Back to Top Base">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+    </button>
+</footer>
+
+<style>
+
+    /* =========================================================================
+   FIX: FIXED COMPONENT IMAGE SCALING FOR BRAND LOGO WEB ASSET
+   ========================================================================= */
+
+/* Bounding anchor link box row limits */
+.footer-brand-logo {
+    display: block !important;
+    height: 44px !important; /* Balanced height depth matches sample layout rules */
+    width: auto !important;
+    text-decoration: none !important;
+    position: relative !important;
+}
+
+/* Enforce physical image parameters onto your new logo asset tag */
+.footer-logo-img-asset {
+    height: 100% !important; /* Forces asset to scale smoothly within its parent framework dimensions */
+    width: auto !important;
+    object-fit: contain !important; /* Prevents raw logo crushing, compression, or unintended stretching */
+    background: transparent !important;
+    border-radius: 0 !important; /* Strips away circular radius clippings */
+    filter: drop-shadow(0 0 6px rgba(57, 255, 20, 0.4)) !important; /* Projects a crisp green theme glow aura */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.25) !important;
+}
+
+/* Micro-interaction lift scaling animation hook triggered on user hover checks */
+.footer-brand-logo:hover .footer-logo-img-asset {
+    transform: scale(1.06) translateY(-1px) !important;
+    filter: drop-shadow(0 0 12px #39ff14) !important; /* Burst effect intensifies outline green light beams */
+}
+
+    /* =========================================================================
+   CINEMATIC FOOTER MODULE DESIGN WITH HIGH-CONTRAST NEON GLOWS
+   ========================================================================= */
+
+.cyber-master-footer {
+    position: relative !important;
+    width: 100% !important;
+    background-color: #05060f !important; /* Deep cosmic space black canvas */
+    border-top: 1px solid rgba(255, 255, 255, 0.02) !important;
+    padding: 80px 7% 40px 7% !important;
+    z-index: 9999;
+    box-sizing: border-box !important;
+}
+
+.footer-layout-wrapper {
+    max-width: 1350px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4rem !important;
+}
+
+/* 4 Column Flex Grid Master Configurations */
+.footer-columns-matrix {
+    display: grid !important;
+    grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr !important; /* Mirrors clean structural width layout proportions */
+    gap: 3.5rem !important;
+    width: 100% !important;
+}
+
+.footer-column {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.2rem !important;
+}
+
+/* Heading hierarchy tracking labels */
+.cyber-master-footer .column-heading {
+    font-family: monospace !important;
+    font-size: 0.85rem !important;
+    font-weight: 800 !important;
+    color: #ffffff !important; /* Pure sharp white visible heading titles */
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+}
+
+/* Column 1: Brand details styling rules */
+.footer-brand-logo {
+    display: block !important;
+    width: 44px !important;
+    height: 44px !important;
+    text-decoration: none !important;
+}
+
+.footer-vector-brand {
+    width: 100% !important;
+    height: 100% !important;
+    filter: drop-shadow(0 0 8px #39ff14) !important; /* Projects a crisp green neon loop aura trail */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.25) !important;
+}
+
+.footer-brand-logo:hover .footer-vector-brand {
+    transform: scale(1.1) rotate(15deg) !important;
+    filter: drop-shadow(0 0 15px #39ff14) !important;
+}
+
+.brand-pitch-text, .newsletter-pitch-text {
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+    color: #ffffff !important; /* FORCED HIGH-CONTRAST PARAGRAPH TEXT READABILITY */
+    opacity: 0.75 !important;
+}
+
+/* Icon decks square box controls */
+.footer-social-deck {
+    display: flex !important;
+    gap: 0.8rem !important;
+    margin-top: 0.3rem !important;
+}
+
+.social-flux-link {
+    width: 38px !important;
+    height: 38px !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #cbd5e1 !important; /* Crisp silver color baseline state */
+    border-radius: 4px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.social-svg-icon {
+    width: 18px !important;
+    height: 18px !important;
+    pointer-events: none !important;
+}
+
+.social-flux-link:hover {
+    background: rgba(57, 255, 20, 0.04) !important;
+    border-color: #39ff14 !important;
+    color: #39ff14 !important; /* Icon shifts instantly into matching neon green */
+    box-shadow: 0 0 12px rgba(57, 255, 20, 0.2) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Columns 2 & 3: Standard Quick Links Directory Trees */
+.directory-list-tree {
+    list-style: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+}
+
+.directory-item-link {
+    font-size: 0.95rem !important;
+    color: #ffffff !important; /* Pure sharp white text readable anchors */
+    opacity: 0.75 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    display: inline-block !important;
+    width: fit-content !important;
+}
+
+.directory-item-link:hover {
+    color: #39ff14 !important; /* Swaps instantly to matching green theme colors on mouse over checks */
+    opacity: 1 !important;
+    transform: translateX(5px) !important; /* Subtle slide forward out from lists on mouse-over check */
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.4) !important;
+}
+
+/* Column 4: Premium High-Visibility Newsletter Input Form Console */
+.footer-newsletter-form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+    width: 100% !important;
+}
+
+.newsletter-input-box {
+    position: relative !important;
+    width: 100% !important;
+}
+
+.newsletter-input-box input {
+    width: 100% !important;
+    padding: 0.9rem 1.2rem !important;
+    background: #0f111a !important; /* Deep block input box area */
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+    border-radius: 6px !important;
+    outline: none !important;
+    font-size: 0.9rem !important;
+    box-sizing: border-box !important;
+    transition: all 0.3s ease !important;
+}
+
+.newsletter-input-box input:focus {
+    border-color: rgba(57, 255, 20, 0.4) !important;
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.08) !important;
+}
+
+/* High-Contrast Neon-Green Solid Newsletter Action Button */
+.newsletter-submit-btn {
+    width: 100% !important;
+    background: #39ff14 !important; /* Bright high-contrast theme color solid override */
+    color: #0b0c10 !important;
+    border: 1px solid #39ff14 !important;
+    padding: 0.9rem !important;
+    border-radius: 6px !important;
+    font-size: 0.9rem !important;
+    font-weight: 800 !important;
+    cursor: pointer !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 4px 15px rgba(57, 255, 20, 0.25) !important;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.newsletter-submit-btn:hover {
+    background: transparent !important;
+    color: #39ff14 !important;
+    box-shadow: 0 0 22px #39ff14 !important;
+    transform: translateY(-2px) !important;
+}
+
+.newsletter-feedback-line {
+    font-family: monospace !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    display: none;
+    padding: 0.4rem 0.6rem !important;
+    border-radius: 4px !important;
+}
+.newsletter-feedback-line.active-feedback {
+    display: block !important;
+    color: #39ff14 !important;
+    background: rgba(57, 255, 20, 0.04) !important;
+}
+
+/* =========================================================================
+   LOWER BASELINE REGION BAR & LEGAL REVIEWS
+   ========================================================================= */
+
+.footer-baseline-bar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-top: 2rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.02) !important;
+    width: 100% !important;
+}
+
+.copyright-block p {
+    font-family: monospace !important;
+    font-size: 0.75rem !important;
+    color: white !important;
+    letter-spacing: 0.5px !important;
+}
+
+.legal-sub-menus {
+    display: flex !important;
+    gap: 2rem !important;
+}
+
+.legal-link {
+    font-size: 0.8rem !important;
+    color: #64748b !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+.legal-link:hover {
+    color: #ffffff !important;
+}
+
+/* =========================================================================
+   INTERACTIVE AUTOMATED BACK TO TOP ACTION CONTROLS BUTTON
+   ========================================================================= */
+
+.floating-scroll-top-trigger {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    width: 44px !important;
+    height: 44px !important;
+    background: #0f111a !important;
+    border: 1.5px solid rgba(57, 255, 20, 0.3) !important;
+    color: #39ff14 !important; /* High-contrast round anchor indicator */
+    border-radius: 50% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    z-index: 999999 !important; /* Forces button stay on top layer over scrolling pages content */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6) !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* Class injected by Scroll Observer script functions */
+.floating-scroll-top-trigger.trigger-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.floating-scroll-top-trigger:hover {
+    background: #39ff14 !important;
+    color: #0b0c10 !important;
+    border-color: #39ff14 !important;
+    box-shadow: 0 0 20px #39ff14 !important;
+    transform: translateY(-4px) !important;
+}
+
+/* =========================================================================
+   FLUID RESPONSIVE BOUNDARIES HANDLING OVER RIDDEN SCREEN BREAKS
+   ========================================================================= */
+
+@media (max-width: 1024px) {
+    .footer-columns-matrix {
+        grid-template-columns: 1fr 1fr !important; /* Drops 4 items columns layouts down to 2x2 grid boxes */
+        gap: 3rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .cyber-master-footer { padding: 50px 5% 30px 5% !important; }
+    .footer-layout-wrapper { gap: 3.5rem !important; }
+    .footer-columns-matrix { grid-template-columns: 1fr !important; gap: 2.2rem !important; } /* Hard single stack list columns alignment */
+    .footer-baseline-bar { flex-direction: column-reverse !important; gap: 1.5rem !important; text-align: center !important; }
+    .legal-sub-menus { justify-content: center !important; flex-wrap: wrap !important; gap: 1.2rem !important; }
+    
+    .floating-scroll-top-trigger {
+        bottom: 20px !important;
+        right: 20px !important;
+        width: 38px !important;
+        height: 38px !important;
+    }
+}
+
+</style>
+
+<script>
+    // =========================================================================
+// RUN TIME AUTOMATED BACK TO TOP ACTION ENGINE & FORM CONTROLLERS
+// =========================================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    const footerLogoBtn = document.getElementById("footerLogoBtn");
+    const footerNewsletterForm = document.getElementById("footerNewsletterForm");
+    const newsletterFeedback = document.getElementById("newsletterFeedback");
+
+    // Shared smooth scroll viewport reset worker pipeline
+    const performSmoothViewportReset = (event) => {
+        event.preventDefault(); // Halt standard harsh page snap jumps parameters
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth" // Smooth scrolling velocity transit framework
+        });
+    };
+
+    // Link events to both the floating circle arrow button and your logo brand vector anchor link
+    if (scrollTopBtn) scrollTopBtn.addEventListener("click", performSmoothViewportReset);
+    if (footerLogoBtn) footerLogoBtn.addEventListener("click", performSmoothViewportReset);
+
+    // Window Scroll Position Tracker to reveal the button anchor safely past 400px depths
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 400) {
+            scrollTopBtn.classList.add("trigger-visible");
+        } else {
+            scrollTopBtn.classList.remove("trigger-visible");
+        }
+    });
+
+    // Client Side Newsletter Comms Validation Logger Simulation
+    if (footerNewsletterForm && newsletterFeedback) {
+        footerNewsletterForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const typedEmail = document.getElementById("newsletterEmail").value.trim();
+            
+            newsletterFeedback.className = "newsletter-feedback-line active-feedback";
+            newsletterFeedback.innerText = `[COMMS_LINK_OPEN]: address verified // welcome to the loop.`;
+            
+            footerNewsletterForm.reset();
+            
+            setTimeout(() => {
+                newsletterFeedback.style.display = "none";
+                newsletterFeedback.classList.remove("active-feedback");
+            }, 6000);
+        });
+    }
+});
+
+</script>
+
+</body>
+
