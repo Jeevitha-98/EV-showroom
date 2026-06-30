@@ -424,6 +424,14 @@ body {
 /* =========================================================================
    MUST RESPONSIVE COMPONENT LAYOUT MEDIA BREAKPOINTS
    ========================================================================= */
+/* Disable background scrolling when mobile menu is open */
+html.menu-open,
+body.menu-open {
+    overflow: hidden;
+    height: 100%;
+    touch-action: none;
+    overscroll-behavior: none;
+}
 
 @media (max-width: 1024px) {
     .navigation-link-matrix { gap: 1.8rem; }
@@ -478,4 +486,6 @@ body {
         width: 100% !important;
     }
 }
+
+
 

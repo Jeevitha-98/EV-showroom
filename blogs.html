@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoltEdge EV Showroom</title>
+    <title>Stackly EV Showroom</title>
     <!-- Font Awesome for the glowing icons -->
     <link rel="stylesheet" href="https://cloudflare.com">
     <!-- Your main style sheet link -->
@@ -160,25 +160,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 2. Click events to deploy and secure responsive menu drawer overlays
-    mobileWireTrigger.addEventListener('click', () => {
-        mobileWireTrigger.classList.toggle('wire-activated');
-        navigationLinkMatrix.classList.toggle('drawer-deployed');
-    });
+   let scrollPosition = 0;
+
+mobileWireTrigger.addEventListener("click", () => {
+    mobileWireTrigger.classList.toggle("wire-activated");
+    navigationLinkMatrix.classList.toggle("drawer-deployed");
+
+    if (navigationLinkMatrix.classList.contains("drawer-deployed")) {
+        // Save current scroll position
+        scrollPosition = window.pageYOffset;
+
+        // Freeze the page
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.left = "0";
+        document.body.style.right = "0";
+        document.body.style.width = "100%";
+    } else {
+        // Unfreeze the page
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+        document.body.style.right = "";
+        document.body.style.width = "";
+
+        // Restore scroll position
+        window.scrollTo(0, scrollPosition);
+    }
+});
 
     // 3. Close pipeline to retract drawer immediately when clicking target route paths
-    systemRouteAnchors.forEach(anchor => {
-        anchor.addEventListener('click', (e) => {
-            // Highlighting active route navigation paths safely
-            if (e.target.classList.contains('synchronized-nav-route')) {
-                document.querySelector('.synchronized-nav-route.active-route')?.classList.remove('active-route');
-                e.target.classList.add('active-route');
-            }
+ systemRouteAnchors.forEach(anchor => {
+    anchor.addEventListener("click", (e) => {
 
-            // Collapse active drawer menu frameworks back to hiding limits
-            mobileWireTrigger.classList.remove('wire-activated');
-            navigationLinkMatrix.classList.remove('drawer-deployed');
-        });
+        if (e.target.classList.contains("synchronized-nav-route")) {
+            document.querySelector(".synchronized-nav-route.active-route")
+                ?.classList.remove("active-route");
+            e.target.classList.add("active-route");
+        }
+
+        mobileWireTrigger.classList.remove("wire-activated");
+        navigationLinkMatrix.classList.remove("drawer-deployed");
+
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+        document.body.style.right = "";
+        document.body.style.width = "";
+
+        window.scrollTo(0, scrollPosition);
     });
+});
 });
 // =========================================================================
 // HEADER BRAND IDENTITY ACTIVE RUN-TIME PAGE REFRESH ENGINE
@@ -200,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="blog-hero-viewport" id="blog-home">
         
         <!-- SEO Semantic Priority Heading (Hidden from user view, used strictly for search crawlers) -->
-        <h1 class="seo-hidden-heading">VoltEdge Telemetry Blog - Electric Bike Technical Updates, Performance Testing Logs, and EV Eco-Mobility Articles</h1>
+        <h1 class="seo-hidden-heading">Stackly Telemetry Blog - Electric Bike Technical Updates, Performance Testing Logs, and EV Eco-Mobility Articles</h1>
 
         <!-- Background Panoramic Viewport Matrix Layer -->
         <div class="blog-hero-backdrop-vault">
@@ -231,7 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </h2>
 
                     <p class="blog-hero-summary animate-slide-up-fade" style="animation-delay: 0.2s;">
-                        Decrypt real-time engineering breakthroughs, track thermal profiling parameters, and explore step-by-step guides straight from the VoltEdge factory floor labs.
+                        Decrypt real-time engineering breakthroughs, track thermal profiling parameters, and explore step-by-step guides straight from the Stackly factory floor labs.
                     </p>
 
                     <!-- User-Friendly Interactive Search Bar Terminal Console Input -->
@@ -529,7 +561,7 @@ body.blog-viewport-lock {
     </style>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", () => {
     const searchForm = document.getElementById("cyberSearchForm");
     const queryInput = document.getElementById("systemQueryInput");
 
@@ -539,10 +571,18 @@ body.blog-viewport-lock {
             
             const rawSearchQuery = queryInput.value.trim();
 
-            if (!rawSearchQuery) {
-                // If query is empty, run a quick glow shake alert on the input box
-                queryInput.style.borderColor = "#ff0055";
-                setTimeout(() => queryInput.style.borderColor = "", 1500);
+            // FIXED: If the query is empty or still matching an error string, run a high-contrast validation warning
+            if (!rawSearchQuery || rawSearchQuery.startsWith("ERROR:") || rawSearchQuery.startsWith("[SEARCH_COMPILING]:")) {
+                queryInput.style.borderColor = "#ff0055"; // Injects high-contrast red perimeter flash
+                queryInput.value = "ERROR: PLEASE FILL THE FIELD..."; // Injects a visible layout error warning text string
+                queryInput.style.color = "#ff0055"; // Changes text color to high-visibility warning red
+                
+                // Automatically clears out the error parameters after 1.5 seconds so the user can type fresh inputs
+                setTimeout(() => { 
+                    queryInput.style.borderColor = ""; 
+                    queryInput.value = "";
+                    queryInput.style.color = "";
+                }, 1500);
                 return;
             }
 
@@ -553,22 +593,27 @@ body.blog-viewport-lock {
             queryInput.value = `[SEARCH_COMPILING]: ${rawSearchQuery.toUpperCase()}`;
             queryInput.disabled = true;
 
+            // Wiped alert triggers and routed directly to the 404 validation panel
             setTimeout(() => {
-                queryInput.value = "";
                 queryInput.disabled = false;
-                // Add your real window relocation data routes here when ready to deploy backend links
-                alert(`Search Query Captured: "${rawSearchQuery}"\nBackend telemetry pipeline indexing loop simulated.`);
+                
+                // Clear the form elements safely right before leaving the screen view
+                searchForm.reset();
+
+                // Executes direct window redirection straight into your custom 404 calibration loop screen page
+                window.location.href = "404.html";
             }, 1200);
         });
     }
 });
+
     </script>
 
     <!-- Standalone Interactive Landmark Blog Directory Grid Section with optimized padding for SEO indexing -->
 <section class="quantum-blog-grid" id="blog-grid">
     
     <!-- SEO Technical Layer Metadata Heading -->
-    <h2 class="seo-hidden-heading">VoltEdge Electric Bike Telemetry Article Directory, Battery System Guides, and EV Commuter Performance Logs</h2>
+    <h2 class="seo-hidden-heading">Stackly Electric Bike Telemetry Article Directory, Battery System Guides, and EV Commuter Performance Logs</h2>
 
     <!-- Dynamic Continuous Panning Background Asset Vault Layer -->
     <div class="grid-image-viewport">
@@ -896,7 +941,7 @@ body.blog-viewport-lock {
 <section class="quantum-radar-carousel" id="blog-radar">
     
     <!-- SEO Optimization Meta Layer -->
-    <h2 class="seo-hidden-heading">VoltEdge Custom Fleet Engineering Innovations, Aero-Dynamic Velocity Testing, and Solid-State Energy Log Hubs</h2>
+    <h2 class="seo-hidden-heading">Stackly Custom Fleet Engineering Innovations, Aero-Dynamic Velocity Testing, and Solid-State Energy Log Hubs</h2>
 
     <!-- Backdrop Panoramic Matrix Viewport Layer -->
     <div class="radar-image-viewport">
@@ -1333,7 +1378,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="quantum-discovery-grid" id="blog-grid-hub">
     
     <!-- SEO Technical Layer Metadata Heading -->
-    <h2 class="seo-hidden-heading">VoltEdge Electric Bike Technical Article Archives, Performance Lab Guides, and EV Mechanics Logs</h2>
+    <h2 class="seo-hidden-heading">Stackly Electric Bike Technical Article Archives, Performance Lab Guides, and EV Mechanics Logs</h2>
 
     <!-- Backdrop Panoramic Matrix Viewport Layer -->
     <div class="grid-hub-image-viewport">
@@ -1575,7 +1620,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="quantum-cosmic-slider" id="blog-cosmic-slider">
     
     <!-- SEO Technical Layer Metadata Heading -->
-    <h2 class="seo-hidden-heading">VoltEdge Advanced Electric Bike Engineering Logs, Custom Model Testing Articles, and EV Innovation Stories</h2>
+    <h2 class="seo-hidden-heading">Stackly Advanced Electric Bike Engineering Logs, Custom Model Testing Articles, and EV Innovation Stories</h2>
 
     <!-- Backdrop Panoramic Matrix Viewport Layer -->
     <div class="slider-image-viewport">
@@ -2289,7 +2334,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <!-- Standalone Horizontal Widescreen CTA Linear Banner -->
 <section class="quantum-cta-banner-linear" id="cta-banner">
-    <h2 class="seo-hidden-heading">Join the VoltEdge Electric Bike Revolution</h2>
+    <h2 class="seo-hidden-heading">Join the Stackly Electric Bike Revolution</h2>
     
     <!-- Panoramic Backdrop Area -->
     <div class="linear-banner-viewport">
@@ -2314,7 +2359,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span>BOOK TEST RIDE</span>
                 <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
-            <a href="404.html" class="linear-anchor translucent-flux-outline">
+            <a href="showroom.html" class="linear-anchor translucent-flux-outline">
                 FIND SHOWROOM
             </a>
         </div>
@@ -2506,7 +2551,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="footer-column brand-summary-node">
     
     <!-- FIXED: Pointed href back to the #home section ID to lock your smooth scroll view resets -->
-    <a href="#home" class="footer-brand-logo" id="footerLogoBtn" aria-label="VoltEdge Home Reset">
+    <a href="blogs.html" class="footer-brand-logo" id="footerLogoBtn" aria-label="VoltEdge Home Reset">
         <!-- FIXED: Integrated native img tag pointing to your exact physical directory asset file path -->
         <img src="./Assests/brand logo.webp" 
              alt="VoltEdge Official Luxury Emblem" 
@@ -2540,10 +2585,10 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="footer-column links-directory-node">
                 <h4 class="column-heading">THE FLEET SQUAD</h4>
                 <ul class="directory-list-tree">
-                    <li><a href="#home" class="directory-item-link">Home Portal Base</a></li>
-                    <li><a href="#specs" class="directory-item-link">System Specifications</a></li>
-                    <li><a href="#showroom" class="directory-item-link">E-Bike Model Fleet</a></li>
-                    <li><a href="#blog" class="directory-item-link">Kinetic Telemetry Logs</a></li>
+                    <li><a href="index.html" class="directory-item-link">Home Portal Base</a></li>
+                    <li><a href="specs.html" class="directory-item-link">System Specifications</a></li>
+                    <li><a href="showroom.html" class="directory-item-link">E-Bike Model Fleet</a></li>
+                    <li><a href="blogs.html" class="directory-item-link">Kinetic Telemetry Logs</a></li>
                 </ul>
             </div>
 
@@ -2931,6 +2976,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 }
 
+/* Custom low-profile error red illumination path text helper */
+.text-error-glow {
+    color: #ff0055 !important;
+    text-shadow: 0 0 8px rgba(255, 0, 85, 0.4) !important;
+    font-family: monospace !important;
+    font-weight: 700 !important;
+}
+
 </style>
 
 <script>
@@ -2967,20 +3020,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Client Side Newsletter Comms Validation Logger Simulation
+        // =========================================================================
+    // FIXED: FOOTER NEWSLETTER EMPTY COMPILING ENTRY TRACK WITH VALIDATION
+    // =========================================================================
     if (footerNewsletterForm && newsletterFeedback) {
         footerNewsletterForm.addEventListener("submit", function (e) {
             e.preventDefault();
-            const typedEmail = document.getElementById("newsletterEmail").value.trim();
             
+            const emailFieldNode = document.getElementById("newsletterEmail");
+            const typedEmail = emailFieldNode ? emailFieldNode.value.trim() : "";
+            
+            // FIXED: If user simply clicks subscribe with an empty field, show feedback text string
+            if (!typedEmail || typedEmail === "[ROUTING_TO_COMMS_VAULT]...") {
+                if (emailFieldNode) {
+                    emailFieldNode.style.borderColor = "#ff0055"; // Injects high-contrast red perimeter flash
+                    setTimeout(() => { emailFieldNode.style.borderColor = ""; }, 1500);
+                }
+                
+                // Mount an explicit warning message directly into your styled console line
+                newsletterFeedback.className = "newsletter-feedback-line active-feedback text-error-glow";
+                newsletterFeedback.style.display = "block";
+                newsletterFeedback.innerText = "[ERROR]: INPUT_EMPTY // Please fill in a valid email field.";
+                return;
+            }
+
+            console.log(`[NEWSLETTER_QUERY]: Capturing email packet target string: "${typedEmail.toUpperCase()}"`);
+
+            // Initialize structural success log display variables inside terminal feedback node line
             newsletterFeedback.className = "newsletter-feedback-line active-feedback";
-            newsletterFeedback.innerText = `[COMMS_LINK_OPEN]: address verified // welcome to the loop.`;
+            newsletterFeedback.style.display = "block"; 
+            newsletterFeedback.innerText = `[COMMS_LINK_OPEN]: COMPILING DATA PACKET ROUTE...`;
             
-            footerNewsletterForm.reset();
+            // Re-route input placeholder copy blocks to simulate a core database indexing loop progress track
+            if (emailFieldNode) {
+                emailFieldNode.value = "[ROUTING_TO_COMMS_VAULT]...";
+                emailFieldNode.disabled = true;
+            }
             
+            // Evaluates the terminal data and triggers a 404 calibration loop redirect after a 1.2s delay pass
             setTimeout(() => {
+                // Wipe data fields clean for security compliance right before leaving the screen
+                footerNewsletterForm.reset();
+                if (emailFieldNode) {
+                    emailFieldNode.disabled = false;
+                }
+                
                 newsletterFeedback.style.display = "none";
                 newsletterFeedback.classList.remove("active-feedback");
-            }, 6000);
+
+                // Executes direct window redirection straight into your custom 404 calibration loop screen page
+                window.location.href = "404.html";
+            }, 1200); 
         });
     }
 });

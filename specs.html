@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoltEdge EV Showroom</title>
+    <title>Stackly EV Showroom</title>
     <!-- Font Awesome for the glowing icons -->
     <link rel="stylesheet" href="https://cloudflare.com">
     <!-- Your main style sheet link -->
@@ -160,25 +160,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 2. Click events to deploy and secure responsive menu drawer overlays
-    mobileWireTrigger.addEventListener('click', () => {
-        mobileWireTrigger.classList.toggle('wire-activated');
-        navigationLinkMatrix.classList.toggle('drawer-deployed');
-    });
+    let scrollPosition = 0;
+
+mobileWireTrigger.addEventListener("click", () => {
+    mobileWireTrigger.classList.toggle("wire-activated");
+    navigationLinkMatrix.classList.toggle("drawer-deployed");
+
+    if (navigationLinkMatrix.classList.contains("drawer-deployed")) {
+        // Save current scroll position
+        scrollPosition = window.pageYOffset;
+
+        // Freeze the page
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.left = "0";
+        document.body.style.right = "0";
+        document.body.style.width = "100%";
+    } else {
+        // Unfreeze the page
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+        document.body.style.right = "";
+        document.body.style.width = "";
+
+        // Restore scroll position
+        window.scrollTo(0, scrollPosition);
+    }
+});
 
     // 3. Close pipeline to retract drawer immediately when clicking target route paths
-    systemRouteAnchors.forEach(anchor => {
-        anchor.addEventListener('click', (e) => {
-            // Highlighting active route navigation paths safely
-            if (e.target.classList.contains('synchronized-nav-route')) {
-                document.querySelector('.synchronized-nav-route.active-route')?.classList.remove('active-route');
-                e.target.classList.add('active-route');
-            }
+ systemRouteAnchors.forEach(anchor => {
+    anchor.addEventListener("click", (e) => {
 
-            // Collapse active drawer menu frameworks back to hiding limits
-            mobileWireTrigger.classList.remove('wire-activated');
-            navigationLinkMatrix.classList.remove('drawer-deployed');
-        });
+        if (e.target.classList.contains("synchronized-nav-route")) {
+            document.querySelector(".synchronized-nav-route.active-route")
+                ?.classList.remove("active-route");
+            e.target.classList.add("active-route");
+        }
+
+        mobileWireTrigger.classList.remove("wire-activated");
+        navigationLinkMatrix.classList.remove("drawer-deployed");
+
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+        document.body.style.right = "";
+        document.body.style.width = "";
+
+        window.scrollTo(0, scrollPosition);
     });
+});
 });
 // =========================================================================
 // HEADER BRAND IDENTITY ACTIVE RUN-TIME PAGE REFRESH ENGINE
@@ -201,14 +233,14 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="specs-hero-viewport" id="specs-home">
     
     <!-- SEO Semantic Priority Heading (Hidden from user view, used strictly for search crawlers) -->
-    <h1 class="seo-hidden-heading">VoltEdge Electric Bike Technical Specifications, Motor Performance, and Battery Metrics</h1>
+    <h1 class="seo-hidden-heading">Stackly Electric Bike Technical Specifications, Motor Performance, and Battery Metrics</h1>
 
     <!-- Background Panoramic Viewport Matrix Layer -->
     <div class="specs-hero-backdrop-vault">
         <div class="specs-hero-mask"></div>
         <!-- REPLACE 'your-specs-hero-bg.jpg' with your actual background image file path -->
         <img src="./Assests/EV 2.webp" 
-             alt="VoltEdge High Performance Electric Superbike Internal Circuit Component Matrix Layout" 
+             alt="Stackly High Performance Electric Superbike Internal Circuit Component Matrix Layout" 
              class="specs-hero-image animate-cinematic-pan" 
              loading="eager" 
              decoding="async">
@@ -229,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </h2>
 
             <p class="specs-hero-summary animate-slide-up-fade" style="animation-delay: 0.25s;">
-                Dive deep into the structural engineering layers of the VoltEdge platform. Track real-time thermal coefficient variables, phase-shifting flux motor telemetry, and high-density kinetic cells arrays.
+                Dive deep into the structural engineering layers of the Stackly platform. Track real-time thermal coefficient variables, phase-shifting flux motor telemetry, and high-density kinetic cells arrays.
             </p>
 
             <!-- Interactive Grid Readouts Stack Matrix -->
@@ -253,7 +285,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <!-- Action Command Station Deck -->
             <div class="specs-hero-action-deck animate-slide-up-fade" style="animation-delay: 0.7s;">
-                <a href="#detailed-specs" class="specs-hero-anchor solid-flux-glow">
+                <a href="404.html" class="specs-hero-anchor solid-flux-glow">
                     <span>DECRYPT ALL TECH DATA</span>
                 </a>
                 <a href="404.html" class="specs-hero-anchor translucent-flux-outline">
@@ -578,7 +610,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <!-- Standalone Cinematic Aero-Tunnel HUD Interface Module -->
 <section class="quantum-aero-simulator-hud" id="aero-tunnel">
-    <h2 class="seo-hidden-heading">VoltEdge Advanced Aerodynamic Testing and Interactive HUD Velocity Telemetry</h2>
+    <h2 class="seo-hidden-heading">Stackly Advanced Aerodynamic Testing and Interactive HUD Velocity Telemetry</h2>
 
     <!-- Backdrop Panoramic Matrix Viewport Layer -->
     <div class="hud-scenery-viewport">
@@ -988,7 +1020,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="quantum-battery-hub" id="battery-matrix">
     
     <!-- SEO Technical Metadata Layer -->
-    <h2 class="seo-hidden-heading">VoltEdge Solid-State Battery Cell Matrix Specifications, Intelligent Thermal Loops, and Charging Lifecycle Telemetry</h2>
+    <h2 class="seo-hidden-heading">Stackly Solid-State Battery Cell Matrix Specifications, Intelligent Thermal Loops, and Charging Lifecycle Telemetry</h2>
 
     <div class="battery-layout-wrapper">
         
@@ -1372,7 +1404,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="quantum-marketing-banner" id="marketing-pitch">
     
     <!-- SEO Optimization Meta Layer -->
-    <h2 class="seo-hidden-heading">Join the VoltEdge E-Bike Elite Club - Book Exclusive Performance Track Flights</h2>
+    <h2 class="seo-hidden-heading">Join the Stackly E-Bike Elite Club - Book Exclusive Performance Track Flights</h2>
 
     <!-- Backdrop Panoramic Matrix Viewport Layer -->
     <div class="marketing-image-viewport">
@@ -1399,7 +1431,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <!-- Call-To-Action Station Routing with Fallbacks -->
             <div class="marketing-action-deck">
-                <a href="404.html" class="marketing-cta-anchor solid-flux-glow">
+                <a href="contactus.html" class="marketing-cta-anchor solid-flux-glow">
                     <span>SECURE YOUR TRACK SLOT</span>
                     <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
@@ -1620,7 +1652,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="quantum-exploded-view" id="feature-map">
     
     <!-- SEO Technical Layer Heading -->
-    <h2 class="seo-hidden-heading">VoltEdge Advanced Mechanical Feature Map, Electric Bike Carbon Frame Layers, and Smart Engineering Integration Details</h2>
+    <h2 class="seo-hidden-heading">Stackly Advanced Mechanical Feature Map, Electric Bike Carbon Frame Layers, and Smart Engineering Integration Details</h2>
 
     <!-- FIXED: Dynamic Continuous Panning Background Asset Container Matrix Layer -->
     <div class="exploded-image-viewport">
@@ -2026,13 +2058,13 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="quantum-cta-linear-strip" id="cta-strip">
     
     <!-- SEO Optimization Meta Layer -->
-    <h2 class="seo-hidden-heading">Claim Your VoltEdge High-Performance Electric Bike Pre-Booking Allocation Slot</h2>
+    <h2 class="seo-hidden-heading">Claim Your stackly High-Performance Electric Bike Pre-Booking Allocation Slot</h2>
     
     <!-- Backdrop Panoramic Viewport Matrix Layer -->
     <div class="linear-strip-viewport">
         <div class="linear-strip-fog"></div>
         <!-- Point the src path directly to your official track background image asset file -->
-        <img src="https://unsplash.com" 
+        <img src="./Assests/EV 4.webp" 
              alt="VoltEdge High Performance Electric Superbike Open Track Flight Testing Background" 
              class="linear-strip-image">
     </div>
@@ -2054,7 +2086,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span>RESERVE SLOTS</span>
                 <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
-            <a href="404.html" class="linear-anchor translucent-flux-outline">
+            <a href="showroom.html" class="linear-anchor translucent-flux-outline">
                 FIND SHOWROOM
             </a>
         </div>
@@ -2302,7 +2334,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="quantum-matrix-hub" id="spec-matrix">
     
     <!-- SEO Technical Metadata Layer -->
-    <h2 class="seo-hidden-heading">VoltEdge Electric Bike Complete Mechanical Specification Table, Motor Part Dimensions, and Weight Matrix Sheet</h2>
+    <h2 class="seo-hidden-heading">Stackly Electric Bike Complete Mechanical Specification Table, Motor Part Dimensions, and Weight Matrix Sheet</h2>
 
     <!-- FIXED: Dynamic Continuous Panning Background Asset Viewport Matrix Layer -->
     <div class="matrix-image-viewport">
@@ -2753,7 +2785,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="specs-marketing-hub" id="specs-marketing-pitch">
     
     <!-- SEO Semantic Optimization Meta Layer -->
-    <h2 class="seo-hidden-heading">VoltEdge Custom Fleet Ownership Benefits, Extended Warranty Schemes, and Showroom Track Membership Paths</h2>
+    <h2 class="seo-hidden-heading">Stackly Custom Fleet Ownership Benefits, Extended Warranty Schemes, and Showroom Track Membership Paths</h2>
 
     <div class="marketing-layout-wrapper">
         <div class="marketing-split-chassis">
@@ -2804,7 +2836,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span class="cyber-accent-tag">THE INVITATION LINK</span>
                 <h3 class="marketing-primary-title">Don't Just Read <br>The Specs. <br><span class="neon-glow-text">Command Them.</span></h3>
                 <p class="marketing-body-summary">
-                    Engineering statistics are nominal on paper, but the true benchmark is the raw force of acceleration pulling your gravity center forward. Claim your priority allocation token slot today to lock down your tracking timeline queue, custom color ways, and your entry ticket into the premium VoltEdge operator loop.
+                    Engineering statistics are nominal on paper, but the true benchmark is the raw force of acceleration pulling your gravity center forward. Claim your priority allocation token slot today to lock down your tracking timeline queue, custom color ways, and your entry ticket into the premium Stackly operator loop.
                 </p>
                 
                 <!-- Action Link Anchor Station -->
@@ -3383,7 +3415,7 @@ document.addEventListener("DOMContentLoaded", () => {
     font-family: monospace !important;
     font-size: 0.75rem !important;
     font-weight: 500 !important;
-    color: #64748b !important;
+    color: white !important;
     margin-top: 0.1rem;
 }
 
@@ -3483,7 +3515,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <!-- Standalone Horizontal Widescreen CTA Linear Banner -->
 <section class="quantum-cta-banner-linear" id="cta-banner">
-    <h2 class="seo-hidden-heading">Join the VoltEdge Electric Bike Revolution</h2>
+    <h2 class="seo-hidden-heading">Join the Stackly Electric Bike Revolution</h2>
     
     <!-- Panoramic Backdrop Area -->
     <div class="linear-banner-viewport">
@@ -3508,7 +3540,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span>BOOK TEST RIDE</span>
                 <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
-            <a href="404.html" class="linear-anchor translucent-flux-outline">
+            <a href="showroom.html" class="linear-anchor translucent-flux-outline">
                 FIND SHOWROOM
             </a>
         </div>
@@ -3700,7 +3732,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="footer-column brand-summary-node">
     
     <!-- FIXED: Pointed href back to the #home section ID to lock your smooth scroll view resets -->
-    <a href="#home" class="footer-brand-logo" id="footerLogoBtn" aria-label="VoltEdge Home Reset">
+    <a href="specs.html" class="footer-brand-logo" id="footerLogoBtn" aria-label="VoltEdge Home Reset">
         <!-- FIXED: Integrated native img tag pointing to your exact physical directory asset file path -->
         <img src="./Assests/brand logo.webp" 
              alt="VoltEdge Official Luxury Emblem" 
@@ -3734,10 +3766,10 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="footer-column links-directory-node">
                 <h4 class="column-heading">THE FLEET SQUAD</h4>
                 <ul class="directory-list-tree">
-                    <li><a href="#home" class="directory-item-link">Home Portal Base</a></li>
-                    <li><a href="#specs" class="directory-item-link">System Specifications</a></li>
-                    <li><a href="#showroom" class="directory-item-link">E-Bike Model Fleet</a></li>
-                    <li><a href="#blog" class="directory-item-link">Kinetic Telemetry Logs</a></li>
+                    <li><a href="index.html" class="directory-item-link">Home Portal Base</a></li>
+                    <li><a href="specs.html" class="directory-item-link">System Specifications</a></li>
+                    <li><a href="showroom.html" class="directory-item-link">E-Bike Model Fleet</a></li>
+                    <li><a href="blogs.html" class="directory-item-link">Kinetic Telemetry Logs</a></li>
                 </ul>
             </div>
 
@@ -4051,7 +4083,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 .legal-link {
     font-size: 0.8rem !important;
-    color: #64748b !important;
+    color: white !important;
     text-decoration: none !important;
     transition: color 0.3s ease !important;
 }
@@ -4124,6 +4156,14 @@ document.addEventListener("DOMContentLoaded", () => {
         height: 38px !important;
     }
 }
+/* Custom low-profile error red illumination path text helper */
+.text-error-glow {
+    color: #ff0055 !important;
+    text-shadow: 0 0 8px rgba(255, 0, 85, 0.4) !important;
+    font-family: monospace !important;
+    font-weight: 700 !important;
+}
+
 
 </style>
 
@@ -4161,23 +4201,61 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Client Side Newsletter Comms Validation Logger Simulation
+    // =========================================================================
+    // FIXED: FOOTER NEWSLETTER EMPTY COMPILING ENTRY TRACK WITH VALIDATION
+    // =========================================================================
     if (footerNewsletterForm && newsletterFeedback) {
         footerNewsletterForm.addEventListener("submit", function (e) {
             e.preventDefault();
-            const typedEmail = document.getElementById("newsletterEmail").value.trim();
             
+            const emailFieldNode = document.getElementById("newsletterEmail");
+            const typedEmail = emailFieldNode ? emailFieldNode.value.trim() : "";
+            
+            // FIXED: If user simply clicks subscribe with an empty field, show feedback text string
+            if (!typedEmail || typedEmail === "[ROUTING_TO_COMMS_VAULT]...") {
+                if (emailFieldNode) {
+                    emailFieldNode.style.borderColor = "#ff0055"; // Injects high-contrast red perimeter flash
+                    setTimeout(() => { emailFieldNode.style.borderColor = ""; }, 1500);
+                }
+                
+                // Mount an explicit warning message directly into your styled console line
+                newsletterFeedback.className = "newsletter-feedback-line active-feedback text-error-glow";
+                newsletterFeedback.style.display = "block";
+                newsletterFeedback.innerText = "[ERROR]: INPUT_EMPTY // Please fill in a valid email field.";
+                return;
+            }
+
+            console.log(`[NEWSLETTER_QUERY]: Capturing email packet target string: "${typedEmail.toUpperCase()}"`);
+
+            // Initialize structural success log display variables inside terminal feedback node line
             newsletterFeedback.className = "newsletter-feedback-line active-feedback";
-            newsletterFeedback.innerText = `[COMMS_LINK_OPEN]: address verified // welcome to the loop.`;
+            newsletterFeedback.style.display = "block"; 
+            newsletterFeedback.innerText = `[COMMS_LINK_OPEN]: COMPILING DATA PACKET ROUTE...`;
             
-            footerNewsletterForm.reset();
+            // Re-route input placeholder copy blocks to simulate a core database indexing loop progress track
+            if (emailFieldNode) {
+                emailFieldNode.value = "[ROUTING_TO_COMMS_VAULT]...";
+                emailFieldNode.disabled = true;
+            }
             
+            // Evaluates the terminal data and triggers a 404 calibration loop redirect after a 1.2s delay pass
             setTimeout(() => {
+                // Wipe data fields clean for security compliance right before leaving the screen
+                footerNewsletterForm.reset();
+                if (emailFieldNode) {
+                    emailFieldNode.disabled = false;
+                }
+                
                 newsletterFeedback.style.display = "none";
                 newsletterFeedback.classList.remove("active-feedback");
-            }, 6000);
+
+                // Executes direct window redirection straight into your custom 404 calibration loop screen page
+                window.location.href = "404.html";
+            }, 1200); 
         });
     }
 });
+
 
 </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoltEdge EV Showroom</title>
+    <title>Stackly EV Showroom</title>
     <!-- Font Awesome for the glowing icons -->
     <link rel="stylesheet" href="https://cloudflare.com">
     <!-- Your main style sheet link -->
@@ -158,25 +158,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 2. Click events to deploy and secure responsive menu drawer overlays
-    mobileWireTrigger.addEventListener('click', () => {
-        mobileWireTrigger.classList.toggle('wire-activated');
-        navigationLinkMatrix.classList.toggle('drawer-deployed');
-    });
+let scrollPosition = 0;
+
+mobileWireTrigger.addEventListener("click", () => {
+    mobileWireTrigger.classList.toggle("wire-activated");
+    navigationLinkMatrix.classList.toggle("drawer-deployed");
+
+    if (navigationLinkMatrix.classList.contains("drawer-deployed")) {
+        // Save current scroll position
+        scrollPosition = window.pageYOffset;
+
+        // Freeze the page
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.left = "0";
+        document.body.style.right = "0";
+        document.body.style.width = "100%";
+    } else {
+        // Unfreeze the page
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+        document.body.style.right = "";
+        document.body.style.width = "";
+
+        // Restore scroll position
+        window.scrollTo(0, scrollPosition);
+    }
+});
 
     // 3. Close pipeline to retract drawer immediately when clicking target route paths
-    systemRouteAnchors.forEach(anchor => {
-        anchor.addEventListener('click', (e) => {
-            // Highlighting active route navigation paths safely
-            if (e.target.classList.contains('synchronized-nav-route')) {
-                document.querySelector('.synchronized-nav-route.active-route')?.classList.remove('active-route');
-                e.target.classList.add('active-route');
-            }
+ systemRouteAnchors.forEach(anchor => {
+    anchor.addEventListener("click", (e) => {
 
-            // Collapse active drawer menu frameworks back to hiding limits
-            mobileWireTrigger.classList.remove('wire-activated');
-            navigationLinkMatrix.classList.remove('drawer-deployed');
-        });
+        if (e.target.classList.contains("synchronized-nav-route")) {
+            document.querySelector(".synchronized-nav-route.active-route")
+                ?.classList.remove("active-route");
+            e.target.classList.add("active-route");
+        }
+
+        mobileWireTrigger.classList.remove("wire-activated");
+        navigationLinkMatrix.classList.remove("drawer-deployed");
+
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+        document.body.style.right = "";
+        document.body.style.width = "";
+
+        window.scrollTo(0, scrollPosition);
     });
+});
 });
 // =========================================================================
 // HEADER BRAND IDENTITY ACTIVE RUN-TIME PAGE REFRESH ENGINE
@@ -261,7 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <a href="404.html" class="hero-cta-anchor solid-flux-glow">
                     PRE-BOOK NOW <i class="fa-solid fa-arrow-right-long arrow-flux"></i>
                 </a>
-                <a href="404.html" class="hero-cta-anchor translucent-flux-outline">
+                <a href="specs.html" class="hero-cta-anchor translucent-flux-outline">
                     EXPLORE SPECS
                 </a>
             </div>
@@ -1532,7 +1564,7 @@ document.addEventListener("DOMContentLoaded", () => {
     font-family: monospace;
     font-size: 0.7rem;
     font-weight: 700;
-    color: #64748b;
+    color: white;
     letter-spacing: 1.5px;
 }
 
@@ -2153,7 +2185,7 @@ document.addEventListener("DOMContentLoaded", () => {
 .mini-readout h5 {
     font-family: monospace;
     font-size: 0.65rem;
-    color: #64748b;
+    color: white;
     letter-spacing: 1px;
     margin-bottom: 0.2rem;
 }
@@ -2413,7 +2445,7 @@ document.addEventListener("DOMContentLoaded", () => {
     font-family: monospace;
     font-size: 0.75rem;
     font-weight: 700;
-    color: #64748b; /* Faint gray for clean visual hierarchy */
+    color: white; /* Faint gray for clean visual hierarchy */
     letter-spacing: 1.5px;
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
@@ -2574,7 +2606,7 @@ document.addEventListener("DOMContentLoaded", () => {
     font-family: monospace;
     font-size: 0.85rem;
     font-weight: 700;
-    color: #64748b;
+    color: white;
     letter-spacing: 2px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     padding-bottom: 0.8rem;
@@ -3130,7 +3162,7 @@ document.addEventListener("DOMContentLoaded", () => {
     font-family: monospace;
     font-size: 0.8rem;
     font-weight: 700;
-    color: #64748b;
+    color: white;
     letter-spacing: 1px;
 }
 
@@ -3509,7 +3541,7 @@ document.addEventListener("DOMContentLoaded", () => {
     font-family: monospace !important;
     font-size: 0.75rem !important;
     font-weight: 500 !important;
-    color: #64748b !important;
+    color: white !important;
     margin-top: 0.1rem;
 }
 
@@ -3634,7 +3666,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span>BOOK TEST RIDE</span>
                 <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
-            <a href="404.html" class="linear-anchor translucent-flux-outline">
+            <a href="showroom.html" class="linear-anchor translucent-flux-outline">
                 FIND SHOWROOM
             </a>
         </div>
@@ -3860,10 +3892,10 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="footer-column links-directory-node">
                 <h4 class="column-heading">THE FLEET SQUAD</h4>
                 <ul class="directory-list-tree">
-                    <li><a href="#home" class="directory-item-link">Home Portal Base</a></li>
-                    <li><a href="#specs" class="directory-item-link">System Specifications</a></li>
-                    <li><a href="#showroom" class="directory-item-link">E-Bike Model Fleet</a></li>
-                    <li><a href="#blog" class="directory-item-link">Kinetic Telemetry Logs</a></li>
+                    <li><a href="index.html" class="directory-item-link">Home Portal Base</a></li>
+                    <li><a href="specs.html" class="directory-item-link">System Specifications</a></li>
+                    <li><a href="showroom.html" class="directory-item-link">E-Bike Model Fleet</a></li>
+                    <li><a href="blogs.html" class="directory-item-link">Kinetic Telemetry Logs</a></li>
                 </ul>
             </div>
 
@@ -4177,7 +4209,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 .legal-link {
     font-size: 0.8rem !important;
-    color: #64748b !important;
+    color: white !important;
     text-decoration: none !important;
     transition: color 0.3s ease !important;
 }
@@ -4251,6 +4283,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 }
 
+/* Custom low-profile error red illumination path text helper */
+.text-error-glow {
+    color: #ff0055 !important;
+    text-shadow: 0 0 8px rgba(255, 0, 85, 0.4) !important;
+    font-family: monospace !important;
+    font-weight: 700 !important;
+}
+
 </style>
 
 <script>
@@ -4287,23 +4327,61 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Client Side Newsletter Comms Validation Logger Simulation
+      // =========================================================================
+    // FIXED: FOOTER NEWSLETTER EMPTY COMPILING ENTRY TRACK WITH VALIDATION
+    // =========================================================================
     if (footerNewsletterForm && newsletterFeedback) {
         footerNewsletterForm.addEventListener("submit", function (e) {
             e.preventDefault();
-            const typedEmail = document.getElementById("newsletterEmail").value.trim();
             
+            const emailFieldNode = document.getElementById("newsletterEmail");
+            const typedEmail = emailFieldNode ? emailFieldNode.value.trim() : "";
+            
+            // FIXED: If user simply clicks subscribe with an empty field, show feedback text string
+            if (!typedEmail || typedEmail === "[ROUTING_TO_COMMS_VAULT]...") {
+                if (emailFieldNode) {
+                    emailFieldNode.style.borderColor = "#ff0055"; // Injects high-contrast red perimeter flash
+                    setTimeout(() => { emailFieldNode.style.borderColor = ""; }, 1500);
+                }
+                
+                // Mount an explicit warning message directly into your styled console line
+                newsletterFeedback.className = "newsletter-feedback-line active-feedback text-error-glow";
+                newsletterFeedback.style.display = "block";
+                newsletterFeedback.innerText = "[ERROR]: INPUT_EMPTY // Please fill in a valid email field.";
+                return;
+            }
+
+            console.log(`[NEWSLETTER_QUERY]: Capturing email packet target string: "${typedEmail.toUpperCase()}"`);
+
+            // Initialize structural success log display variables inside terminal feedback node line
             newsletterFeedback.className = "newsletter-feedback-line active-feedback";
-            newsletterFeedback.innerText = `[COMMS_LINK_OPEN]: address verified // welcome to the loop.`;
+            newsletterFeedback.style.display = "block"; 
+            newsletterFeedback.innerText = `[COMMS_LINK_OPEN]: COMPILING DATA PACKET ROUTE...`;
             
-            footerNewsletterForm.reset();
+            // Re-route input placeholder copy blocks to simulate a core database indexing loop progress track
+            if (emailFieldNode) {
+                emailFieldNode.value = "[ROUTING_TO_COMMS_VAULT]...";
+                emailFieldNode.disabled = true;
+            }
             
+            // Evaluates the terminal data and triggers a 404 calibration loop redirect after a 1.2s delay pass
             setTimeout(() => {
+                // Wipe data fields clean for security compliance right before leaving the screen
+                footerNewsletterForm.reset();
+                if (emailFieldNode) {
+                    emailFieldNode.disabled = false;
+                }
+                
                 newsletterFeedback.style.display = "none";
                 newsletterFeedback.classList.remove("active-feedback");
-            }, 6000);
+
+                // Executes direct window redirection straight into your custom 404 calibration loop screen page
+                window.location.href = "404.html";
+            }, 1200); 
         });
     }
 });
+
 
 </script>
 </body>

@@ -3,23 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Error 404 // VoltEdge</title>
+    <title>System Error 404 // Stackly</title>
+    <!-- Font Awesome Vectors for Diagnostic Icons -->
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         body { background: #0b0c10; color: #fff; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; text-align: center; }
-        .error-card { padding: 2rem; border: 1px solid rgba(57, 255, 20, 0.2); background: rgba(11,12,16,0.8); border-radius: 8px; max-width: 400px; box-shadow: 0 0 30px rgba(57,255,20,0.1); }
-        h1 { color: #39ff14; font-size: 4rem; margin: 0 0 1rem 0; text-shadow: 0 0 10px rgba(57,255,20,0.3); }
-        p { color: #94a3b8; font-size: 1rem; line-height: 1.5; margin-bottom: 2rem; }
-        a { display: inline-block; padding: 0.8rem 2rem; background: #39ff14; color: #0b0c10; font-weight: bold; text-decoration: none; border-radius: 50px; box-shadow: 0 4px 15px rgba(57,255,20,0.3); transition: 0.3s; }
-        a:hover { box-shadow: 0 0 25px #39ff14; transform: translateY(-2px); }
+        .error-card { padding: 3rem 2rem; border: 1px solid rgba(57, 255, 20, 0.2); background: rgba(15,17,26,0.8); border-radius: 12px; max-width: 420px; box-shadow: 0 0 35px rgba(57,255,20,0.08); display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+        h1 { color: #39ff14; font-size: 4.5rem; margin: 0; text-shadow: 0 0 15px rgba(57,255,20,0.4); font-family: monospace; font-weight: 900; }
+        p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0 0 1rem 0; }
+        
+        /* Interactive Action Elements Layout Row */
+        .error-action-deck { display: flex; flex-direction: column; gap: 1rem; width: 100%; margin-top: 0.5rem; }
+        
+        .btn-primary-base { display: block; padding: 0.95rem; background: #39ff14; color: #0b0c10; font-family: monospace; font-size: 0.85rem; font-weight: 900; letter-spacing: 1px; text-decoration: none; border-radius: 50px; box-shadow: 0 4px 15px rgba(57,255,20,0.25); transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1); cursor: pointer; border: 1px solid #39ff14; text-transform: uppercase; }
+        .btn-primary-base:hover { box-shadow: 0 0 25px #39ff14; transform: translateY(-2px); }
+        
+        /* FIXED REQUEST: High-Contrast Secondary Back Option Anchor Style */
+        .btn-secondary-back { display: block; padding: 0.95rem; background: transparent; color: #ffffff; font-family: monospace; font-size: 0.85rem; font-weight: 800; letter-spacing: 1px; text-decoration: none; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.15); text-transform: uppercase; transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1); cursor: pointer; box-sizing: border-box; }
+        .btn-secondary-back:hover { background: rgba(255, 255, 255, 0.03); color: #39ff14; border-color: #39ff14; box-shadow: 0 0 20px rgba(57, 255, 20, 0.2); transform: translateY(-2px); }
     </style>
 </head>
 <body>
+
     <div class="error-card">
-        <i class="fa-solid fa-triangle-exclamation" style="font-size: 3rem; color: #39ff14; margin-bottom: 1rem;"></i>
+        <i class="fa-solid fa-triangle-exclamation" style="font-size: 2.8rem; color: #39ff14; filter: drop-shadow(0 0 6px #39ff14);"></i>
         <h1>404</h1>
         <p>ROUTE_NOT_FOUND: The performance database section or booking node you are trying to access is currently undergoing calibration loops.</p>
-        <a href="index.html">RETURN TO BASE</a>
+        
+      <div class="error-action-deck">
+    <!-- FIXED: Uses native history step-back to carry the active tab hash over -->
+    <button class="btn-secondary-back" onclick="window.history.back()">
+        &larr; Go Back 
+    </button>
+    <a href="index.html" class="btn-primary-base">Return to Home</a>
+</div>
+
     </div>
+
+    <!-- Smart Navigation Matrix Recovery Script -->
+    <script>
+       // =========================================================================
+// UNIVERSAL HASH ROUTER ENGINE & STATE RECOVERY CONTROLLER
+// =========================================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    
+    const sideMenuNodes = document.querySelectorAll(".sidebar-menu-node:not(.exit-node-trigger)");
+    const pagePanes = document.querySelectorAll(".db-content-viewport .db-page-pane");
+    const headerProfileUsername = document.getElementById("headerProfileUsername");
+    const avatarInitialNode = document.getElementById("avatarInitial");
+
+    // =========================================================================
+    // 1. RECOVER DISPATCH STATE VIA URL HASH MATRIX (FORCES ZERO-PRELOAD BACKS)
+    // =========================================================================
+    const synchronizeDashboardViewportState = () => {
+        // Reads the address bar hash (e.g. #analytics). Fallback to 'overview' if empty
+        const activeTabHashToken = window.location.hash.replace('#', '') || "overview";
+
+        // Save to localStorage as a background backup safety parameter
+        localStorage.setItem("dashboardActiveTabContext", activeTabHashToken);
+
+        // Update active framing highlights across sidebar buttons array
+        sideMenuNodes.forEach(node => {
+            if (node.getAttribute("data-target") === activeTabHashToken) {
+                node.classList.add("active-menu");
+            } else {
+                node.classList.remove("active-menu");
+            }
+        });
+
+        // Toggle matching right-hand content viewport panels instantly
+        pagePanes.forEach(pane => {
+            if (pane.getAttribute("id") === `page-${activeTabHashToken}`) {
+                pane.classList.add("active-pane");
+            } else {
+                pane.classList.remove("active-pane");
+            }
+        });
+    };
+
+    // Initialize layout sync on page mount
+    synchronizeDashboardViewportState();
+
+    // FIXED: Listen for native browser back/forward history events to swap tabs instantly
+    window.addEventListener("hashchange", synchronizeDashboardViewportState);
+
+    // =========================================================================
+    // 2. ACTIVE SIDEBAR CLICK INDEXING (APPENDS WINDOW URL HASH)
+    // =========================================================================
+    sideMenuNodes.forEach(node => {
+        node.addEventListener("click", () => {
+            const targetedPaneCode = node.getAttribute("data-target");
+
+            // FIXED: Push token straight into the window URL to anchor a native history slot
+            window.location.hash = targetedPaneCode;
+        });
+    });
+
+    // =========================================================================
+    // 3. FIXED BRAND REFRESH LATCH
+    // =========================================================================
+    const brandHomeBtn = document.getElementById("dashboardBrandHome");
+    if (brandHomeBtn) {
+        brandHomeBtn.addEventListener("click", () => {
+            console.log("[SYSTEM_PURGE]: Refreshing current active matrix track...");
+            window.location.reload(); 
+        });
+    }
+
+    // =========================================================================
+    // 4. SESSION USERNAME GREETING TELEMETRY STRING PARSER (E.G. JEEVI)
+    // =========================================================================
+    const simulatedAuthCookieKey = localStorage.getItem("operatorSessionMail") || "jeevi@gmail.com";
+    if (simulatedAuthCookieKey && headerProfileUsername) {
+        const operatorFirstName = simulatedAuthCookieKey.split('@')[0];
+        headerProfileUsername.innerText = operatorFirstName.toUpperCase();
+        if (avatarInitialNode) {
+            avatarInitialNode.innerText = operatorFirstName.charAt(0).toUpperCase();
+        }
+    }
+
+    // =========================================================================
+    // 5. SESSION DISCONNECT LOGOUT RESET
+    // =========================================================================
+    const logoutBtn = document.getElementById("dashboardLogoutBtn");
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            console.log("[SESSION_TERMINATED]: Wiping system session cache context...");
+            
+            localStorage.removeItem("dashboardActiveTabContext");
+            localStorage.removeItem("operatorSessionMail");
+            
+            // Re-route back to base index clearance
+            window.location.href = "index.html"; 
+        });
+    }
+});
+
+    </script>
+
 </body>
 </html>

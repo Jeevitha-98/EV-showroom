@@ -519,8 +519,8 @@ body.auth-viewport-lock {
     </style>
 
     <script>
-        // =========================================================================
-// RUN TIME PORTAL ROLE SWITCHBOARD & PASSWORD VISIBILITY ENGAGEMENT
+// =========================================================================
+// HIGH-PERFORMANCE DYNAMIC AUTHENTICATION ROUTER ENGINE
 // =========================================================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -533,14 +533,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 1. Dual Grid Role Selector Toggle Pipeline
     roleNodes.forEach(node => {
-        node.addEventListener("click", (e) => {
+        node.addEventListener("click", () => {
             // Retract historical highlights on alternate array selection choices
             document.querySelector(".role-node.active-role")?.classList.remove("active-role");
             node.classList.add("active-role");
         });
     });
 
-    // 2. Password Character Character Eye Toggle Controller
+    // 2. Password Character Eye Toggle Controller
     if (eyeToggleBtn && passwordInput) {
         eyeToggleBtn.addEventListener("click", (e) => {
             e.preventDefault();
@@ -554,22 +554,44 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 3. Client Side Form Submission Success Calculation Pass Loop
+    // 3. FIXED: Dynamic Multi-Channel Form Submission Path Swapper
     if (loginForm && feedbackTerminal) {
         loginForm.addEventListener("submit", function(e) {
             e.preventDefault();
             
-            const activeRoleText = document.querySelector(".role-node.active-role .role-title-text").innerText;
+            // Extract email element field coordinate input inside the login form chassis console
+            const emailInputNode = document.getElementById("accessId");
+            if (emailInputNode && emailInputNode.value.trim()) {
+                // Securely save the email string to localStorage for dashboard greeting parsing (e.g. jeevi@gmail.com)
+                localStorage.setItem("operatorSessionMail", emailInputNode.value.trim());
+            }
 
+            // Find current active role grid node element selection parameters
+            const activeRoleElement = document.querySelector(".role-node.active-role");
+            const activeRoleText = activeRoleElement.querySelector(".role-title-text").innerText;
+            
+            // Extract user type string parameter ('partner' or 'corporate') straight from data attributes
+            const targetedUserRoleType = activeRoleElement.getAttribute("data-role");
+
+            // Display live terminal success status messages path loops
             feedbackTerminal.className = "portal-terminal-feedback success-state";
             feedbackTerminal.innerHTML = `[SUCCESS]: LINK_ESTABLISHED // Secure workspace opened under context: ${activeRoleText.toUpperCase()}. Compiling terminal records...`;
             
             loginForm.reset();
             
-            // Re-route pilot back to home showroom base screen after a tiny calculation pass window delay
+            // FIXED: Evaluates data-role tokens dynamically to select unique target document destinations
             setTimeout(() => {
-                window.location.href = "index.html";
-            }, 2400);
+                if (targetedUserRoleType === "partner") {
+                    // Routes partner logins straight to your new dashboard chassis page
+                    window.location.href = "partner-dashboard.html";
+                } else if (targetedUserRoleType === "corporate") {
+                    // Routes clients straight to their custom client management dashboard page
+                    window.location.href = "client-dashboard.html";
+                } else {
+                    // Standard safety home viewport terminal fallback loop routing
+                    window.location.href = "index.html";
+                }
+            }, 2400); // 2.4-second delay matches validation text display countdown timeline
         });
     }
 });
