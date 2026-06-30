@@ -580,18 +580,17 @@ document.addEventListener("DOMContentLoaded", () => {
             loginForm.reset();
             
             // FIXED: Evaluates data-role tokens dynamically to select unique target document destinations
-            setTimeout(() => {
-                if (targetedUserRoleType === "partner") {
-                    // Routes partner logins straight to your new dashboard chassis page
-                    window.location.href = "partner-dashboard.html";
-                } else if (targetedUserRoleType === "corporate") {
-                    // Routes clients straight to their custom client management dashboard page
-                    window.location.href = "client-dashboard.html";
-                } else {
-                    // Standard safety home viewport terminal fallback loop routing
-                    window.location.href = "index.html";
-                }
-            }, 2400); // 2.4-second delay matches validation text display countdown timeline
+      alert("Login successful! Redirecting to your dashboard...");
+
+setTimeout(() => {
+    if (targetedUserRoleType === "partner") {
+        window.location.href = "partner-dashboard.html";
+    } else if (targetedUserRoleType === "corporate") {
+        window.location.href = "client-dashboard.html";
+    } else {
+        window.location.href = "index.html";
+    }
+}, 1000); // 2.4-second delay matches validation text display countdown timeline
         });
     }
 });
