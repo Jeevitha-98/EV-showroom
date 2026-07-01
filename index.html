@@ -2367,14 +2367,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <!-- High-Voltage Submission Button Link -->
                  <!-- High-Voltage 404-Routed Submission Anchor Link -->
-<a href="404.html" class="console-submit-btn" style="text-decoration: none;">
+<a href="#" id="bookingBtn" class="console-submit-btn" style="text-decoration: none;">
     <span>LAUNCH BOOKING REQUEST</span>
     <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
         <line x1="5" y1="12" x2="19" y2="12"/>
         <polyline points="12 5 19 12 12 19"/>
     </svg>
 </a>
-
 
                     <!-- Hidden Client-Side System Feedback Output Terminal -->
                     <div class="console-terminal-feedback" id="consoleFeedback"></div>
@@ -2872,6 +2871,23 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 7000);
         });
     }
+});
+const bookingBtn = document.getElementById("bookingBtn");
+
+bookingBtn.addEventListener("click", function(e){
+    e.preventDefault();
+
+    const form = document.querySelector("form");
+
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+
+
+    setTimeout(() => {
+        window.location.href = "404.html";
+    }, 1000);
 });
 
 </script>
